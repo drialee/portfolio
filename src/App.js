@@ -1,21 +1,18 @@
 import './App.css';
+import { BrowserRouter as Router, useNavigate, Routes, Route } from 'react-router-dom';
+import Chill from './components/pages/projects/Chill';
+
 
 function App() {
-  const navigate = useNavigate();
   return (
-    <div className="App">
-      <div>
-      <button onClick={() => navigate(-1)} />
-      <Nav />
+    <Router>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/home" element={<Home />} />
-        <Route exact path="/upcoming/:user" element={<Upcoming />} />
-        <Route exact path="/record/:user" element={<Record />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/Chill" element={<Chill />} />
+        <Route path="/upcoming/:user" element={<Upcoming />} />
+        <Route path="/record/:user" element={<Record />} />
       </Routes>
-    </div>
-    </div>
+    </Router>
   );
 }
 

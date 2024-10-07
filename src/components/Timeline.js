@@ -1,6 +1,14 @@
 import React from 'react'
 
 const TimelineItem = ({ timelineData }) => {
+
+    const borderStyle = {
+        borderRadius: '10px',
+        border: isHovered ? `3px solid ${data.color}` : '2px transparent',
+        boxShadow: isHovered ? `0px 0px 4px rgba(${hexToRgba(data.color, 0.5)})` : 'none', // Adjust alpha value as needed
+        backgroundColor: isHovered ? `rgba(${hexToRgba(data.color, 0.3)})` : 'none', // Adjust alpha value as needed
+    };
+    
     return (
         <div className="timeline-item">
             <span className="circle"/> {/* Move circle outside the content */}
@@ -15,6 +23,17 @@ const TimelineItem = ({ timelineData }) => {
     )
 };
 
-export const Timeline = ({}) => {
+const Timeline = React.forwardRef((props, ref) => {
+    return (
+        props.timelineData.length > 0 && ( 
+            <div className="timeline" ref={ref}>
+                {props.timelineData.map((data, idx) => (
+                    <TimelineItem timelineData={data} key={idx} />
+                ))}
+            </div>
+        )
+    );
 
-}
+})
+
+export default Timeline;
