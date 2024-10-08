@@ -1,6 +1,7 @@
 import React from 'react'
 import Arrow from 'components/Arrow'
 import Timeline from 'components/Timeline'
+import timelineData from '../utils/projects/projectData'
 
 
 const Home = () => {

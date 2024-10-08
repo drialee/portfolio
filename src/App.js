@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, useNavigate, Routes, Route } from 'react-router-dom';
-import Chill from './components/pages/projects/Chill';
+import Chill from './pages/projects/Chill';
+import Home from './pages/home';
 
 
 function App() {
@@ -8,9 +9,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Chill" element={<Chill />} />
-        <Route path="/upcoming/:user" element={<Upcoming />} />
-        <Route path="/record/:user" element={<Record />} />
       </Routes>
     </Router>
   );

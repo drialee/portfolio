@@ -1,6 +1,6 @@
 import TrainGoneHome from './TrainGone/TrainGoneHome.png'; 
 
-const projectData = [{
+const timelineData = [{
   header: 'TrainGone',
   caption: 'Bridging the gap between the deaf and hearing communities with a reverse-ASL dictionary app',
   date: '2024',
@@ -20,4 +20,4 @@ url: 'projects/chill',
 }
 ];
 
-export default projectData;
+export default timelineData;
