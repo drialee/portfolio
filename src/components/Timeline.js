@@ -1,39 +1,73 @@
-import React from 'react'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { getBorderStyle, Tag } from "../utils/utils";
+import "../styles/timeline.css";
+
+const colorOrder = ["orange", "pink", "purple", "blue"];
 
 const TimelineItem = ({ timelineData }) => {
+  const navigate = useNavigate();
+  const [isHovered, setIsHovered] = useState(false);
 
-    const borderStyle = {
-        borderRadius: '10px',
-        border: isHovered ? `3px solid ${data.color}` : '2px transparent',
-        boxShadow: isHovered ? `0px 0px 4px rgba(${hexToRgba(data.color, 0.5)})` : 'none', // Adjust alpha value as needed
-        backgroundColor: isHovered ? `rgba(${hexToRgba(data.color, 0.3)})` : 'none', // Adjust alpha value as needed
-    };
-    
-    return (
-        <div className="timeline-item">
-            <span className="circle"/> {/* Move circle outside the content */}
-            <div className="timeline-item-content">
-                <h1> 
-                    {timelineData.header} 
-                </h1>
-                <time>{timelineData.date}</time>
-                <p>{timelineData.caption}</p>
-            </div>
+  const handleNav = () => {
+    try {
+      navigate(`/${timelineData.url}`);
+    } catch (error) {
+      console.error("error during navigation");
+    }
+  };
+
+  return (
+    <div
+      className="timeline-item"
+      onClick={handleNav}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={getBorderStyle(isHovered, timelineData.solidColor)}
+    >
+      <div className="timeline-item-content">
+        <h1>{timelineData.header}</h1>
+        <p>{timelineData.caption}</p>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            width: "100%",
+            gap: "5px",
+          }}
+        >
+          {timelineData.tags.map((tag, idx) => {
+            return (
+              <div
+                key={idx}
+                style={{
+                  height: "20px",
+                  ...Tag(isHovered, timelineData.solidColor),
+                }}
+              >
+                <p>{tag}</p>
+              </div>
+            );
+          })}
         </div>
-    )
+      </div>
+    </div>
+  );
 };
 
 const Timeline = React.forwardRef((props, ref) => {
-    return (
-        props.timelineData.length > 0 && ( 
-            <div className="timeline" ref={ref}>
-                {props.timelineData.map((data, idx) => (
-                    <TimelineItem timelineData={data} key={idx} />
-                ))}
-            </div>
-        )
-    );
-
-})
+  const sortedTimelineData = props.timelineData.sort((a, b) => {
+    return colorOrder.indexOf(a.color) - colorOrder.indexOf(b.color);
+  });
+  return (
+    <div className="timeline" ref={ref}>
+      {sortedTimelineData.map((data, idx) => (
+        <TimelineItem timelineData={data} key={idx} />
+      ))}
+    </div>
+  );
+});
 
 export default Timeline;

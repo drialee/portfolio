@@ -1,27 +1,27 @@
-import React from 'react'
-import Arrow from 'components/Arrow'
-import Timeline from 'components/Timeline'
-import timelineData from '../utils/projects/projectData'
-
+import React, { useRef } from "react";
+import Arrow from "../components/Arrow";
+import Timeline from "../components/Timeline";
+import timelineData from "../utils/projectData";
+import "../styles/home.css";
 
 const Home = () => {
-    const scrollToTimeline = () => {
-        const timelineElement = document.getElementById('Timeline');
-        if (timelineElement) {
-            timelineElement.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            console.error("Element with ID 'Timeline' not found.");
-        }
-    };
+  const timelineRef = useRef(null);
 
-    const timelineRef = useRef(null);
+  const scrollToTimeline = () => {
+    console.log("CLICKED");
+    if (timelineRef.current) {
+      timelineRef.current.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.error("Element with ID 'Timeline' not found.");
+    }
+  };
 
-    return (
-        <div>
-        <Arrow onClick={scrollToTimeline} />
-        <Timeline ref={timelineRef} timelineData={timelineData}/>
+  return (
+    <div className="home">
+      <Arrow onClick={scrollToTimeline} />
+      <Timeline ref={timelineRef} timelineData={timelineData} />
     </div>
-    )
-}
+  );
+};
 
 export default Home;

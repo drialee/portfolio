@@ -1,0 +1,18 @@
+.project-page {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+}
+.web-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+.mobile-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
