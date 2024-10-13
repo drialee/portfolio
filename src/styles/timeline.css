@@ -10,8 +10,8 @@
   position: absolute;
   content: "";
   height: 100%;
-  left: 50%; /* Center the timeline line */
-  transform: translateX(-50%); /* Center align */
+  left: 50%;
+  transform: translateX(-50%);
   width: 4px;
   background: linear-gradient(to bottom, #fb5607, #ff006e, #59d0ff);
   border-radius: 30px;

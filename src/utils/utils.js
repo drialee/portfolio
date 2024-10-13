@@ -26,7 +26,7 @@ export const hexToRgba = (hex, alpha) => {
 export const getBorderStyle = (isHovered, color) => {
   return {
     borderRadius: "10px",
-    border: isHovered ? `3px solid ${color}` : "2px transparent",
+    border: isHovered ? `4px solid ${color}` : "2px transparent",
     boxShadow: isHovered
       ? `0px 0px 4px rgba(${hexToRgba(color, 0.5)})`
       : "none",
@@ -41,7 +41,7 @@ export const Tag = (isHovered, color) => {
     justifyContent: "center",
     alignItems: "center",
     padding: "5px 15px 5px 15px",
-    border: `2px solid ${color}`,
+    border: `2.5px solid ${color}`,
     backgroundColor: "white",
   };
 };

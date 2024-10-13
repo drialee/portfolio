@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import ArrowVid from "../utils/Home/arrow2.mov";
+import ArrowVid from "../utils/Home/arrow2.mp4";
 
 const Arrow = ({ onClick }) => {
   const animatedElemRef = useRef(null);
@@ -31,7 +31,7 @@ const Arrow = ({ onClick }) => {
     <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
       <div id="animatedElem" ref={animatedElemRef} onClick={onClick}>
         <video autoPlay loop width="200px" height="100px">
-          <source src={ArrowVid} type="video/mp4" />
+          <source src={ArrowVid} type="video/quicktime" />
         </video>
       </div>
     </div>

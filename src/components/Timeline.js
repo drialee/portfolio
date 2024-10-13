@@ -23,11 +23,11 @@ const TimelineItem = ({ timelineData }) => {
       onClick={handleNav}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={getBorderStyle(isHovered, timelineData.solidColor)}
+      style={getBorderStyle(isHovered, timelineData.color)}
     >
       <div className="timeline-item-content">
         <h1>{timelineData.header}</h1>
-        <p>{timelineData.caption}</p>
+        <h2>{timelineData.caption}</h2>
 
         <div
           style={{
@@ -44,10 +44,10 @@ const TimelineItem = ({ timelineData }) => {
                 key={idx}
                 style={{
                   height: "20px",
-                  ...Tag(isHovered, timelineData.solidColor),
+                  ...Tag(isHovered, timelineData.color),
                 }}
               >
-                <p>{tag}</p>
+                <h2>{tag}</h2>
               </div>
             );
           })}
