@@ -26,8 +26,8 @@ const TimelineItem = ({ timelineData }) => {
       style={getBorderStyle(isHovered, timelineData.color)}
     >
       <div className="timeline-item-content">
-        <h1>{timelineData.header}</h1>
-        <h2>{timelineData.caption}</h2>
+        <h2>{timelineData.header}</h2>
+        <p>{timelineData.caption}</p>
 
         <div
           style={{
@@ -47,7 +47,7 @@ const TimelineItem = ({ timelineData }) => {
                   ...Tag(isHovered, timelineData.color),
                 }}
               >
-                <h2>{tag}</h2>
+                <p>{tag}</p>
               </div>
             );
           })}

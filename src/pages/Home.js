@@ -27,29 +27,25 @@ const Home = () => {
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        padding: "20px",
         boxSizing: "border-box",
       }}
     >
-      {/* delete later */}
-      <div onClick={() => navigate(`/About`)}>About</div>
-      <div onClick={() => navigate(`/Projects`)}>Projects</div>
-
       <div
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          paddingTop: "10%",
+          paddingTop: "5%",
           paddingBottom: "5%",
+          gap: "5%",
         }}
       >
         <img src={Profile} height="350px" />
         <video
           autoPlay
           loop
-          height="200px"
-          src="../utils/Home/intro.mp4"
+          height="180px"
+          src={introVid}
           type="video/quicktime"
         />
       </div>

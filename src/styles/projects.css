@@ -1,26 +1,36 @@
-.project-page {
+.projects {
   display: flex;
-  width: 100%;
-  padding: 10%;
   box-sizing: border-box;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10px;
+  margin: 5%;
 }
 .web-box {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10%;
   box-sizing: border-box;
-  width: 60%;
-  height: 300px;
+  padding: 2%;
+  width: 55%;
+  height: 400px;
 }
 .mobile-box {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  padding: 10%;
   box-sizing: border-box;
-  height: 300px;
+  width: 35%;
+  padding: 2%;
+  height: 400px;
+}
+.project-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+.proj-image {
+  position: absolute;
+  bottom: 0;
+  top: 50px;
+  left: 50px;
 }

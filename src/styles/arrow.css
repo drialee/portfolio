@@ -1,0 +1,19 @@
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(0deg); /* No rotation at the start and end */
+  }
+  25% {
+    transform: rotate(-20deg); /* No rotation at the start and end */
+  }
+  50% {
+    transform: rotate(20deg); /* Sway to the right */
+  }
+  75% {
+    transform: rotate(-10deg); /* Sway back to the left but less */
+  }
+}
+
+.shake {
+  animation: sway 1s ease-in-out; /* Longer duration for a smoother sway */
+}

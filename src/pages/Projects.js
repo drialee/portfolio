@@ -16,15 +16,16 @@ const ProjectBox = ({ project }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <h1>{project.header}</h1>
-      <h2>{project.caption}</h2>
+      <div className="project-header">
+        <h1>{project.header}</h1>
+      </div>
+      <div className="proj-image"></div>
     </div>
   );
 };
-console.log("TIMELINE", timelineData);
 const Projects = () => {
   return (
-    <div className="project-page">
+    <div className="projects">
       {timelineData.map((data, idx) => {
         return <ProjectBox project={data} key={idx} />;
       })}

@@ -1,0 +1,49 @@
+.photo-page {
+  padding: 5% 20% 10% 20%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  grid-auto-rows: min-content;
+  grid-gap: 10px;
+  max-width: 1000px;
+  grid-auto-flow: dense;
+}
+
+/* Allow images to span based on their aspect ratio */
+.proj-image-container.h {
+  grid-column: span 2; /* Let horizontal images take up only 1 column */
+  grid-row: span 1; /* Horizontal images only take up 1 row */
+  display: flex;
+  justify-content: center; /* Horizontally center the image */
+  align-items: center; /* Vertically center the image */
+}
+
+.proj-image-container.v {
+  grid-column: span 1; /* Ensure vertical images only take up 1 column */
+  grid-row: span 1; /* Vertical images take up 2 rows */
+  display: flex;
+  justify-content: center; /* Horizontally center the image */
+  align-items: flex-start; /* Vertically center the image */
+}
+.proj-image-container img {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Fit image inside the container without zooming or cropping */
+  object-position: center; /* Center the image in case there's extra space */
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  gap: 10px;
+  margin-bottom: 100px;
+}

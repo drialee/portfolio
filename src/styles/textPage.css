@@ -1,0 +1,32 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5% 20% 10% 20%;
+}
+.horizontal-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.col-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.image-container {
+  position: relative;
+  display: "flex";
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.caption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}

@@ -1,0 +1,31 @@
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 10px 15px 10px;
+  box-sizing: border-box;
+}
+.initials-box {
+  height: 80px;
+  max-height: 100px;
+}
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 20%;
+  list-style-type: none; /* This removes the bullet points */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+/* Remove underline from the <a> elements */
+li {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+li:hover,
+.active-tab {
+  color: #3986ff;
+}

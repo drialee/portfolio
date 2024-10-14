@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import ArrowVid from "../utils/Home/arrow2.mp4";
+import "../styles/arrow.css";
 
 const Arrow = ({ onClick }) => {
   const animatedElemRef = useRef(null);
@@ -19,7 +20,7 @@ const Arrow = ({ onClick }) => {
     const startAnimation = () => {
       triggerAnimation();
       const interval = setTimeout(() => {
-        startAnimation();
+        triggerAnimation();
       }, 10000);
       return () => clearTimeout(interval);
     };
@@ -29,10 +30,13 @@ const Arrow = ({ onClick }) => {
 
   return (
     <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-      <div id="animatedElem" ref={animatedElemRef} onClick={onClick}>
-        <video autoPlay loop width="200px" height="100px">
-          <source src={ArrowVid} type="video/quicktime" />
-        </video>
+      <div
+        id="animatedElem"
+        ref={animatedElemRef}
+        onClick={onClick}
+        style={{ cursor: "pointer" }}
+      >
+        <video autoPlay loop width="200px" height="100px" src={ArrowVid} />
       </div>
     </div>
   );
