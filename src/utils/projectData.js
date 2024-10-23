@@ -1,4 +1,8 @@
-import TrainGoneHome from "./projects/TrainGone/TrainGoneHome.png";
+import TrainGoneHome from "./projects/TrainGone/trainGoneCover.png";
+import FireworkCover from "./projects/Firework/fireworkCover.png";
+import MySiteCover from "./projects/MySite/mysitecover.png";
+import BonoCover from "./projects/Bono/BonoCover.png";
+import ChillCover from "./projects/Chill/ChillCover.png";
 
 const orange = "#FF410C";
 const red = "#FF1601";
@@ -16,6 +20,7 @@ const timelineData = [
     tags: ["TypeScript", "React", "Python", "Figma"],
     url: "projects/Firework",
     type: "web",
+    imageLink: FireworkCover,
   },
   {
     header: "Bono",
@@ -26,6 +31,7 @@ const timelineData = [
     tags: ["React", "Python", "Figma"],
     url: "projects/Bono",
     type: "mobile",
+    imageLink: BonoCover,
   },
   {
     header: "TrainGone",
@@ -47,6 +53,7 @@ const timelineData = [
     tags: ["React", "Figma"],
     url: "projects/My-site",
     type: "web",
+    imageLink: MySiteCover,
   },
   {
     header: "&Chill",
@@ -57,6 +64,7 @@ const timelineData = [
     tags: ["UX/UI", "User Research", "Prototyping"],
     url: "projects/Chill",
     type: "web",
+    imageLink: ChillCover,
   },
 ];
 

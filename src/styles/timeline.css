@@ -24,14 +24,14 @@
   margin: 10px 0;
   width: 45%;
   max-height: 300px;
-  padding-right: 30px;
+  padding-right: 10px;
 }
 
 .timeline-item:nth-child(odd) {
   align-self: flex-end;
   justify-content: flex-start;
   padding-right: 0;
-  padding-left: 30px;
+  padding-left: 10px;
 }
 
 .timeline-item-content {

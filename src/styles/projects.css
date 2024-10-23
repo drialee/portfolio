@@ -3,34 +3,40 @@
   box-sizing: border-box;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  margin: 5%;
+  gap: 15px;
+  margin: 5% 10%;
 }
-.web-box {
-  display: flex;
-  box-sizing: border-box;
-  padding: 2%;
-  width: 55%;
-  height: 400px;
-}
+.web-box,
 .mobile-box {
   display: flex;
-  box-sizing: border-box;
-  width: 35%;
-  padding: 2%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   height: 400px;
+  position: relative;
+  padding: 10px 10px 0px 10px;
+  overflow: hidden;
+}
+.web-box {
+  width: 55%;
+}
+.mobile-box {
+  width: 35%;
 }
 .project-header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  flex-direction: column;
-  width: 100%;
-  position: relative;
+  align-self: flex-end;
+  padding-right: 10px;
 }
 .proj-image {
   position: absolute;
-  bottom: 0;
-  top: 50px;
-  left: 50px;
+  bottom: -60px;
+  margin: 0 auto;
+  width: 85%;
+  max-height: 80%;
+  overflow: hidden;
+}
+.proj-image img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
 }

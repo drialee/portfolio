@@ -12,20 +12,22 @@ import Projects from "./pages/Projects";
 import NavBar from "./components/Navbar";
 import Chinatown from "./pages/Chinatown";
 import Bolivia from "./pages/Bolivia";
+import ScrollToTop from "./utils/ScrollToTop";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <Router>
-      <div style={{ width: "100vw", height: "100vh", overflow: "scroll" }}>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/Projects" element={<Projects />} />
-          <Route path="/Chinatown" element={<Chinatown />} />
-          <Route path="/Bolivia" element={<Bolivia />} />
-        </Routes>
-      </div>
+      <ScrollToTop />
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Projects" element={<Projects />} />
+        <Route path="/Chinatown" element={<Chinatown />} />
+        <Route path="/Bolivia" element={<Bolivia />} />
+      </Routes>
+      <Footer />
     </Router>
   );
 }

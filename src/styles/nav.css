@@ -18,6 +18,7 @@ ul {
   list-style-type: none; /* This removes the bullet points */
   padding: 0; /* Removes default padding */
   margin: 0; /* Removes default margin */
+  cursor: pointer;
 }
 /* Remove underline from the <a> elements */
 li {

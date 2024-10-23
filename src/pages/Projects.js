@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 const ProjectBox = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
+  console.log("PROJECT", project);
+
   return (
     <div
       className={project.type === "web" ? "web-box" : "mobile-box"}
@@ -19,7 +21,9 @@ const ProjectBox = ({ project }) => {
       <div className="project-header">
         <h1>{project.header}</h1>
       </div>
-      <div className="proj-image"></div>
+      <div className="proj-image">
+        <img width="100px" src={project.imageLink} />
+      </div>
     </div>
   );
 };

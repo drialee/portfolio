@@ -18,6 +18,7 @@ const About = () => {
       console.error("Element with ID 'Timeline' not found.");
     }
   };
+
   return (
     <div className="page">
       <div
@@ -34,8 +35,8 @@ const About = () => {
           <h1>Hey there!</h1>
           <h3>
             I'm a recent graduate from Stanford University with a degree in
-            Product Design, focusing on AI and Digital User Experience, along
-            with a minor in Computer Science.
+            Product Design, specializing in AI and Digital User Experience, and
+            a minor in Computer Science.
           </h3>
         </div>
       </div>
@@ -73,7 +74,9 @@ const About = () => {
         <div className="horizontal-box" style={{ width: "100%", gap: "30px" }}>
           <div
             className="image-container"
-            onClick={() => navigate(`/Chinatown`)}
+            onClick={() => {
+              navigate(`/Chinatown`);
+            }}
             onMouseEnter={() => setIsHovered(0)}
             onMouseLeave={() => setIsHovered(null)}
           >
@@ -93,7 +96,9 @@ const About = () => {
           </div>
           <div
             className="image-container"
-            onClick={() => navigate(`/Bolivia`)}
+            onClick={() => {
+              navigate(`/Bolivia`);
+            }}
             onMouseEnter={() => setIsHovered(1)}
             onMouseLeave={() => setIsHovered(null)}
           >
