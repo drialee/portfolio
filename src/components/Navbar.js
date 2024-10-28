@@ -18,6 +18,11 @@ const NavBar = () => {
       "/Projects": 2,
       "/Chinatown": 2,
       "/Bolivia": 2,
+      "/Bono": 2,
+      "/Firework": 2,
+      "/MySite": 2,
+      "/TrainGone": 2,
+      "/Chill": 2,
     };
 
     const currentTab = pathMap[location.pathname] || 0; // Default to Home (0) if path doesn't match

@@ -14,6 +14,7 @@ import Chinatown from "./pages/Chinatown";
 import Bolivia from "./pages/Bolivia";
 import ScrollToTop from "./utils/ScrollToTop";
 import Footer from "./components/Footer";
+import Bono from "./pages/projects/Bono";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Projects" element={<Projects />} />
         <Route path="/Chinatown" element={<Chinatown />} />
         <Route path="/Bolivia" element={<Bolivia />} />
+        <Route path="/Bono" element={<Bono />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,7 +1,7 @@
 import TrainGoneHome from "./projects/TrainGone/trainGoneCover.png";
 import FireworkCover from "./projects/Firework/fireworkCover.png";
 import MySiteCover from "./projects/MySite/mysitecover.png";
-import BonoCover from "./projects/Bono/BonoCover.png";
+import BonoCover from "./projects/Bono/BonoHome.png";
 import ChillCover from "./projects/Chill/ChillCover.png";
 
 const orange = "#FF410C";
@@ -14,7 +14,7 @@ const timelineData = [
   {
     header: "Firework",
     caption:
-      "I'm a front-end engineer at a global video commerce leader, driving impactful software engineering and product solutions",
+      "Front-end engineer and former designer at a leading global video commerce company.",
     date: "2024",
     color: orange,
     tags: ["TypeScript", "React", "Python", "Figma"],
@@ -29,7 +29,7 @@ const timelineData = [
     date: "2024",
     color: red,
     tags: ["React", "Python", "Figma"],
-    url: "projects/Bono",
+    url: "Bono",
     type: "mobile",
     imageLink: BonoCover,
   },
@@ -40,7 +40,7 @@ const timelineData = [
     date: "2024",
     color: pink,
     tags: ["ReactNative", "UX/UI", "User Research"],
-    url: "projects/TrainGone",
+    url: "TrainGone",
     imageLink: TrainGoneHome,
     type: "mobile",
   },
@@ -51,14 +51,14 @@ const timelineData = [
     date: "2024",
     color: purple,
     tags: ["React", "Figma"],
-    url: "projects/My-site",
+    url: "Portfolio",
     type: "web",
     imageLink: MySiteCover,
   },
   {
     header: "&Chill",
     caption:
-      "Designed a social TV streaming app for virtual hangouts, my first Figma project.",
+      "I designed a social TV streaming app for virtual hangouts, my first Figma project.",
     date: "2024",
     color: blue,
     tags: ["UX/UI", "User Research", "Prototyping"],

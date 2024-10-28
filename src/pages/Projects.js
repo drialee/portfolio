@@ -7,7 +7,14 @@ import { useNavigate } from "react-router-dom";
 const ProjectBox = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
-  console.log("PROJECT", project);
+
+  const handleNav = () => {
+    try {
+      navigate(`/${project.url}`);
+    } catch (error) {
+      console.error("error during navigation");
+    }
+  };
 
   return (
     <div
@@ -17,9 +24,10 @@ const ProjectBox = ({ project }) => {
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleNav}
     >
       <div className="project-header">
-        <h1>{project.header}</h1>
+        <h3>{project.header}</h3>
       </div>
       <div className="proj-image">
         <img width="100px" src={project.imageLink} />

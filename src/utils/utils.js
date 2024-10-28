@@ -22,6 +22,28 @@ export const hexToRgba = (hex, alpha) => {
   return `${r}, ${g}, ${b}, ${alpha}`;
 };
 
+// turn hex into opacity 0.3 hex
+export const hexWithOpacity = (hex, opacity) => {
+  // Remove the hash at the start if it's there
+  hex = hex.replace("#", "");
+
+  // If the hex is shorthand (3 digits), expand it to 6 digits
+  if (hex.length === 3) {
+    hex = hex
+      .split("")
+      .map((char) => char + char)
+      .join("");
+  }
+
+  // Convert the opacity (0 to 1) to a two-digit hex code
+  const alpha = Math.round(opacity * 255)
+    .toString(16)
+    .padStart(2, "0");
+
+  // Return the hex color with the alpha value appended
+  return `#${hex}${alpha}`;
+};
+
 // Global function for border style
 export const getBorderStyle = (isHovered, color) => {
   return {
@@ -40,7 +62,7 @@ export const Tag = (isHovered, color) => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "5px 15px 5px 15px",
+    padding: "15px",
     border: `2.5px solid ${color}`,
     backgroundColor: "white",
   };

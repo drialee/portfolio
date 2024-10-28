@@ -2,9 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   padding: 10px 10px 15px 10px;
   box-sizing: border-box;
+  height: 80px;
 }
 .initials-box {
   height: 80px;
@@ -28,5 +28,36 @@ li {
 }
 li:hover,
 .active-tab {
+  color: #3986ff;
+}
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90vh;
+  width: 80px;
+  position: fixed;
+  left: 0%;
+  top: 7%;
+}
+.side-ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.side-li {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  transform: rotate(270deg); /* Rotate text */
+  cursor: pointer;
+}
+.side-li:hover,
+.side-active-tab {
   color: #3986ff;
 }

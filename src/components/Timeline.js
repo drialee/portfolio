@@ -26,7 +26,7 @@ const TimelineItem = ({ timelineData }) => {
       style={getBorderStyle(isHovered, timelineData.color)}
     >
       <div className="timeline-item-content">
-        <h2>{timelineData.header}</h2>
+        <h3>{timelineData.header}</h3>
         <p>{timelineData.caption}</p>
 
         <div

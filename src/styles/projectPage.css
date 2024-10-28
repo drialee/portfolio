@@ -1,0 +1,70 @@
+.project-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: calc(100vw - 80px); /* Assume sidebar width is 80px */
+  margin-left: 80px;
+  box-sizing: border-box; /* Ensure padding/margins don’t affect width */
+}
+.proj-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 70%;
+  gap: 10vw;
+  box-sizing: border-box;
+  margin: 7vh;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.proj-image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  grid-auto-rows: min-content;
+  grid-gap: 20px;
+  grid-auto-flow: dense;
+  align-self: center;
+}
+.proj-image-grid img {
+  width: 100%; /* Ensures images scale to fit their grid cell */
+  height: auto; /* Maintains aspect ratio */
+  object-fit: fill; /* Ensures images fit well without distortion */
+  align-self: center;
+  justify-self: center;
+}
+
+.cover-photo {
+  width: 100%;
+  height: 60vh; /* Set this to the height you need, or use `100%` to fill the container */
+  overflow: hidden; /* Ensures that the image doesn't spill out */
+}
+.cover-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the image covers the entire container */
+  object-position: center; /* Centers the image within the container */
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 70%;
+  gap: 25px;
+}
+.section .paragraph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
