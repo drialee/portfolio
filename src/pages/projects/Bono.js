@@ -11,6 +11,10 @@ import LofiChat from "../../utils/projects/Bono/ChatLofi.png";
 import LofiDiscover from "../../utils/projects/Bono/DiscoverLofi.png";
 import LofiSearch from "../../utils/projects/Bono/SearchLofi.png";
 import LofiHome from "../../utils/projects/Bono/HomepageLofi.png";
+import Chat from "../../utils/projects/Bono/Chat.png";
+import Comprehensive from "../../utils/projects/Bono/Comprehensive.png";
+import Impact from "../../utils/projects/Bono/ImpactTracking.png";
+import NinaVid from "../../utils/projects/Bono/ninaVideo.mp4";
 
 const Bono = () => {
   return (
@@ -21,7 +25,7 @@ const Bono = () => {
           "Exploration",
           "Branding",
           "Prototyping",
-          "Reflections",
+          "Product",
         ]}
       />
       <div className="project-page">
@@ -38,7 +42,8 @@ const Bono = () => {
             </div>
             <div className="col">
               <h5>Role</h5>
-              <p>Front-end engineer</p>
+              <p>Front-End Engineer</p>
+              <p>UX Designer</p>
             </div>
           </div>
         </div>
@@ -112,34 +117,117 @@ const Bono = () => {
             features, allowing us to broaden our creative approach."
           </p>
           <div className="proj-image-grid">
-            <img src={LofiHome} style={{ height: "370px" }} />
-            <img
-              src={LofiDiscover}
+            <div
               style={{
-                borderRadius: "10px",
-                boxShadow: "5px 5px 5px rgb(0 0 0 / 10%)",
-                height: "400px",
-                width: "auto",
-              }}
-            />
-            <img
-              src={LofiSearch}
-              style={{
-                borderRadius: "10px",
-                boxShadow: "5px 5px 5px rgb(0 0 0 / 10%)",
-                maxHeight: "400px",
-                width: "auto",
-              }}
-            />
-            <img
-              src={LofiChat}
-              style={{
-                borderRadius: "10px",
-                boxShadow: "5px 5px 5px rgb(0 0 0 / 10%)",
                 height: "350px",
-                width: "auto",
+                borderRadius: "10px",
+                boxShadow: "5px 5px 5px rgb(0,0,0, 0.1)",
               }}
-            />
+            >
+              <img src={LofiHome} style={{ height: "100%" }} />
+            </div>
+            <div
+              style={{
+                height: "400px",
+                borderRadius: "10px",
+                boxShadow: "5px 5px 5px rgb(0,0,0, 0.1)",
+                overflow: "hidden", // Ensures rounded corners are visible on the image
+              }}
+            >
+              <img
+                src={LofiDiscover}
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  objectFit: "cover", // Fills the container
+                }}
+              />
+            </div>
+            <div
+              style={{
+                height: "400px",
+                borderRadius: "10px",
+                boxShadow: "5px 5px 5px rgb(0,0,0, 0.1)",
+                overflow: "hidden", // Ensures rounded corners are visible on the image
+              }}
+            >
+              <img
+                src={LofiSearch}
+                style={{
+                  height: "100%",
+                  objectFit: "cover", // Fills the container
+                  borderRadius: "10px",
+                }}
+              />
+            </div>
+            <div
+              style={{
+                height: "350px",
+                width: "150px",
+                borderRadius: "10px",
+                boxShadow: "5px 5px 5px rgb(0,0,0, 0.1)",
+                overflow: "hidden", // Ensures rounded corners are visible on the image
+              }}
+            >
+              <img
+                src={LofiChat}
+                style={{
+                  height: "100%",
+                  objectFit: "cover", // Fills the container
+                  borderRadius: "10px",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="section" id="Product" style={{ marginTop: "10vh" }}>
+          <h2>Product</h2>
+          <p>
+            As designers, we recognize the transformative power of storytelling.
+            Our mission is to empower users to share their unique narratives,
+            values, and passions through Bono, enabling them to contribute
+            meaningfully to causes they care about. We stand apart by leveraging
+            a curated AI algorithm that delivers personalized recommendations
+            for charities and causes, along with a suite of other impactful
+            features, such as:
+          </p>
+          <div className="row">
+            <div className="column">
+              <h4>1. AI Chatbox</h4>
+              <p>
+                Bono offers an AI-powered chatbox to help users discover
+                organizations that align with their passions and values. Share a
+                bit about yourself to save time and simplify your search.
+              </p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="column">
+              <h4>2. Comprehensive Organization Profiles</h4>
+              <p>
+                Bono provides detailed profiles of organizations, fostering
+                trust and transparency for users.
+              </p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="column">
+              <h4>3. Impact Tracking</h4>
+              <p>
+                Bono keeps users informed by tracking the impact of their
+                donations, showing exactly where their contributions go.
+              </p>
+            </div>
+          </div>
+          <p>
+            To showcase our product in action, here is a short demonstration
+            featuring Nina's experience with our solution.
+          </p>
+          <div
+            className="cover-photo"
+            style={{ backgroundColor: "#fbb9b3", justifyContent: "center" }}
+          >
+            <video controls height="100%" src={NinaVid} />
           </div>
         </div>
       </div>

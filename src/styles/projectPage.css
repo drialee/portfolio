@@ -9,7 +9,6 @@
 }
 .proj-header {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   width: 70%;
@@ -20,7 +19,7 @@
 
 .row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
 }
 .col {
@@ -32,9 +31,10 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(150px, 1fr));
   grid-auto-rows: min-content;
-  grid-gap: 20px;
+  grid-gap: 40px;
   grid-auto-flow: dense;
   align-self: center;
+  margin-top: 15px;
 }
 .proj-image-grid img {
   width: 100%; /* Ensures images scale to fit their grid cell */
@@ -45,9 +45,11 @@
 }
 
 .cover-photo {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  height: 60vh; /* Set this to the height you need, or use `100%` to fill the container */
-  overflow: hidden; /* Ensures that the image doesn't spill out */
+  height: 60vh;
+  overflow: hidden;
 }
 .cover-photo img {
   width: 100%;
@@ -63,8 +65,53 @@
   width: 70%;
   gap: 25px;
 }
-.section .paragraph {
+.sub-section {
   display: flex;
+  width: 70%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 25px;
+}
+/* Base styling remains the same as your code above */
+
+/* Add responsive styles for phone screens */
+@media (max-width: 600px) {
+  .project-page {
+    max-width: 100vw;
+    margin-left: 0;
+    padding: 10px; /* Add some padding if needed */
+  }
+
+  .proj-header {
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    background-color: red;
+    margin: 5vh; /* Adjust margin for smaller screens */
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .proj-image-grid {
+    grid-template-columns: repeat(2, 1fr); /* Reduce columns for a better fit */
+    grid-gap: 10px; /* Reduce gap for smaller screens */
+  }
+
+  .cover-photo {
+    height: 40vh; /* Reduce height for smaller screens */
+  }
+
+  .section {
+    width: 100%;
+    gap: 15px;
+  }
+
+  .section .paragraph {
+    flex-direction: column;
+    text-align: center; /* Center text on small screens */
+  }
 }
