@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getBorderStyle, Tag } from "../utils/utils";
 import "../styles/timeline.css";
+import { isMobile } from "react-device-detect";
 
 const colorOrder = ["orange", "pink", "purple", "blue"];
 
@@ -36,6 +37,7 @@ const TimelineItem = ({ timelineData }) => {
             alignItems: "center",
             width: "100%",
             gap: "5px",
+            flexWrap: "wrap",
           }}
         >
           {timelineData.tags.map((tag, idx) => {
@@ -43,11 +45,10 @@ const TimelineItem = ({ timelineData }) => {
               <div
                 key={idx}
                 style={{
-                  height: "20px",
                   ...Tag(isHovered, timelineData.color),
                 }}
               >
-                <p>{tag}</p>
+                <div>{tag}</div>
               </div>
             );
           })}

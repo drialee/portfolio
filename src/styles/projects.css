@@ -40,3 +40,33 @@
   object-fit: contain;
   border-radius: 10px;
 }
+
+@media (max-width: 768px) {
+  .projects {
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 10% 5%;
+  }
+  .web-box,
+  .mobile-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 180px;
+    position: relative;
+    padding: 10px 10px 0px 10px;
+    overflow: hidden;
+  }
+  .proj-image {
+    position: absolute;
+    bottom: -30px;
+    margin: 0 auto;
+    width: 85%;
+    max-height: 80%;
+    overflow: hidden;
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import Dino from "../utils/Home/Dino.png";
+import { isMobile } from "react-device-detect";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "flex-start",
-        padding: "12% 20% 5% 20%",
+        padding: isMobile ? "10px" : "12% 20% 5% 20%",
         boxSizing: "border-box",
       }}
     >
@@ -27,7 +28,13 @@ const Footer = () => {
         </div>
         <p>2024 Dria Lee</p>
       </div>
-      <div style={{ display: "flex", alignItems: "flex-start", gap: "100px" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          gap: isMobile ? "10px" : "100px",
+        }}
+      >
         <div
           style={{
             display: "flex",

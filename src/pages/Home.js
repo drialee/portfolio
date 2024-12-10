@@ -4,12 +4,10 @@ import Timeline from "../components/Timeline";
 import timelineData from "../utils/projectData";
 import Profile from "../utils/Home/profile.png";
 import introVid from "../utils/Home/intro.mp4";
-import { useNavigate } from "react-router-dom";
+import { isMobile } from "react-device-detect";
 
 const Home = () => {
   const timelineRef = useRef(null);
-  // delete later
-  const navigate = useNavigate();
 
   const scrollToTimeline = () => {
     if (timelineRef.current) {
@@ -37,14 +35,20 @@ const Home = () => {
           alignItems: "center",
           paddingTop: "5%",
           paddingBottom: "5%",
-          gap: "5%",
+          marginBottom: isMobile ? "100px" : "",
+          padding: isMobile ? "10% 5%" : "5% 0", // Adjust padding for mobile
+          gap: isMobile ? "10px" : "5%",
+          flexDirection: isMobile ? "column" : "row",
         }}
       >
-        <img src={Profile} height="350px" />
+        <div style={{ height: isMobile ? "250px" : "350px" }}>
+          <img src={Profile} />
+        </div>
+
         <video
           autoPlay
           loop
-          height="180px"
+          height={isMobile ? "100px" : "180px"}
           src={introVid}
           type="video/quicktime"
         />

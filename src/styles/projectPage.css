@@ -39,6 +39,11 @@ span {
   align-self: center;
   margin-top: 15px;
 }
+.proj-image-grid .image-box {
+  height: 350px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.1);
+}
 .proj-image-grid img {
   width: 100%; /* Ensures images scale to fit their grid cell */
   height: auto; /* Maintains aspect ratio */
@@ -50,11 +55,11 @@ span {
 .cover-photo {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
   height: 60vh;
   overflow: hidden;
 }
-.cover-photo img {
+img {
   width: 100%;
   height: 100%;
   object-fit: contain; /* Ensures the image covers the entire container */
@@ -77,6 +82,13 @@ span {
   align-items: center;
   gap: 25px;
 }
+.image-box-horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 350px;
+}
 /* Base styling remains the same as your code above */
 
 /* Add responsive styles for phone screens */
@@ -89,33 +101,60 @@ span {
 
   .proj-header {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     gap: 20px;
-    background-color: red;
     margin: 5vh; /* Adjust margin for smaller screens */
   }
-
   .row {
-    flex-direction: column;
+    display: flex;
     align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .proj-header .col {
+    align-items: center;
+    justify-content: flex-start;
+    width: 150px;
   }
 
   .proj-image-grid {
-    grid-template-columns: repeat(2, 1fr); /* Reduce columns for a better fit */
-    grid-gap: 10px; /* Reduce gap for smaller screens */
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+  .proj-image-grid .image-box {
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.1);
   }
 
   .cover-photo {
-    height: 40vh; /* Reduce height for smaller screens */
+    height: 20vh;
+    width: 100vw;
   }
 
   .section {
     width: 100%;
     gap: 15px;
+    margin-top: 5vh;
   }
 
   .section .paragraph {
     flex-direction: column;
     text-align: center; /* Center text on small screens */
+  }
+  .image-box-horizontal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: "100%";
+    height: 150px;
   }
 }

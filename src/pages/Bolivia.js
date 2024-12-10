@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/photoPage.css";
+import { isMobile } from "react-device-detect";
 
 const importAll = (requireContext) => {
   return requireContext.keys().sort().map(requireContext);
@@ -48,6 +49,16 @@ const Bolivia = () => {
     { orientation: "h" },
     { orientation: "h" },
   ];
+  const chunkArray = (array, chunkSize) => {
+    const result = [];
+    for (let i = 0; i < array.length; i += chunkSize) {
+      result.push(array.slice(i, i + chunkSize));
+    }
+    return result;
+  };
+
+  const imageChunks = chunkArray(images, 10);
+
   return (
     <div className="photo-page">
       <div className="header">
@@ -61,14 +72,30 @@ const Bolivia = () => {
         </p>
       </div>
       <div className="image-grid">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`proj-image-container ${imageDetails[index]?.orientation}`}
-          >
-            <img key={index} src={image} alt={`Image ${index + 1}`} />
-          </div>
-        ))}
+        {!isMobile
+          ? images.map((image, index) => (
+              <div
+                key={index}
+                className={`proj-image-container ${imageDetails[index]?.orientation}`}
+              >
+                <img key={index} src={image} alt={`Image ${index + 1}`} />
+              </div>
+            ))
+          : imageChunks.map((chunk, rowIndex) => (
+              <div key={rowIndex} className="scrollable-row">
+                {chunk.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`proj-image-container  ${imageDetails[rowIndex * 10 + index]?.orientation}`}
+                  >
+                    <img
+                      src={image}
+                      alt={`Image ${rowIndex * 10 + index + 1}`}
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
       </div>
     </div>
   );

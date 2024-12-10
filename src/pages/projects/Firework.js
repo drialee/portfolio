@@ -82,7 +82,9 @@ const Firework = () => {
                 width: "100%",
               }}
             >
-              <img src={Web} height="400px" />
+              <div className="image-box-horizontal">
+                <img src={Web} />
+              </div>
               <p>Webpage to Video Flow</p>
             </div>
           </div>

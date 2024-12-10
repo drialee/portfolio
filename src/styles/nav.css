@@ -71,3 +71,15 @@ li:hover,
   color: #3986ff;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    height: 80px;
+  }
+}

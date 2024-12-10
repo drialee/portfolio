@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import initials from "../utils/Home/initials.png";
 import "../styles/nav.css";
+import { isMobile } from "react-device-detect";
 
 const ProjectNavBar = ({ sections = [] }) => {
   // Map pathnames to their respective index in the tabs array
@@ -44,20 +45,22 @@ const ProjectNavBar = ({ sections = [] }) => {
   };
 
   return (
-    <div className="side-bar">
-      <ul className="side-ul">
-        {sections.map((section, idx) => (
-          <li
-            key={idx}
-            className={currentSection === idx ? "side-active-tab" : "side-li"}
-            style={{ transform: "rotate(270deg)" }}
-            onClick={() => handleNavigation(idx)} // Handle navigation on click
-          >
-            {section}
-          </li>
-        ))}
-      </ul>
-    </div>
+    !isMobile && (
+      <div className="side-bar">
+        <ul className="side-ul">
+          {sections.map((section, idx) => (
+            <li
+              key={idx}
+              className={currentSection === idx ? "side-active-tab" : "side-li"}
+              style={{ transform: "rotate(270deg)" }}
+              onClick={() => handleNavigation(idx)} // Handle navigation on click
+            >
+              {section}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
   );
 };
 

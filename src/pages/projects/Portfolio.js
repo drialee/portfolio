@@ -75,8 +75,12 @@ const Portfolio = () => {
             These are the colors I chose to guide the look and feel of my site:{" "}
           </p>
           <div className="row" style={{ gap: "5vh", marginTop: "5vh" }}>
-            <img src={Theme1} />
-            <img src={Theme2} />
+            <div>
+              <img src={Theme1} />
+            </div>
+            <div>
+              <img src={Theme2} />
+            </div>
           </div>
         </div>
         <div className="section" id="Prototyping">
@@ -97,9 +101,18 @@ const Portfolio = () => {
             <h3>Project Page</h3>
 
             <div className="row" style={{ gap: "10px" }}>
-              <img src={Layout1} width="350px" />
-              <img src={Layout2} width="350px" />
-              <img src={Layout3} width="350px" />
+              <div>
+                {" "}
+                <img src={Layout1} width="350px" />
+              </div>
+              <div>
+                {" "}
+                <img src={Layout2} width="350px" />
+              </div>
+              <div>
+                {" "}
+                <img src={Layout3} width="350px" />
+              </div>
             </div>
             <p>
               I explored various layouts for my project page. My old site
@@ -117,13 +130,30 @@ const Portfolio = () => {
             }}
           >
             <h3>Project Tab</h3>
-
             <div
               className="row"
-              style={{ gap: "10px", justifyContent: "center" }}
+              style={{
+                gap: "10px",
+                justifyContent: "space-between",
+                flexWrap: "wrap",
+              }}
             >
-              <img src={Proj1} width="350px" />
-              <img src={Proj2} width="350px" />
+              <div
+                style={{
+                  flex: "1 1 calc(33.33% - 10px)",
+                  boxSizing: "border-box",
+                }}
+              >
+                <img src={Proj1} />
+              </div>
+              <div
+                style={{
+                  flex: "1 1 calc(33.33% - 10px)",
+                  boxSizing: "border-box",
+                }}
+              >
+                <img src={Proj2} />
+              </div>
             </div>
             <p>
               I introduced a dedicated project page to house all my projects in
@@ -145,8 +175,12 @@ const Portfolio = () => {
               className="row"
               style={{ gap: "10px", justifyContent: "center" }}
             >
-              <img src={Time1} width="350px" />
-              <img src={Time2} width="350px" />
+              <div>
+                <img src={Time1} width="350px" />
+              </div>
+              <div>
+                <img src={Time2} width="350px" />
+              </div>
             </div>
             <p>
               I added a timeline feature to visually showcase my journey.

@@ -241,21 +241,8 @@ const TrainGone = () => {
               To begin, we sketched the primary concepts for the mobile app,
               focusing on three core tasks:
             </p>
-            <div
-              className="row"
-              style={{ justifyContent: "center", alignItems: "center" }}
-            >
-              <div className="col">
-                <img src={Task1} />
-              </div>
-              <div className="col">
-                <img src={Task2} />
-              </div>
-              <div className="col">
-                <img src={Task3} />
-              </div>
-            </div>
-            <div className="row" style={{ gap: "5vw" }}>
+
+            <div className="col">
               <h4>1. Searching for an ASL Definition</h4>
               <h4>2. Exploring New and Similar Definitions</h4>
               <h4>3. Posting Your Own Definition</h4>

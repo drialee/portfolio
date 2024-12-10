@@ -5,6 +5,7 @@ import Arrow from "../components/Arrow";
 import fire from "../utils/photography/edits/B_a2.jpg";
 import china from "../utils/photography/chinatown/C_91.jpg";
 import { useNavigate } from "react-router-dom";
+import { isMobile } from "react-device-detect";
 
 const About = () => {
   const aboutRef = useRef(null);
@@ -22,15 +23,19 @@ const About = () => {
   return (
     <div className="page">
       <div
-        className="horizontal-box"
-        style={{ gap: "5%", paddingBottom: "5%" }}
+        className={isMobile ? "col-box" : "horizontal-box"}
+        style={{ gap: "5%", paddingBottom: isMobile ? "100px" : "50px" }}
       >
-        <div>
-          <img src={prof} height="350px" style={{ borderRadius: "5px" }} />
+        <div style={{ width: isMobile ? "150px" : "250px" }}>
+          <img src={prof} style={{ borderRadius: "5px" }} />
         </div>
         <div
           className="col-box"
-          style={{ marginTop: "5%", gap: "10px", maxWidth: "50%" }}
+          style={{
+            marginTop: "5%",
+            gap: "10px",
+            maxWidth: isMobile ? "100%" : "50%",
+          }}
         >
           <h2>Hey there!</h2>
           <h4>
@@ -71,47 +76,52 @@ const About = () => {
             exploring new coffee shops.
           </h4>
         </div>
-        <div className="horizontal-box" style={{ width: "100%", gap: "30px" }}>
+        <div
+          className={isMobile ? "col" : "horizontal-box"}
+          style={{ width: "100%", gap: "30px" }}
+        >
           <div
-            className="image-container"
             onClick={() => {
               navigate(`/Chinatown`);
             }}
             onMouseEnter={() => setIsHovered(0)}
             onMouseLeave={() => setIsHovered(null)}
           >
-            <img
-              src={china}
-              height="250px"
-              style={{
-                boxShadow:
-                  isHovered === 0 ? "0 4px 8px rgba(0, 0, 0, 0.6)" : "none",
-                transition: "box-shadow 0.2s ease",
-                borderRadius: "5px",
-              }}
-            />
+            <div>
+              <img
+                src={china}
+                style={{
+                  height: "225px",
+                  boxShadow:
+                    isHovered === 0 ? "0 4px 8px rgba(0, 0, 0, 0.6)" : "none",
+                  transition: "box-shadow 0.2s ease",
+                  borderRadius: "5px",
+                }}
+              />
+            </div>
             <div className="caption">
               <p>Chinatown, 2021</p>
             </div>
           </div>
           <div
-            className="image-container"
             onClick={() => {
               navigate(`/Bolivia`);
             }}
             onMouseEnter={() => setIsHovered(1)}
             onMouseLeave={() => setIsHovered(null)}
           >
-            <img
-              src={fire}
-              height="250px"
-              style={{
-                boxShadow:
-                  isHovered === 1 ? "0 4px 8px rgba(0, 0, 0, 0.6)" : "none",
-                transition: "box-shadow 0.2s ease",
-                borderRadius: "5px",
-              }}
-            />
+            <div>
+              <img
+                src={fire}
+                style={{
+                  height: "225px",
+                  borderRadius: "5px",
+                  boxShadow:
+                    isHovered === 1 ? "0 4px 8px rgba(0, 0, 0, 0.6)" : "none",
+                  transition: "box-shadow 0.2s ease",
+                }}
+              />
+            </div>
             <div className="caption">
               <p>Bolivia, 2024</p>
             </div>

@@ -12,6 +12,7 @@ import FinalView from "../../utils/projects/Chill/FinalView1.png";
 import FinalProfile from "../../utils/projects/Chill/FinalProfile.png";
 import FinalWatch from "../../utils/projects/Chill/WatchFinal1.png";
 import FinalText from "../../utils/projects/Chill/WatchFinal2.png";
+import { isMobile } from "react-device-detect";
 
 const Chill = () => {
   return (
@@ -97,24 +98,24 @@ const Chill = () => {
             interviewees about their experience with the extension. Here was
             some of the feedback I received:
           </p>
-          <div className="row" style={{ gap: "5vh" }}>
-            <p>
+          <div className={isMobile ? "col" : "row"} style={{ gap: "5vh" }}>
+            <div className="cap">
               "I love Netflix Partying with my friends but it’s really difficult
               to set up and takes a while. Everyone has to download the
               extension and the link has to work properly for everyone to be on
               the same show. If it was easier to do we would use it more."
-            </p>
-            <p>
+            </div>
+            <div className="cap">
               “I like Netflix Party, but my biggest frustration is the lack of a
               video component. You have to put Facetime on a separate device in
               order to watch together"
-            </p>
-            <p>
+            </div>
+            <div className="cap">
               "The extension almost always crashed my browser or wouldn’t work
               at all. If anything, Zoom’s features felt more communal by
               allowing everyone in the party to see each other while watching
               their movie/show”
-            </p>
+            </div>
           </div>
           <div
             style={{
@@ -216,8 +217,12 @@ const Chill = () => {
               marginBottom: "5vh",
             }}
           >
-            <img src={V10} width="500px" />
-            <img src={V11} width="500px" />
+            <div className="image-box-horizontal">
+              <img src={V10} />
+            </div>
+            <div className="image-box-horizontal">
+              <img src={V11} />
+            </div>
           </div>
           <p>
             To foster social interaction, I incorporated features inspired by
@@ -251,12 +256,23 @@ const Chill = () => {
         </div>
         <div className="section" id="Product">
           <h2>Final Product</h2>
-          <div className="col" style={{ gap: "10vh", marginTop: "10vh" }}>
-            <div className="row" style={{ gap: "5vw", alignItems: "center" }}>
+          <div
+            className="col"
+            style={{ gap: "10vh", marginTop: isMobile ? "10px" : "10vh" }}
+          >
+            <div
+              className={isMobile ? "col" : "row"}
+              style={{ gap: "5vw", alignItems: "center" }}
+            >
               <img
                 src={FinalHome}
-                style={{ borderRadius: "10px", height: "400px" }}
+                style={{
+                  borderRadius: "10px",
+                  height: isMobile ? "150px" : "400px",
+                  width: "auto",
+                }}
               />
+
               <div
                 className="col"
                 style={{ justifyContent: "center", gap: "5vh" }}
@@ -271,10 +287,17 @@ const Chill = () => {
                 </p>
               </div>
             </div>
-            <div className="row" style={{ gap: "5vw", alignItems: "center" }}>
+            <div
+              className={isMobile ? "col" : "row"}
+              style={{ gap: "5vw", alignItems: "center" }}
+            >
               <img
                 src={FinalProfile}
-                style={{ borderRadius: "10px", height: "400px" }}
+                style={{
+                  borderRadius: "10px",
+                  height: isMobile ? "150px" : "400px",
+                  width: "auto",
+                }}
               />
               <div
                 className="col"
@@ -290,11 +313,19 @@ const Chill = () => {
                 </p>
               </div>
             </div>
-            <div className="row" style={{ gap: "5vw", alignItems: "center" }}>
+            <div
+              className={isMobile ? "col" : "row"}
+              style={{ gap: "5vw", alignItems: "center" }}
+            >
               <img
                 src={FinalView}
-                style={{ borderRadius: "10px", height: "400px" }}
+                style={{
+                  borderRadius: "10px",
+                  height: isMobile ? "150px" : "400px",
+                  width: "auto",
+                }}
               />
+
               <div
                 className="col"
                 style={{ justifyContent: "center", gap: "5vh" }}
@@ -308,14 +339,25 @@ const Chill = () => {
               </div>
             </div>
             <div className="col" style={{ gap: "5vh", alignItems: "center" }}>
-              <div className="row" style={{ gap: "5vw", alignItems: "center" }}>
+              <div
+                className={isMobile ? "col" : "row"}
+                style={{ gap: "5vw", alignItems: "center" }}
+              >
                 <img
                   src={FinalWatch}
-                  style={{ borderRadius: "10px", height: "300px" }}
+                  style={{
+                    borderRadius: "10px",
+                    height: isMobile ? "150px" : "300px",
+                    width: "auto",
+                  }}
                 />
                 <img
                   src={FinalText}
-                  style={{ borderRadius: "10px", height: "300px" }}
+                  style={{
+                    borderRadius: "10px",
+                    height: isMobile ? "150px" : "300px",
+                    width: "auto",
+                  }}
                 />
               </div>
               <h4>The Watch Party</h4>

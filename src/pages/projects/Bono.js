@@ -11,6 +11,7 @@ import LofiDiscover from "../../utils/projects/Bono/DiscoverLofi.png";
 import LofiSearch from "../../utils/projects/Bono/SearchLofi.png";
 import LofiHome from "../../utils/projects/Bono/HomepageLofi.png";
 import NinaVid from "../../utils/projects/Bono/ninaVideo.mp4";
+import { isMobile } from "react-device-detect";
 
 const Bono = () => {
   return (
@@ -109,23 +110,10 @@ const Bono = () => {
             features, allowing us to broaden our creative approach.
           </p>
           <div className="proj-image-grid">
-            <div
-              style={{
-                height: "350px",
-                borderRadius: "10px",
-                boxShadow: "5px 5px 5px rgb(0,0,0, 0.1)",
-              }}
-            >
+            <div className="image-box">
               <img src={LofiHome} style={{ height: "100%" }} />
             </div>
-            <div
-              style={{
-                height: "400px",
-                borderRadius: "10px",
-                boxShadow: "5px 5px 5px rgb(0,0,0, 0.1)",
-                overflow: "hidden", // Ensures rounded corners are visible on the image
-              }}
-            >
+            <div className="image-box">
               <img
                 src={LofiDiscover}
                 style={{
@@ -135,14 +123,7 @@ const Bono = () => {
                 }}
               />
             </div>
-            <div
-              style={{
-                height: "400px",
-                borderRadius: "10px",
-                boxShadow: "5px 5px 5px rgb(0,0,0, 0.1)",
-                overflow: "hidden", // Ensures rounded corners are visible on the image
-              }}
-            >
+            <div className="image-box">
               <img
                 src={LofiSearch}
                 style={{
@@ -152,15 +133,7 @@ const Bono = () => {
                 }}
               />
             </div>
-            <div
-              style={{
-                height: "350px",
-                width: "150px",
-                borderRadius: "10px",
-                boxShadow: "5px 5px 5px rgb(0,0,0, 0.1)",
-                overflow: "hidden", // Ensures rounded corners are visible on the image
-              }}
-            >
+            <div className="image-box">
               <img
                 src={LofiChat}
                 style={{

@@ -6,13 +6,13 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
+  overflow: none;
 }
 .image-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(250px, 1fr));
   grid-auto-rows: min-content;
   grid-gap: 10px;
-  max-width: 1000px;
   grid-auto-flow: dense;
 }
 
@@ -46,4 +46,62 @@
   width: 100%;
   gap: 10px;
   margin-bottom: 100px;
+}
+.scrollable-row {
+}
+
+@media (max-width: 768px) {
+  .photo-page {
+    padding: 10% 0%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+  }
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+    padding: 0% 5%;
+    margin-bottom: 100px;
+  }
+
+  .image-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between rows */
+    width: 100vw;
+  }
+
+  .proj-image-container img {
+    object-fit: cover; /* Ensures images fit their container */
+    border-radius: 8px; /* Optional rounded corners */
+  }
+
+  .scrollable-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    gap: 10px; /* Space between images */
+    padding: 10px 0; /* Optional padding for rows */
+    scroll-snap-type: x mandatory; /* Enable scroll snapping */
+    -webkit-overflow-scrolling: touch; /* Enhance scrolling on iOS */
+    height: 300px;
+    width: 100%;
+  }
+  .proj-image-container.h {
+    min-width: 400px;
+    height: 100%;
+  }
+  .proj-image-container.v {
+    height: 100%;
+    width: 200px;
+  }
 }

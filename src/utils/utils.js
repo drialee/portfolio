@@ -1,3 +1,5 @@
+import { isMobile } from "react-device-detect";
+
 // Helper function to convert HEX color to RGBA
 export const hexToRgba = (hex, alpha) => {
   // Logic for hex to rgba conversion
@@ -62,8 +64,10 @@ export const Tag = (isHovered, color) => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "15px",
+    padding: isMobile ? "5px" : "8px",
     border: `2.5px solid ${color}`,
     backgroundColor: "white",
+    flexWrap: isMobile ? "wrap" : "",
+    fontSize: isMobile ? "10px" : "16px",
   };
 };
