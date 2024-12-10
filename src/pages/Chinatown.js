@@ -10,7 +10,6 @@ const importAll = (requireContext) => {
 const images = importAll(
   require.context("../utils/photography/chinatown", false, /\.(png|jpe?g|svg)$/)
 );
-console.log("IMSGESD", images);
 const Chinatown = () => {
   const imageDetails = [
     { orientation: "v" },
