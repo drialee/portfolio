@@ -1,10 +1,5 @@
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  useNavigate,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Chill from "./pages/projects/Chill";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -15,6 +10,9 @@ import Bolivia from "./pages/Bolivia";
 import ScrollToTop from "./utils/ScrollToTop";
 import Footer from "./components/Footer";
 import Bono from "./pages/projects/Bono";
+import TrainGone from "./pages/projects/TrainGone";
+import Portfolio from "./pages/projects/Portfolio";
+import Firework from "./pages/projects/Firework";
 
 function App() {
   return (
@@ -29,6 +27,9 @@ function App() {
         <Route path="/Bolivia" element={<Bolivia />} />
         <Route path="/Bono" element={<Bono />} />
         <Route path="/Chill" element={<Chill />} />
+        <Route path="/TrainGone" element={<TrainGone />} />
+        <Route path="/Portfolio" element={<Portfolio />} />
+        <Route path="/Firework" element={<Firework />} />
       </Routes>
       <Footer />
     </Router>

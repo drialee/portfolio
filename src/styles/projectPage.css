@@ -7,6 +7,9 @@
   margin-left: 80px;
   box-sizing: border-box; /* Ensure padding/margins don’t affect width */
 }
+span {
+  font-weight: 700;
+}
 .proj-header {
   display: flex;
   align-items: center;
@@ -64,6 +67,7 @@
   justify-content: center;
   width: 70%;
   gap: 25px;
+  margin-top: 10vh;
 }
 .sub-section {
   display: flex;

@@ -33,11 +33,11 @@ const About = () => {
           style={{ marginTop: "5%", gap: "10px", maxWidth: "50%" }}
         >
           <h2>Hey there!</h2>
-          <h4  >
+          <h4>
             I'm a recent graduate from Stanford University with a degree in
             Product Design, specializing in AI and Digital User Experience, and
             a minor in Computer Science.
-          </h4  >
+          </h4>
         </div>
       </div>
       <Arrow onClick={scrollToRest} />
@@ -47,29 +47,29 @@ const About = () => {
         style={{ margin: "10% 0 10% 0", gap: "50px" }}
       >
         <div className="horziontal-box">
-          <h4  >
+          <h4>
             My journey has been quite an adventure. I started at Stanford as a
             liberal arts major, focused on Economics and International
             Relations, steering clear of anything STEM. But I soon rediscovered
             a part of myself—the girl who loved puzzles and creating things. In
             my junior year, I made a pivotal switch to design and tech,
             reigniting my passion for learning.
-          </h4  >
+          </h4>
         </div>
         <div className="horizontal-box">
-          <h4  >
+          <h4>
             Front-end development is where I've found my sweet spot—a perfect
             mix of design and computer science. It allows me to blend creativity
             with technical skills, crafting beautiful, functional experiences.
             My client-side background helps me truly understand what users want
             and need from the things I build.
-          </h4  >
+          </h4>
         </div>
         <div className="horizontal-box">
-          <h4  >
+          <h4>
             Outside of design and coding, I love road trips, photography, and
             exploring new coffee shops.
-          </h4  >
+          </h4>
         </div>
         <div className="horizontal-box" style={{ width: "100%", gap: "30px" }}>
           <div

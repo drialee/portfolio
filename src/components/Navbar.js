@@ -20,7 +20,7 @@ const NavBar = () => {
       "/Bolivia": 2,
       "/Bono": 2,
       "/Firework": 2,
-      "/MySite": 2,
+      "/Portfolio": 2,
       "/TrainGone": 2,
       "/Chill": 2,
     };

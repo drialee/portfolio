@@ -18,7 +18,7 @@ const timelineData = [
     date: "2024",
     color: orange,
     tags: ["TypeScript", "React", "Python", "Figma"],
-    url: "projects/Firework",
+    url: "Firework",
     type: "web",
     imageLink: FireworkCover,
   },

@@ -1,4 +1,5 @@
 import React from "react";
+import Dino from "../utils/Home/Dino.png";
 
 const Footer = () => {
   return (
@@ -9,11 +10,23 @@ const Footer = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "flex-start",
-        padding: "20% 20% 5% 20%",
+        padding: "12% 20% 5% 20%",
         boxSizing: "border-box",
       }}
     >
-      <p>2024 Dria Lee</p>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div style={{ height: "80px", maxHeight: "80px" }}>
+          <img height="100%" src={Dino} />
+        </div>
+        <p>2024 Dria Lee</p>
+      </div>
       <div style={{ display: "flex", alignItems: "flex-start", gap: "100px" }}>
         <div
           style={{
@@ -24,7 +37,7 @@ const Footer = () => {
             justifyContent: "center",
           }}
         >
-          <h4  >Elsewhere</h4  >
+          <h4>Elsewhere</h4>
           <a
             href="https://www.linkedin.com/in/dria-lee/"
             target="_blank"
@@ -49,7 +62,7 @@ const Footer = () => {
             justifyContent: "center",
           }}
         >
-          <h4  >Contact</h4  >
+          <h4>Contact</h4>
           <a
             href="mailto:drialee@alumni.stanford.edu"
             style={{ textDecoration: "none", color: "black" }}

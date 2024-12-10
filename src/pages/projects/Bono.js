@@ -1,7 +1,6 @@
 import React from "react";
 import "../../styles/projectPage.css";
 import BonoCover from "../../utils/projects/Bono/BonoCover.png";
-import { hexWithOpacity } from "../../utils/utils";
 import ProjectNavBar from "../../components/ProjectNavBar";
 import BonoBrand1 from "../../utils/projects/Bono/BonoBrand1.png";
 import BonoBrand2 from "../../utils/projects/Bono/BonoBrand2.png";
@@ -11,9 +10,6 @@ import LofiChat from "../../utils/projects/Bono/ChatLofi.png";
 import LofiDiscover from "../../utils/projects/Bono/DiscoverLofi.png";
 import LofiSearch from "../../utils/projects/Bono/SearchLofi.png";
 import LofiHome from "../../utils/projects/Bono/HomepageLofi.png";
-import Chat from "../../utils/projects/Bono/Chat.png";
-import Comprehensive from "../../utils/projects/Bono/Comprehensive.png";
-import Impact from "../../utils/projects/Bono/ImpactTracking.png";
 import NinaVid from "../../utils/projects/Bono/ninaVideo.mp4";
 
 const Bono = () => {
@@ -34,7 +30,7 @@ const Bono = () => {
           <div className="row" style={{ justifyContent: "space-between" }}>
             <div className="col">
               <h5>Timeline</h5>
-              <p>January 2024 - June 2024</p>
+              <p>January - June 2024</p>
             </div>
             <div className="col">
               <h5>Team</h5>
@@ -50,7 +46,7 @@ const Bono = () => {
         <div className="cover-photo" style={{ backgroundColor: "#fbb9b3" }}>
           <img src={BonoCover} />
         </div>
-        <div className="section" id="About" style={{ marginTop: "10vh" }}>
+        <div className="section" id="About">
           <h2>About</h2>
           <p>
             Bono is a platform designed to simplify the process of discovering
@@ -59,13 +55,11 @@ const Bono = () => {
             easier to give back in a meaningful way.
           </p>
         </div>
-        <div className="section" id="Exploration" style={{ marginTop: "10vh" }}>
+        <div className="section" id="Exploration">
           <h2>Exploration</h2>
           <p>
             My team conducted{" "}
-            <span style={{ fontWeight: 600, color: "#FB7164" }}>
-              42 user interviews and 44 quantitative surveys{" "}
-            </span>
+            <span>42 user interviews and 44 quantitative surveys </span>
             with a diverse group of volunteers, financial literacy educators,
             college students, tax lawyers, angel investors, nonprofits, social
             impact leaders. Initially, we didn’t have a specific vision for our
@@ -80,15 +74,13 @@ const Bono = () => {
             Through these interviews, we discovered that students across the
             spectrum were eager to make a positive difference, often through
             actions like donating. However, they frequently felt{" "}
-            <span style={{ fontWeight: 600, color: "#FB7164" }}>
-              overwhelmed and skeptical{" "}
-            </span>
+            <span>overwhelmed and skeptical </span>
             about the vast number of nonprofit organizations. This uncertainty
             leads many to fall into a cycle of endless research, preventing them
             from taking action even when they’re inclined to contribute."
           </p>
         </div>
-        <div className="section" id="Branding" style={{ marginTop: "10vh" }}>
+        <div className="section" id="Branding">
           <h2>Branding</h2>
           <p>
             To bring our vision to life, we established brand guidelines early
@@ -104,7 +96,7 @@ const Bono = () => {
             <img src={BonoBrand4} />
           </div>
         </div>
-        <div className="section" id="Prototyping" style={{ marginTop: "10vh" }}>
+        <div className="section" id="Prototyping">
           <h2>Prototyping</h2>
           <p>
             We began with brainstorming sessions using whiteboard exercises and
@@ -114,7 +106,7 @@ const Bono = () => {
             low-fidelity screens that outlined the main components of our
             application: a home screen, discover page, organization page, and an
             AI chatbox. To foster diverse ideas, each team member took on two
-            features, allowing us to broaden our creative approach."
+            features, allowing us to broaden our creative approach.
           </p>
           <div className="proj-image-grid">
             <div
@@ -180,7 +172,7 @@ const Bono = () => {
             </div>
           </div>
         </div>
-        <div className="section" id="Product" style={{ marginTop: "10vh" }}>
+        <div className="section" id="Product">
           <h2>Final Product</h2>
           <p>
             As designers, we recognize the transformative power of storytelling.

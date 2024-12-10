@@ -11,6 +11,7 @@
   max-height: 100px;
   margin-top: 5vh;
 }
+
 ul {
   display: flex;
   justify-content: space-evenly;
@@ -19,17 +20,18 @@ ul {
   list-style-type: none; /* This removes the bullet points */
   padding: 0; /* Removes default padding */
   margin: 0; /* Removes default margin */
-  cursor: pointer;
 }
 /* Remove underline from the <a> elements */
 li {
   text-decoration: none;
   color: black;
   font-weight: 600;
+  cursor: pointer;
 }
 li:hover,
 .active-tab {
   color: #3986ff;
+  cursor: pointer;
 }
 .side-bar {
   display: flex;
@@ -67,4 +69,5 @@ li:hover,
 .side-li:hover,
 .side-active-tab {
   color: #3986ff;
+  cursor: pointer;
 }
