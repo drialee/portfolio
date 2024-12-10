@@ -116,10 +116,20 @@ const Chill = () => {
               their movie/show”
             </p>
           </div>
-          <img
-            src={CompetiveAnalysis}
-            style={{ marginTop: "5vh", marginBottom: "5vh" }}
-          />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
+            <img
+              src={CompetiveAnalysis}
+              height="300px"
+              style={{ marginTop: "5vh", marginBottom: "5vh" }}
+            />
+          </div>
           <p>
             To understand the current landscape, I conducted a competitive
             analysis of major streaming platforms such as Netflix, Prime Video,
@@ -128,10 +138,20 @@ const Chill = () => {
             required all users to share the same subscription plan, and sending
             a video link was necessary to initiate co-viewing sessions.
           </p>
-          <img
-            src={SocialMedia}
-            style={{ marginTop: "5vh", marginBottom: "5vh" }}
-          />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
+            <img
+              src={SocialMedia}
+              height="300px"
+              style={{ marginTop: "5vh", marginBottom: "5vh" }}
+            />
+          </div>
           <p>
             I also analyzed three social media platforms—Snapchat, HouseParty,
             and Spotify—that have revolutionized how we form genuine connections
@@ -189,10 +209,15 @@ const Chill = () => {
           </p>
           <div
             className="row"
-            style={{ justifyContent: "center", alignItems: "center" }}
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: "5vh",
+              marginBottom: "5vh",
+            }}
           >
-            <img src={V10} width="600px" />
-            <img src={V11} width="600px" />
+            <img src={V10} width="500px" />
+            <img src={V11} width="500px" />
           </div>
           <p>
             To foster social interaction, I incorporated features inspired by
