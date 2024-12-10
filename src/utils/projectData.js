@@ -62,7 +62,7 @@ const timelineData = [
     date: "2024",
     color: blue,
     tags: ["UX/UI", "User Research", "Prototyping"],
-    url: "projects/Chill",
+    url: "Chill",
     type: "web",
     imageLink: ChillCover,
   },

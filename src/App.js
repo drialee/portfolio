@@ -28,6 +28,7 @@ function App() {
         <Route path="/Chinatown" element={<Chinatown />} />
         <Route path="/Bolivia" element={<Bolivia />} />
         <Route path="/Bono" element={<Bono />} />
+        <Route path="/Chill" element={<Chill />} />
       </Routes>
       <Footer />
     </Router>

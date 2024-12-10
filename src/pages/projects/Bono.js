@@ -181,7 +181,7 @@ const Bono = () => {
           </div>
         </div>
         <div className="section" id="Product" style={{ marginTop: "10vh" }}>
-          <h2>Product</h2>
+          <h2>Final Product</h2>
           <p>
             As designers, we recognize the transformative power of storytelling.
             Our mission is to empower users to share their unique narratives,
@@ -192,7 +192,7 @@ const Bono = () => {
             features, such as:
           </p>
           <div className="row">
-            <div className="column">
+            <div className="col">
               <h4>1. AI Chatbox</h4>
               <p>
                 Bono offers an AI-powered chatbox to help users discover
@@ -202,7 +202,7 @@ const Bono = () => {
             </div>
           </div>
           <div className="row">
-            <div className="column">
+            <div className="col">
               <h4>2. Comprehensive Organization Profiles</h4>
               <p>
                 Bono provides detailed profiles of organizations, fostering
@@ -211,7 +211,7 @@ const Bono = () => {
             </div>
           </div>
           <div className="row">
-            <div className="column">
+            <div className="col">
               <h4>3. Impact Tracking</h4>
               <p>
                 Bono keeps users informed by tracking the impact of their
