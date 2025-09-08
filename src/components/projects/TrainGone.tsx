@@ -58,7 +58,7 @@ export const TrainGoneProjectPage = ({
             <ProjectTimeline
               timeline="January - June 2024"
               tools={["React", "Figma", "User Research"]}
-              role={["Front-End Engineer", "UX Designer"]}
+              role={["Product Manager", "UX Designer"]}
             />
           </div>
         </motion.div>
@@ -235,10 +235,10 @@ export const TrainGoneProjectPage = ({
               icon={<Target className="w-6 h-6 text-green-600" />}
             >
               <p className="text-green-800 text-xl font-semibold text-center">
-                "How Might We{" "}
+                "How Might We
                 <HighlightText color="green">
                   empower ASL speakers
-                </HighlightText>{" "}
+                </HighlightText>
                 to communicate and connect on a global scale?"
               </p>
             </CalloutBox>
@@ -277,8 +277,8 @@ export const TrainGoneProjectPage = ({
               <p className="text-blue-800 leading-relaxed">
                 Testing guided us toward a{" "}
                 <strong>comprehensive solution</strong>: a social educational
-                platform empowering deaf signers to define signs through{" "}
-                <HighlightText color="blue">video storytelling</HighlightText>{" "}
+                platform empowering deaf signers to define signs through
+                <HighlightText color="blue">video storytelling</HighlightText>
                 while providing learners with contextual reinforcement. This
                 bridges gaps between learning styles and cultural expression.
               </p>
@@ -287,15 +287,7 @@ export const TrainGoneProjectPage = ({
 
           {/* Prototyping Section */}
           <ProjectSection id="prototyping">
-            <motion.h2
-              className="text-4xl font-bold mb-8 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              Design Process
-            </motion.h2>
+            <ProjectHeader label="Design Process" />
 
             <TwoColumnLayout
               left={

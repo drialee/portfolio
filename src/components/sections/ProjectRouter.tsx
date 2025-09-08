@@ -1,8 +1,8 @@
 import { FireworkProjectPage } from "../projects/Firework";
 import { TrainGoneProjectPage } from "../projects/TrainGone";
-import BonoProjectPage from "../projects/Bono";
+import { BonoProjectPage } from "../projects/Bono";
 import { ProjectSection } from "./ProjectSection";
-import ChillProjectPage from "../projects/Chill";
+import { ChillProjectPage } from "../projects/Chill";
 
 export type ProjectType =
   | "airframe"
