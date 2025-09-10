@@ -1,8 +1,9 @@
-import { FireworkProjectPage } from "../projects/Firework";
-import { TrainGoneProjectPage } from "../projects/TrainGone";
-import { BonoProjectPage } from "../projects/Bono";
+import { FireworkProjectPage } from "./projects/Firework";
+import { TrainGoneProjectPage } from "./projects/TrainGone";
+import { BonoProjectPage } from "./projects/Bono";
 import { ProjectSection } from "./ProjectSection";
-import { ChillProjectPage } from "../projects/Chill";
+import { ChillProjectPage } from "./projects/Chill";
+import { BoliviaProjectPage } from "./projects/Bolivia";
 
 export type ProjectType =
   | "airframe"
@@ -36,6 +37,8 @@ export const ProjectRouter = ({
       return <BonoProjectPage onNavigateBack={onNavigateBack} />;
     case "chill":
       return <ChillProjectPage onNavigateBack={onNavigateBack} />;
+    case "bolivia":
+      return <BoliviaProjectPage onNavigateBack={onNavigateBack} />;
     default:
       return <ProjectSection onProjectClick={onProjectClick} />;
   }

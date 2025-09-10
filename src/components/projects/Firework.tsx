@@ -10,6 +10,7 @@ import {
   ProjectSection,
   ProjectSkill,
   ProjectTimeline,
+  ProjectTitle,
 } from "./Components";
 import InstagramImporter from "../../utils/projects/Firework/instagramImporter.png";
 import { ProjectLinks } from "./Links";
@@ -42,7 +43,7 @@ export function FireworkProjectPage({
           className="pt-20 pb-12 px-12 flex"
         >
           <div className="max-w-4xl">
-            <ProjectHeader label="Firework" />
+            <ProjectTitle label="Firework" />
             <ProjectTimeline
               timeline="June 2023 - February 2025"
               tools={["React", "TypeScript", "Python", "Figma"]}
@@ -111,7 +112,7 @@ export function FireworkProjectPage({
               <p className="text-muted-foreground leading-relaxed mb-8">
                 My work included personalizing their 1:1 Video Chat, designing
                 the video uploading and editing workflows for their AIGC studio,
-                and introducing FOMO to their livestreams.
+                and introducing the aspect of FOMO to their livestreams.
               </p>
 
               <ImageWrapper color="purple">
@@ -161,9 +162,8 @@ export function FireworkProjectPage({
             <ProjectDescriptionWrapper>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Transitioning from design to development, I worked full-stack to
-                enhance their video player and improve their CSM portal.
+                improve sales acquisition and enhance their CMS portal.
               </p>
-
               <p className="text-muted-foreground leading-relaxed mb-6">
                 On the data side, I worked with two interns to develop a
                 pipeline for Firework's Sales-Led Growth initiative, automating

@@ -1,73 +1,11 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import { Button } from "../ui/button";
-import { Card, CardContent } from "../ui/card";
-import { Badge } from "../ui/badge";
+import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
+import { Badge } from "./ui/badge";
 import { ProjectType } from "./ProjectRouter";
-import FloatingBubbles from "../FloatingBubbles";
-
-const projects = [
-  {
-    id: "airframe" as ProjectType,
-    title: "Airframe",
-    description:
-      "Led development of Airframe's core product from the ground up.",
-    technologies: ["TypeScript", "React", "Figma"],
-    color: "bg-gradient-to-br from-blue-200 to-cyan-200",
-    textColor: "text-blue-900",
-    hasDetailPage: true,
-  },
-  {
-    id: "firework" as ProjectType,
-    title: "Firework",
-    description:
-      "Front-end engineer and designer at a leading global video commerce company.",
-    technologies: ["TypeScript", "React", "Python", "Figma"],
-    color: "bg-gradient-to-br from-pink-200 to-orange-200",
-    textColor: "text-orange-900",
-    hasDetailPage: true,
-  },
-  {
-    id: "bono" as ProjectType,
-    title: "Bono",
-    description:
-      "Developed a donation app that personalizes and simplifies the giving process",
-    technologies: ["React", "Figma"],
-    color: "bg-gradient-to-br from-pink-200 to-red-200",
-    textColor: "text-red-900",
-    hasDetailPage: true,
-  },
-  {
-    id: "traingone" as ProjectType,
-    title: "TrainGone",
-    description:
-      "Designed a reverse-ASL dictionary app to connect deaf and hearing communities.",
-    technologies: ["ReactNative", "UX/UI", "User Research"],
-    color: "bg-gradient-to-br from-pink-300 to-purple-300",
-    textColor: "text-purple-900",
-    hasDetailPage: true,
-  },
-  {
-    id: "chill" as ProjectType,
-    title: "Chill",
-    description:
-      "Designed a streaming platform that allows users to socialize and watch TV together.",
-    technologies: ["React", "Figma"],
-    color: "bg-gradient-to-br from-pink-200 to-red-200",
-    textColor: "text-red-900",
-    hasDetailPage: true,
-  },
-  {
-    id: "bolivia" as ProjectType,
-    title: "Bolivia",
-    description:
-      "Photography journey across Bolivia and Northern Chile, experimenting with night photography and using long exposures to capture the breathtaking landscapes and the dynamic interplay of lights.",
-    technologies: ["Photography"],
-    color: "bg-gradient-to-br from-blue-200 to-cyan-200",
-    textColor: "text-blue-900",
-    hasDetailPage: false,
-  },
-];
+import FloatingBubbles from "./FloatingBubbles";
+import { projects } from "../utils/info";
 
 interface ProjectSectionProps {
   onProjectClick: (projectId: ProjectType) => void;
@@ -164,26 +102,28 @@ export const ProjectSection = ({ onProjectClick }: ProjectSectionProps) => {
                     </div>
 
                     <div className="flex flex-wrap gap-1.5">
-                      {project.technologies.map((tech, techIndex) => (
-                        <motion.div
-                          key={tech}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{
-                            duration: 0.3,
-                            delay: index * 0.1 + techIndex * 0.05,
-                          }}
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          <Badge
-                            variant="secondary"
-                            className="text-xs px-2 py-1 bg-white/90 text-gray-700 border border-white/50 hover:bg-white transition-colors duration-200"
+                      {project.technologies.map(
+                        (tech: string, techIndex: number) => (
+                          <motion.div
+                            key={tech}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{
+                              duration: 0.3,
+                              delay: index * 0.1 + techIndex * 0.05,
+                            }}
+                            whileHover={{ scale: 1.05 }}
                           >
-                            {tech}
-                          </Badge>
-                        </motion.div>
-                      ))}
+                            <Badge
+                              variant="secondary"
+                              className="text-xs px-2 py-1 bg-white/90 text-gray-700 border border-white/50 hover:bg-white transition-colors duration-200"
+                            >
+                              {tech}
+                            </Badge>
+                          </motion.div>
+                        )
+                      )}
                     </div>
                   </CardContent>
                 </Card>
