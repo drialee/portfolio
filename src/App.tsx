@@ -4,13 +4,10 @@ import { useState } from "react";
 
 import { HeroSection } from "./components/sections/HeroSection";
 import { ContactSection } from "./components/sections/ContactSection";
-import { Footer } from "./components/sections/Footer";
+import { Footer } from "./components/Footer";
 import NavBar from "./components/NavBar";
 import { AboutSection } from "./components/sections/AboutSection";
-import {
-  ProjectRouter,
-  ProjectType,
-} from "./components/sections/ProjectRouter";
+import { ProjectRouter, ProjectType } from "./components/ProjectRouter";
 
 function App() {
   const [currentProject, setCurrentProject] = useState<ProjectType>(null);

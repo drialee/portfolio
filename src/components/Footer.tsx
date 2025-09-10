@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
-import { Button } from "../ui/button";
-import { socials } from "../../utils/info";
-import FloatingBubbles from "../FloatingBubbles";
+import { Button } from "./ui/button";
+import { socials } from "../utils/info";
+import FloatingBubbles from "./FloatingBubbles";
 
 const initials = "/initials.png";
 
@@ -43,7 +43,7 @@ export const Footer = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex gap-3"
             >
-              {socials.map((social, index) => (
+              {socials.map((social: any, index: number) => (
                 <motion.div
                   key={social.href}
                   initial={{ opacity: 0, scale: 0.8 }}
