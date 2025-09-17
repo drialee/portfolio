@@ -23,8 +23,8 @@ const socialLinks = [
 ];
 
 export function HeroSection() {
-  const scrollToAbout = () => {
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToWork = () => {
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -100,7 +100,7 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
             >
-              I'm a product manager, software engineer, and UX/UI designer.
+              I'm a product manager and front-end developer.
             </motion.p>
 
             <motion.div
@@ -120,7 +120,7 @@ export function HeroSection() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
-                onClick={scrollToAbout}
+                onClick={scrollToWork}
                 className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Explore My Work

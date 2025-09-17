@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-import "../styles/nav.css";
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { X, Menu } from "lucide-react";
@@ -8,10 +7,9 @@ import { X, Menu } from "lucide-react";
 const initials = "/initials.png";
 
 const navItems = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
 ];
 
 const NavBar = () => {

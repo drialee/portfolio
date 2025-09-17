@@ -39,6 +39,23 @@ export const projects = [
     description:
       "Built and designed growth-driving features at a global leader in video e-commerce.",
     technologies: ["TypeScript", "React", "Python", "Figma"],
+    product: [
+      "Product Design",
+      "Product Management",
+      "User Research",
+      "Prototyping",
+      "Figma",
+      "User Testing",
+    ],
+    engineering: [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "Data Pipeline",
+      "Machine Learning",
+      "Sales Automation",
+    ],
+
     color: "bg-gradient-to-br from-pink-200 to-orange-200",
     textColor: "text-orange-900",
     hasDetailPage: true,
@@ -69,8 +86,8 @@ export const projects = [
     description:
       "Designed a social streaming platform where users watch TV together in real time.",
     technologies: ["React", "Figma"],
-    color: "bg-gradient-to-br from-pink-200 to-red-200",
-    textColor: "text-red-900",
+    color: "bg-gradient-to-br from-blue-200 to-cyan-200",
+    textColor: "text-blue-900",
     hasDetailPage: true,
   },
   {
@@ -79,8 +96,8 @@ export const projects = [
     description:
       "Documented a visual journey across Bolivia and Chile, experimenting with night photography.",
     technologies: ["Photography"],
-    color: "bg-gradient-to-br from-blue-200 to-cyan-200",
-    textColor: "text-blue-900",
+    color: "bg-gradient-to-br from-purple-200 to-pink-200",
+    textColor: "text-purple-900",
     hasDetailPage: true,
   },
 ];

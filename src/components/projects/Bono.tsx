@@ -29,6 +29,7 @@ import { TrendingUp } from "lucide-react";
 import { Search } from "lucide-react";
 import { Users } from "lucide-react";
 import { ProcessSteps } from "./Components";
+import { projects } from "../../utils/info";
 
 const sections = ["About", "Exploration", "Branding", "Prototyping", "Product"];
 
@@ -37,6 +38,7 @@ interface BonoProjectPageProps {
 }
 
 export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
+  const bono = projects.find((project) => project.id === "bono");
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
       <ProjectSidebarNav sections={sections} onNavigateBack={onNavigateBack} />
@@ -54,7 +56,7 @@ export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
 
             <ProjectTimeline
               timeline="January - June 2024"
-              tools={["React", "Figma", "User Research"]}
+              tools={bono?.technologies || []}
               role={["Front-End Engineer", "UX Designer"]}
             />
           </div>
@@ -64,7 +66,9 @@ export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
         <div className="px-12 pb-20 space-y-16">
           {/* Overview Section */}
           <ProjectSection id="overview">
-            <div className="bg-gradient-to-br from-blue-100/80 to-purple-100/80 rounded-3xl p-8 backdrop-blur-sm">
+            <div
+              className={`bg-gradient-to-br rounded-3xl p-8 backdrop-blur-sm ${bono?.color}`}
+            >
               <motion.img
                 src={BonoCover}
                 alt="Bono Project Overview"
@@ -83,10 +87,10 @@ export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
 
             <CalloutBox
               title="Our Mission"
-              color="blue"
-              icon={<Heart className="w-6 h-6 text-blue-600" />}
+              color="orange"
+              icon={<Heart className="w-6 h-6 text-orange-600" />}
             >
-              <p className="text-blue-800 leading-relaxed">
+              <p className={`${bono?.textColor} leading-relaxed`}>
                 <strong>Bono</strong> is a platform designed to{" "}
                 <HighlightText color="blue">simplify the process</HighlightText>{" "}
                 of discovering trustworthy charities. We connect users with
@@ -155,8 +159,8 @@ export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
                   "Community Leaders",
                 ].map((participant, index) => (
                   <Badge
-                    key={index}
                     variant="secondary"
+                    key={index}
                     className="bg-white/70 text-purple-800 text-xs p-2 text-center"
                   >
                     {participant}
@@ -520,7 +524,7 @@ export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
                 >
                   <Badge
                     variant="secondary"
-                    className="px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 border border-blue-200 hover:from-blue-200 hover:to-purple-200 transition-all duration-200"
+                    className={`px-4 py-2  border border-blue-200  transition-all duration-200 ${bono?.color}`}
                   >
                     {skill}
                   </Badge>

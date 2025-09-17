@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Calendar } from "lucide-react";
 import { MapPin } from "lucide-react";
+import { ProjectTitle } from "./Components";
 
 // Type declaration for webpack's require.context
 declare const require: {
@@ -122,11 +123,7 @@ export const BoliviaProjectPage = ({
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-center mb-12"
             >
-              <div className="inline-block bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 bg-clip-text text-transparent mb-4">
-                <h1 className="text-5xl md:text-6xl font-bold">
-                  Bolivia & Chile
-                </h1>
-              </div>
+              <ProjectTitle label="Bolivia & Chile" />
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -154,7 +151,7 @@ export const BoliviaProjectPage = ({
                   I embarked on a 10-day photography journey across Bolivia and
                   Northern Chile, experimenting with night photography and using
                   long exposures to capture the dynamic interplay of lights on
-                  the bright night sky.
+                  the night sky.
                 </p>
               </motion.div>
             </motion.div>

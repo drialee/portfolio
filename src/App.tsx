@@ -3,7 +3,6 @@ import "./styles/global.css";
 import { useState } from "react";
 
 import { HeroSection } from "./components/sections/HeroSection";
-import { ContactSection } from "./components/sections/ContactSection";
 import { Footer } from "./components/Footer";
 import NavBar from "./components/NavBar";
 import { AboutSection } from "./components/sections/AboutSection";
@@ -43,11 +42,6 @@ function App() {
             onNavigateBack={navigateBack}
           />
         </div>
-        {!currentProject && (
-          <div id="contact">
-            <ContactSection />
-          </div>
-        )}
       </main>
       <Footer />
     </div>

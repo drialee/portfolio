@@ -4,6 +4,7 @@ import { BonoProjectPage } from "./projects/Bono";
 import { ProjectSection } from "./ProjectSection";
 import { ChillProjectPage } from "./projects/Chill";
 import { BoliviaProjectPage } from "./projects/Bolivia";
+import { AirframeProjectPage } from "./projects/Airframe";
 
 export type ProjectType =
   | "airframe"
@@ -27,8 +28,6 @@ export const ProjectRouter = ({
   onNavigateBack,
 }: ProjectRouterProps) => {
   switch (currentProject) {
-    case "airframe":
-      return null;
     case "firework":
       return <FireworkProjectPage onNavigateBack={onNavigateBack} />;
     case "traingone":
@@ -39,6 +38,8 @@ export const ProjectRouter = ({
       return <ChillProjectPage onNavigateBack={onNavigateBack} />;
     case "bolivia":
       return <BoliviaProjectPage onNavigateBack={onNavigateBack} />;
+    case "airframe":
+      return <AirframeProjectPage onNavigateBack={onNavigateBack} />;
     default:
       return <ProjectSection onProjectClick={onProjectClick} />;
   }

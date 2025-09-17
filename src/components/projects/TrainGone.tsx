@@ -1,4 +1,3 @@
-import "../../styles/projectPage.css";
 import { ProjectSidebarNav } from "../ProjectSidebar";
 import { motion } from "motion/react";
 import {

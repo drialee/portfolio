@@ -76,14 +76,15 @@ export function AboutSection() {
             >
               <div className="space-y-4">
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  I'm passionate about building at the intersection of
-                  technology, business, and creativity.
+                  I began my journey at Stanford as a liberal arts major, but
+                  soon rediscovered my love for puzzles and creating things.
+                  This led me to make a pivotal switch into design and
+                  technology in my junior year.
                 </p>
-
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Currently, I'm a Product Engineer at Airframe, where I helped
-                  build the core product from the ground up while also driving
-                  the product vision.{" "}
+                  Since then, I’ve worked across industries and teams, learning
+                  what makes a great product, how to build it, and how it shapes
+                  the world.
                 </p>
               </div>
 
@@ -155,18 +156,20 @@ export function AboutSection() {
                   </h3>
                   <div className="space-y-2 text-sm text-blue-800">
                     <div className="flex items-center gap-2">
-                      <span className="text-lg">🎨</span>
+                      <span className="text-lg">🍟</span>
                       <span>
-                        Originally studied Economics and International Relations
+                        My life goal is to eat the world - I'm a big foodie.
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-lg">📸</span>
-                      <span>I love photography, catch me with my Fujifilm</span>
+                      <span>
+                        I've had a camera since I was 12, I love photography.
+                      </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-lg">🎵</span>
-                      <span>EDM music is my coding soundtrack</span>
+                      <span>EDM is my coding soundtrack.</span>
                     </div>
                   </div>
                 </motion.div>
@@ -182,7 +185,7 @@ export function AboutSection() {
                   <div className="flex items-center gap-2 text-sm text-green-800">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     <span>
-                      Open to opportunities that mold product and engineering!
+                      Open to opportunities that meld product and engineering!
                     </span>
                   </div>
                 </motion.div>
