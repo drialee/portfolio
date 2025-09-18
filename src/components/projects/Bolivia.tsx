@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Calendar } from "lucide-react";
@@ -24,13 +25,12 @@ const images = importAll(
   require.context("../../utils/photography/edits", false, /\.(png|jpe?g|svg)$/)
 );
 
-interface BubblyPhotographyPageProps {
-  onNavigateBack: () => void;
-}
+export const BoliviaProjectPage = () => {
+  const navigate = useNavigate();
 
-export const BoliviaProjectPage = ({
-  onNavigateBack,
-}: BubblyPhotographyPageProps) => {
+  const handleNavigateBack = () => {
+    navigate("/");
+  };
   const imageDetails = [
     { orientation: "h" },
     { orientation: "v" },
@@ -107,7 +107,7 @@ export const BoliviaProjectPage = ({
               className="mb-8"
             >
               <Button
-                onClick={onNavigateBack}
+                onClick={handleNavigateBack}
                 variant="outline"
                 className="bg-white/60 backdrop-blur-sm border-white/20 hover:bg-white/80 transition-all duration-300 rounded-3xl"
               >

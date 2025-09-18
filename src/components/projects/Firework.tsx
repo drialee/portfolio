@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import { ProjectSidebarNav } from "../ProjectSidebar";
 import { Badge } from "../ui/badge";
 
@@ -22,22 +23,29 @@ import { EnhancedListItem } from "./Components";
 import { TwoColumnLayout } from "./Components";
 import { ProjectHeader } from "./Components";
 import { projects } from "../../utils/info";
-
-interface FireworkProjectPageProps {
-  onNavigateBack: () => void;
-}
+import { useIsMobile } from "../ui/use-mobile";
 
 const sections = ["Overview", "About", "Product", "Engineering"];
 
-export function FireworkProjectPage({
-  onNavigateBack,
-}: FireworkProjectPageProps) {
+export function FireworkProjectPage() {
+  const navigate = useNavigate();
+  const isMobile = useIsMobile();
   const firework = projects.find((project) => project.id === "firework");
+
+  const handleNavigateBack = () => {
+    navigate("/");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
-      <ProjectSidebarNav sections={sections} onNavigateBack={onNavigateBack} />
+      {!isMobile && (
+        <ProjectSidebarNav
+          sections={sections}
+          onNavigateBack={handleNavigateBack}
+        />
+      )}
 
-      <div className="ml-64 min-h-screen">
+      <div className="sm:ml-64 min-h-screen">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -161,14 +169,14 @@ export function FireworkProjectPage({
             <ProjectHeader label="Product Experience" />
 
             <CalloutBox
-              title="My Journey as Product Intern"
+              title="Product Design and Product Management"
               color="purple"
               icon={<Users className="w-6 h-6 text-purple-600" />}
             >
               <p className="text-purple-800 leading-relaxed mb-4">
                 I began my journey at Firework as a{" "}
-                <strong>Product Intern</strong>, working within both{" "}
-                <strong>Product Design and Product Management</strong>. Over the
+                <strong>product intern</strong>, working within both{" "}
+                <strong>product design and product management</strong>. Over the
                 course of the internship, I managed <strong>5 projects</strong>{" "}
                 across the company.
               </p>
@@ -207,7 +215,7 @@ export function FireworkProjectPage({
                   <motion.img
                     src={FOMO}
                     alt="FOMO for Livestreams"
-                    className="w-full rounded-2xl shadow-xl max-h-[400px]"
+                    className="w-full rounded-2xl shadow-xl max-h-[400px] object-cover"
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -264,7 +272,7 @@ export function FireworkProjectPage({
             <ProjectHeader label="Engineering Experience" />
 
             <CalloutBox
-              title="Design to Development Transition"
+              title="Full-Stack Development"
               color="green"
               icon={<Code className="w-6 h-6 text-green-600" />}
             >
@@ -279,7 +287,7 @@ export function FireworkProjectPage({
             <TwoColumnLayout
               left={
                 <div>
-                  <h3 className={`text-xl font-bold mb-4`}>
+                  <h3 className={`text-xl font-bold mb-4 text-blue-900`}>
                     <Target className="inline w-6 h-6 mr-2" />
                     Sales-Led Growth Pipeline
                   </h3>
@@ -319,13 +327,13 @@ export function FireworkProjectPage({
               }
               right={
                 <div>
-                  <h3 className={`text-xl font-bold mb-4`}>
+                  <h3 className={`text-xl font-bold mb-4 text-purple-900`}>
                     <Zap className="inline w-6 h-6 mr-2" />
                     Product-Led Growth Features
                   </h3>
                   <p className="text-purple-800 leading-relaxed mb-4">
                     Implemented new features to improve the user experience for
-                    <strong>PLG customers</strong> on the business portal.
+                    <strong> PLG customers</strong> on the business portal.
                   </p>
                   <div className="space-y-2">
                     <div className="bg-white/50 p-3 rounded-xl">

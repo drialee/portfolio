@@ -1,28 +1,33 @@
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import { ProjectSidebarNav } from "../ProjectSidebar";
 import { Badge } from "../ui/badge";
 
 import { Button } from "../ui/button";
 import { ExternalLink, Briefcase, Users } from "lucide-react";
 import { CalloutBox, ProjectTitle } from "./Components";
-
+import { useIsMobile } from "../ui/use-mobile";
 import { ProjectHeader } from "./Components";
 import Homepage from "../../utils/projects/Airframe/homepage.png";
 
-interface AirframeProjectPageProps {
-  onNavigateBack: () => void;
-}
-
 const sections = ["Overview", "About"];
 
-export function AirframeProjectPage({
-  onNavigateBack,
-}: AirframeProjectPageProps) {
+export function AirframeProjectPage() {
+  const navigate = useNavigate();
+  const isMobile = useIsMobile();
+  const handleNavigateBack = () => {
+    navigate("/");
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
-      <ProjectSidebarNav sections={sections} onNavigateBack={onNavigateBack} />
+      {!isMobile && (
+        <ProjectSidebarNav
+          sections={sections}
+          onNavigateBack={handleNavigateBack}
+        />
+      )}
 
-      <div className="ml-64 min-h-screen">
+      <div className="sm:ml-64 min-h-screen">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -129,7 +134,7 @@ export function AirframeProjectPage({
                 enabling our successful seed fundraising last June. As the team
                 grows, I continue to drive product development while also
                 leading the front-end team as our sole{" "}
-                <strong>Product Manager</strong>.
+                <strong>product manager</strong>.
               </p>
             </CalloutBox>
           </motion.section>

@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import { ProjectSidebarNav } from "../ProjectSidebar";
 import BonoCover from "../../utils/projects/Bono/BonoCover.png";
 import BonoBrand1 from "../../utils/projects/Bono/BonoBrand1.png";
@@ -7,7 +8,6 @@ import BonoBrand3 from "../../utils/projects/Bono/BonoBrand3.png";
 import BonoBrand4 from "../../utils/projects/Bono/BonoBrand4.png";
 import LofiChat from "../../utils/projects/Bono/ChatLofi.png";
 import LofiDiscover from "../../utils/projects/Bono/DiscoverLofi.png";
-import LofiSearch from "../../utils/projects/Bono/SearchLofi.png";
 import LofiHome from "../../utils/projects/Bono/HomepageLofi.png";
 import { Badge } from "../ui/badge";
 import {
@@ -30,20 +30,27 @@ import { Search } from "lucide-react";
 import { Users } from "lucide-react";
 import { ProcessSteps } from "./Components";
 import { projects } from "../../utils/info";
+import { useIsMobile } from "../ui/use-mobile";
 
 const sections = ["About", "Exploration", "Branding", "Prototyping", "Product"];
 
-interface BonoProjectPageProps {
-  onNavigateBack: () => void;
-}
-
-export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
+export const BonoProjectPage = () => {
+  const navigate = useNavigate();
+  const isMobile = useIsMobile();
+  const handleNavigateBack = () => {
+    navigate("/");
+  };
   const bono = projects.find((project) => project.id === "bono");
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
-      <ProjectSidebarNav sections={sections} onNavigateBack={onNavigateBack} />
+      {!isMobile && (
+        <ProjectSidebarNav
+          sections={sections}
+          onNavigateBack={handleNavigateBack}
+        />
+      )}
 
-      <div className="ml-64 min-h-screen">
+      <div className="sm:ml-64 min-h-screen">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -92,13 +99,11 @@ export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
             >
               <p className={`${bono?.textColor} leading-relaxed`}>
                 <strong>Bono</strong> is a platform designed to{" "}
-                <HighlightText color="blue">simplify the process</HighlightText>{" "}
-                of discovering trustworthy charities. We connect users with
-                organizations that align with their
-                <HighlightText color="blue">
-                  values, passions, and personal stories
-                </HighlightText>
-                , making it easier to give back in a meaningful way.
+                <strong>simplify the process</strong> of discovering trustworthy
+                charities. We connect users with organizations that align with
+                their
+                <strong> values, passions, and personal stories</strong>, making
+                it easier to give back in a meaningful way.
               </p>
             </CalloutBox>
 
@@ -207,9 +212,7 @@ export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
               <p className="text-orange-800 leading-relaxed">
                 Initially, we didn't have a specific user group beyond helping
                 people give back. However, we ultimately decided to
-                <HighlightText color="orange">
-                  focus on college students
-                </HighlightText>
+                <strong> focus on college students</strong>
                 —an audience we could personally relate to and design for both
                 casual and highly engaged users.
               </p>
@@ -229,11 +232,10 @@ export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
                 To bring our vision to life, we established{" "}
                 <strong>brand guidelines early on</strong>, selecting a palette
                 of
-                <HighlightText color="blue">blues and yellows</HighlightText> to
-                evoke calmness and happiness. We carefully chose fonts and
-                colors that convey{" "}
-                <HighlightText color="blue">simplicity and fun</HighlightText>,
-                ensuring the platform felt approachable and inviting.
+                <strong>blues and yellows</strong> to evoke calmness and
+                happiness. We carefully chose fonts and colors that convey{" "}
+                <strong>simplicity and fun</strong>, ensuring the platform felt
+                approachable and inviting.
               </p>
             </CalloutBox>
 
@@ -352,7 +354,7 @@ export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
                 Low-Fidelity Wireframes
               </h3>
 
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
                   {
                     image: LofiHome,
@@ -407,12 +409,10 @@ export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
             >
               <p className="text-green-800 leading-relaxed">
                 As designers, we recognize the
-                <HighlightText color="green">
-                  transformative power of storytelling
-                </HighlightText>
-                . Our mission is to empower users to share their unique
-                narratives, values, and passions through Bono, enabling them to
-                contribute meaningfully to causes they care about.
+                <strong>transformative power of storytelling</strong>. Our
+                mission is to empower users to share their unique narratives,
+                values, and passions through Bono, enabling them to contribute
+                meaningfully to causes they care about.
               </p>
             </CalloutBox>
 
@@ -450,10 +450,8 @@ export const BonoProjectPage = ({ onNavigateBack }: BonoProjectPageProps) => {
                     Technical Implementation
                   </h3>
                   <p className="text-blue-800 leading-relaxed mb-4">
-                    Built with{" "}
-                    <HighlightText color="blue">React framework</HighlightText>{" "}
-                    for responsive, modern web experience with seamless user
-                    interactions.
+                    Built with <strong>React framework</strong> for responsive,
+                    modern web experience with seamless user interactions.
                   </p>
                   <div className="space-y-2">
                     <Badge variant="secondary" className="mr-2 mb-2">

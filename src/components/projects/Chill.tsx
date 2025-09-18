@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import { ProjectSidebarNav } from "../ProjectSidebar";
 import ChillLaptop from "../../utils/projects/Chill/ChillLaptop.png";
 import CompetiveAnalysis from "../../utils/projects/Chill/Competive.png";
@@ -14,7 +15,6 @@ import FinalText from "../../utils/projects/Chill/WatchFinal2.png";
 import { Badge } from "../ui/badge";
 import { Play, Video } from "lucide-react";
 import {
-  HighlightText,
   ProjectTitle,
   ProjectTimeline,
   ProjectSection,
@@ -30,6 +30,7 @@ import { KeyInsights } from "./Components";
 import { QuoteBox } from "./Components";
 import { Search } from "lucide-react";
 import { Heart } from "lucide-react";
+import { useIsMobile } from "../ui/use-mobile";
 
 const sections = [
   "About",
@@ -39,16 +40,22 @@ const sections = [
   "Product",
 ];
 
-export const ChillProjectPage = ({
-  onNavigateBack,
-}: {
-  onNavigateBack: () => void;
-}) => {
+export const ChillProjectPage = () => {
+  const navigate = useNavigate();
+  const isMobile = useIsMobile();
+  const handleNavigateBack = () => {
+    navigate("/");
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
-      <ProjectSidebarNav sections={sections} onNavigateBack={onNavigateBack} />
+      {!isMobile && (
+        <ProjectSidebarNav
+          sections={sections}
+          onNavigateBack={handleNavigateBack}
+        />
+      )}
 
-      <div className="ml-64 min-h-screen">
+      <div className="sm:ml-64 min-h-screen">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -94,11 +101,9 @@ export const ChillProjectPage = ({
             >
               <p className="text-blue-800 leading-relaxed">
                 <strong>&Chill</strong> transforms streaming into an
-                <HighlightText color="blue">
-                  engaging, shared experience
-                </HighlightText>
-                , enabling users to socialize and watch TV together—bridging
-                distances and fostering meaningful connections.
+                <strong> engaging, shared experience</strong>, enabling users to
+                socialize and watch TV together—bridging distances and fostering
+                meaningful connections.
               </p>
             </CalloutBox>
 
@@ -112,9 +117,7 @@ export const ChillProjectPage = ({
                 these solutions often
                 <strong> fall short</strong> in creating a seamless and
                 inclusive experience. Through my research, I identified
-                <HighlightText color="orange">
-                  three key pain points
-                </HighlightText>
+                <strong> three key pain points</strong>
                 that make social streaming unnecessarily difficult:
               </p>
             </CalloutBox>
@@ -152,9 +155,8 @@ export const ChillProjectPage = ({
               <p className="text-purple-800 leading-relaxed">
                 My first step was to <strong>talk to users</strong> about their
                 experience using social streaming services. I focused on
-                <HighlightText color="purple">Netflix Party</HighlightText>,
-                asking my interviewees about their experience with the
-                extension.
+                <strong> Netflix Party</strong>, asking my interviewees about
+                their experience with the extension.
               </p>
             </CalloutBox>
 
@@ -181,7 +183,7 @@ export const ChillProjectPage = ({
                   </h3>
                   <p className="text-blue-800 leading-relaxed mb-4">
                     I conducted analysis of major streaming platforms like
-                    <strong>Netflix, Prime Video, HBO, and Hulu</strong>
+                    <strong> Netflix, Prime Video, HBO, and Hulu</strong>
                   </p>
                   <img
                     src={CompetiveAnalysis}
@@ -263,13 +265,10 @@ export const ChillProjectPage = ({
               icon={<Target className="w-6 h-6 text-purple-600" />}
             >
               <p className="text-purple-800 leading-relaxed text-center text-xl font-semibold">
-                "There is a
-                <HighlightText color="purple">strong desire</HighlightText> for
-                a communal digital viewing experience, yet its widespread
-                adoption is hindered by substantial
-                <HighlightText color="purple">
-                  communication and technological barriers
-                </HighlightText>
+                "There is a<strong> strong desire</strong> for a communal
+                digital viewing experience, yet its widespread adoption is
+                hindered by substantial
+                <strong> communication and technological barriers</strong>
                 ."
               </p>
             </CalloutBox>
@@ -292,9 +291,7 @@ export const ChillProjectPage = ({
                   </h4>
                   <p className="text-blue-800 leading-relaxed">
                     How can we
-                    <HighlightText color="blue">
-                      simplify the process
-                    </HighlightText>
+                    <strong> simplify the process</strong>
                     of inviting friends and synchronizing playback across
                     devices for a seamless social streaming experience?
                   </p>
@@ -313,10 +310,10 @@ export const ChillProjectPage = ({
                   <p className="text-purple-800 leading-relaxed">
                     How might we enable users to transition from individual to
                     group streaming experience,
-                    <HighlightText color="purple">
+                    <strong>
                       preserving personalization while enhancing social
                       interaction
-                    </HighlightText>
+                    </strong>
                     ?
                   </p>
                 </motion.div>
@@ -333,9 +330,7 @@ export const ChillProjectPage = ({
                   </h4>
                   <p className="text-green-800 leading-relaxed">
                     How can we replicate the
-                    <HighlightText color="green">
-                      shared excitement and interactions
-                    </HighlightText>
+                    <strong> shared excitement and interactions</strong>
                     of an in-person movie night through an online platform?
                   </p>
                 </motion.div>
@@ -354,12 +349,11 @@ export const ChillProjectPage = ({
             >
               <p className="text-blue-800 leading-relaxed">
                 After brainstorming and sketching ideas on paper, I created the
-                <strong>V1 prototype</strong> using Figma. For the homepage, I
+                <strong> V1 prototype</strong> using Figma. For the homepage, I
                 drew inspiration from existing streaming platforms to understand
                 their layout structures. I opted for a
-                <HighlightText color="blue">dark theme</HighlightText>,
-                anticipating that most users would be streaming in low-light
-                settings.
+                <strong> dark theme</strong>, anticipating that most users would
+                be streaming in low-light settings.
               </p>
             </CalloutBox>
 
@@ -411,10 +405,7 @@ export const ChillProjectPage = ({
               <p className="text-green-800 leading-relaxed">
                 To foster social interaction, I incorporated features inspired
                 by <strong>Spotify and HouseParty</strong>. The design includes
-                a
-                <HighlightText color="green">
-                  right-hand activity panel
-                </HighlightText>
+                a<strong> right-hand activity panel </strong>
                 where users can see their friends' streaming activity.
                 Additionally, users can request to join active, public watch
                 parties, encouraging a seamless and engaging social streaming
@@ -473,9 +464,7 @@ export const ChillProjectPage = ({
                     </h3>
                     <p className="text-purple-800 leading-relaxed">
                       The homepage prioritizes
-                      <HighlightText color="purple">
-                        friend interactions
-                      </HighlightText>
+                      <strong> friend interactions </strong>
                       while maintaining party privacy. Users can view active
                       friend activity in the right sidebar and see friend
                       recommendations prominently displayed at the top of their
@@ -495,12 +484,10 @@ export const ChillProjectPage = ({
                     </h3>
                     <p className="text-blue-800 leading-relaxed">
                       Users can curate their profile by selecting their
-                      <strong>favorite shows</strong>, which are displayed for
+                      <strong> favorite shows </strong>, which are displayed for
                       others to see. When visiting a friend's profile, users can
                       view their favorites along with
-                      <HighlightText color="blue">
-                        personalized recommendations
-                      </HighlightText>
+                      <strong> personalized recommendations </strong>
                       for compatible shows to watch together.
                     </p>
                   </div>
@@ -535,9 +522,7 @@ export const ChillProjectPage = ({
                     </h3>
                     <p className="text-green-800 leading-relaxed">
                       Users can invite
-                      <HighlightText color="green">
-                        up to five active friends
-                      </HighlightText>
+                      <strong> up to five active friends </strong>
                       to join a watch party directly when starting a video,
                       creating a collaborative and social viewing experience
                       without complex setup.
@@ -601,10 +586,10 @@ export const ChillProjectPage = ({
                 >
                   <p className="text-purple-800 leading-relaxed">
                     During the watch party, users can
-                    <HighlightText color="purple">chat live</HighlightText>
+                    <strong> chat live </strong>
                     while enjoying their film together. The right section of the
                     streaming screen is dedicated to both a
-                    <strong>chat tab and a video tab</strong>, ensuring easy
+                    <strong> chat tab and a video tab </strong>, ensuring easy
                     communication and interaction throughout the viewing
                     experience.
                   </p>

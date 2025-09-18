@@ -1,5 +1,4 @@
 import { Github, Linkedin, Mail } from "lucide-react";
-import { ProjectType } from "../components/ProjectRouter";
 
 export const socials = [
   {
@@ -24,7 +23,7 @@ export const socials = [
 
 export const projects = [
   {
-    id: "airframe" as ProjectType,
+    id: "airframe",
     title: "Airframe",
     description:
       "Built and scaled the core product as Founding Product Engineer of an expert network marketplace.",
@@ -34,7 +33,7 @@ export const projects = [
     hasDetailPage: true,
   },
   {
-    id: "firework" as ProjectType,
+    id: "firework",
     title: "Firework",
     description:
       "Built and designed growth-driving features at a global leader in video e-commerce.",
@@ -61,7 +60,7 @@ export const projects = [
     hasDetailPage: true,
   },
   {
-    id: "bono" as ProjectType,
+    id: "bono",
     title: "Bono",
     description:
       "Created a donation app that makes giving personal, seamless, and impactful.",
@@ -71,7 +70,7 @@ export const projects = [
     hasDetailPage: true,
   },
   {
-    id: "traingone" as ProjectType,
+    id: "traingone",
     title: "TrainGone",
     description:
       "Led product and design for a reverse-ASL dictionary app bridging deaf and hearing communities.",
@@ -81,7 +80,7 @@ export const projects = [
     hasDetailPage: true,
   },
   {
-    id: "chill" as ProjectType,
+    id: "chill",
     title: "Chill",
     description:
       "Designed a social streaming platform where users watch TV together in real time.",
@@ -91,7 +90,7 @@ export const projects = [
     hasDetailPage: true,
   },
   {
-    id: "bolivia" as ProjectType,
+    id: "bolivia",
     title: "Bolivia",
     description:
       "Documented a visual journey across Bolivia and Chile, experimenting with night photography.",

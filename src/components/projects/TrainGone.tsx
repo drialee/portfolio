@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { ProjectSidebarNav } from "../ProjectSidebar";
 import { motion } from "motion/react";
 import {
@@ -23,7 +24,7 @@ import { EnhancedListItem } from "./Components";
 import { ProcessSteps } from "./Components";
 import { Button } from "../ui/button";
 import { Video } from "lucide-react";
-
+import { useIsMobile } from "../ui/use-mobile";
 const sections = [
   "About",
   "User Research",
@@ -32,18 +33,22 @@ const sections = [
   "Product",
 ];
 
-interface TrainGoneProjectPageProps {
-  onNavigateBack: () => void;
-}
-
-export const TrainGoneProjectPage = ({
-  onNavigateBack,
-}: TrainGoneProjectPageProps) => {
+export const TrainGoneProjectPage = () => {
+  const navigate = useNavigate();
+  const isMobile = useIsMobile();
+  const handleNavigateBack = () => {
+    navigate("/");
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
-      <ProjectSidebarNav sections={sections} onNavigateBack={onNavigateBack} />
+      {!isMobile && (
+        <ProjectSidebarNav
+          sections={sections}
+          onNavigateBack={handleNavigateBack}
+        />
+      )}
 
-      <div className="ml-64 min-h-screen">
+      <div className="sm:ml-64 min-h-screen">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -88,14 +93,11 @@ export const TrainGoneProjectPage = ({
               icon={<Target className="w-6 h-6 text-orange-600" />}
             >
               <p className="text-orange-800 leading-relaxed">
-                <HighlightText color="orange">
-                  Current ASL dictionaries
-                </HighlightText>{" "}
-                assume users already know an English word and seek the
-                corresponding ASL sign. There's{" "}
-                <strong>no intuitive platform</strong> for identifying English
-                words from ASL signs based on visual parameters (handshape, body
-                location, palm orientation, and movement).
+                <strong>Current ASL dictionaries</strong> assume users already
+                know an English word and seek the corresponding ASL sign.
+                There's <strong>no intuitive platform</strong> for identifying
+                English words from ASL signs based on visual parameters
+                (handshape, body location, palm orientation, and movement).
               </p>
             </CalloutBox>
 
@@ -106,14 +108,8 @@ export const TrainGoneProjectPage = ({
             >
               <p className="text-blue-800 leading-relaxed mb-4">
                 <strong>TrainGone</strong> functions as both a{" "}
-                <HighlightText color="blue">
-                  "reverse ASL dictionary"
-                </HighlightText>{" "}
-                and a
-                <HighlightText color="blue">
-                  social educational platform
-                </HighlightText>{" "}
-                where users can:
+                <strong>"reverse ASL dictionary"</strong> and a
+                <strong>social educational platform</strong> where users can:
               </p>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="bg-white/50 p-4 rounded-xl">
@@ -234,9 +230,7 @@ export const TrainGoneProjectPage = ({
             >
               <p className="text-green-800 text-xl font-semibold text-center">
                 "How Might We
-                <HighlightText color="green">
-                  empower ASL speakers
-                </HighlightText>
+                <strong> empower ASL speakers </strong>
                 to communicate and connect on a global scale?"
               </p>
             </CalloutBox>
@@ -276,7 +270,7 @@ export const TrainGoneProjectPage = ({
                 Testing guided us toward a{" "}
                 <strong>comprehensive solution</strong>: a social educational
                 platform empowering deaf signers to define signs through
-                <HighlightText color="blue">video storytelling</HighlightText>
+                <strong> video storytelling </strong>
                 while providing learners with contextual reinforcement. This
                 bridges gaps between learning styles and cultural expression.
               </p>
@@ -414,10 +408,9 @@ export const TrainGoneProjectPage = ({
                     Technical Implementation
                   </h3>
                   <p className="text-blue-800 leading-relaxed mb-4">
-                    Built with{" "}
-                    <HighlightText color="blue">React Native</HighlightText>{" "}
-                    framework for cross-platform compatibility, ensuring{" "}
-                    <strong>inclusivity and accessibility</strong>
+                    Built with <strong> React Native </strong> framework for
+                    cross-platform compatibility, ensuring{" "}
+                    <strong>inclusivity and accessibility </strong>
                     across Android and iOS devices.
                   </p>
                   <div className="space-y-2">
@@ -475,13 +468,10 @@ export const TrainGoneProjectPage = ({
               icon={<Target className="w-6 h-6 text-green-600" />}
             >
               <p className="text-green-800 leading-relaxed mb-4">
-                The{" "}
-                <HighlightText color="green">
-                  most complex feature
-                </HighlightText>{" "}
-                - video creation - was fully implemented. Search and browse
-                features were limited by lack of existing user base, so we
-                <strong>hard-coded realistic data</strong> to demonstrate full
+                The <strong>most complex feature</strong> - video creation - was
+                fully implemented. Search and browse features were limited by
+                lack of existing user base, so we
+                <strong> hard-coded realistic data</strong> to demonstrate full
                 app experience.
               </p>
               <div className="bg-white/50 p-4 rounded-xl">

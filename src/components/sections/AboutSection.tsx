@@ -82,7 +82,7 @@ export function AboutSection() {
                   technology in my junior year.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Since then, I’ve worked across industries and teams, learning
+                  I’ve worked across a variety of industries and teams, learning
                   what makes a great product, how to build it, and how it shapes
                   the world.
                 </p>
@@ -157,15 +157,11 @@ export function AboutSection() {
                   <div className="space-y-2 text-sm text-blue-800">
                     <div className="flex items-center gap-2">
                       <span className="text-lg">🍟</span>
-                      <span>
-                        My life goal is to eat the world - I'm a big foodie.
-                      </span>
+                      <span>My life goal is to eat the world.</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-lg">📸</span>
-                      <span>
-                        I've had a camera since I was 12, I love photography.
-                      </span>
+                      <span>I've had a camera in my hand since I was 12.</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-lg">🎵</span>

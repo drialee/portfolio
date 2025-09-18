@@ -1,17 +1,13 @@
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { ProjectType } from "./ProjectRouter";
 import FloatingBubbles from "./FloatingBubbles";
 import { projects } from "../utils/info";
 
-interface ProjectSectionProps {
-  onProjectClick: (projectId: ProjectType) => void;
-}
-
-export const ProjectSection = ({ onProjectClick }: ProjectSectionProps) => {
+export const ProjectSection = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-purple-50/30 via-background to-pink-50/30">
       <div className="container mx-auto px-6">
@@ -61,11 +57,6 @@ export const ProjectSection = ({ onProjectClick }: ProjectSectionProps) => {
               >
                 <Card
                   className={`overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ${project.color} backdrop-blur-sm h-full ${project.hasDetailPage ? "cursor-pointer" : ""}`}
-                  onClick={() => {
-                    if (project.hasDetailPage && onProjectClick) {
-                      onProjectClick(project.id);
-                    }
-                  }}
                 >
                   <CardContent className="p-6 h-full flex flex-col justify-between">
                     <div>
@@ -76,19 +67,20 @@ export const ProjectSection = ({ onProjectClick }: ProjectSectionProps) => {
                           {project.title}
                         </h3>
                         <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          {project.hasDetailPage && onProjectClick && (
+                          {project.hasDetailPage && (
                             <motion.div
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
                             >
-                              <Button
-                                size="sm"
-                                variant="secondary"
-                                className="p-2 rounded-full bg-white/80 hover:bg-white shadow-md"
-                                onClick={() => onProjectClick(project.id)}
-                              >
-                                <ArrowRight className="w-3 h-3" />
-                              </Button>
+                              <Link to={`/projects/${project.id}`}>
+                                <Button
+                                  size="sm"
+                                  variant="secondary"
+                                  className="p-2 rounded-full bg-white/80 hover:bg-white shadow-md"
+                                >
+                                  <ArrowRight className="w-3 h-3" />
+                                </Button>
+                              </Link>
                             </motion.div>
                           )}
                         </div>
