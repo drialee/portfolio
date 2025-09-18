@@ -1,36 +1,40 @@
-import React from "react";
 import { motion } from "motion/react";
-import { useNavigate } from "react-router-dom";
+import {
+  Heart,
+  MessageCircle,
+  Play,
+  Search,
+  Target,
+  Users,
+  Video,
+} from "lucide-react";
+
 import { ProjectSidebarNav } from "../ProjectSidebar";
+import { Badge } from "../ui/badge";
+import { useProjectNavigation } from "../../hooks/useProjectNavigation";
+import {
+  CalloutBox,
+  EnhancedListItem,
+  KeyInsights,
+  ProjectHeader,
+  ProjectSection,
+  ProjectTimeline,
+  ProjectTitle,
+  QuoteBox,
+  TwoColumnLayout,
+} from "./Components";
+
+// Image imports
 import ChillLaptop from "../../utils/projects/Chill/ChillLaptop.png";
 import CompetiveAnalysis from "../../utils/projects/Chill/Competive.png";
+import FinalHome from "../../utils/projects/Chill/FinalHome.png";
+import FinalProfile from "../../utils/projects/Chill/FinalProfile.png";
+import FinalText from "../../utils/projects/Chill/WatchFinal2.png";
+import FinalView from "../../utils/projects/Chill/FinalView1.png";
+import FinalWatch from "../../utils/projects/Chill/WatchFinal1.png";
 import SocialMedia from "../../utils/projects/Chill/SocialMedia.png";
 import V10 from "../../utils/projects/Chill/V1.0.png";
 import V11 from "../../utils/projects/Chill/V1.1.png";
-import FinalHome from "../../utils/projects/Chill/FinalHome.png";
-import FinalView from "../../utils/projects/Chill/FinalView1.png";
-import FinalProfile from "../../utils/projects/Chill/FinalProfile.png";
-import FinalWatch from "../../utils/projects/Chill/WatchFinal1.png";
-import FinalText from "../../utils/projects/Chill/WatchFinal2.png";
-import { Badge } from "../ui/badge";
-import { Play, Video } from "lucide-react";
-import {
-  ProjectTitle,
-  ProjectTimeline,
-  ProjectSection,
-  ProjectHeader,
-} from "./Components";
-import { Target } from "lucide-react";
-import { Users } from "lucide-react";
-import { MessageCircle } from "lucide-react";
-import { CalloutBox } from "./Components";
-import { EnhancedListItem } from "./Components";
-import { TwoColumnLayout } from "./Components";
-import { KeyInsights } from "./Components";
-import { QuoteBox } from "./Components";
-import { Search } from "lucide-react";
-import { Heart } from "lucide-react";
-import { useIsMobile } from "../ui/use-mobile";
 
 const sections = [
   "About",
@@ -41,11 +45,7 @@ const sections = [
 ];
 
 export const ChillProjectPage = () => {
-  const navigate = useNavigate();
-  const isMobile = useIsMobile();
-  const handleNavigateBack = () => {
-    navigate("/");
-  };
+  const { isMobile, handleNavigateBack } = useProjectNavigation();
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
       {!isMobile && (

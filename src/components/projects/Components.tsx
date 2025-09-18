@@ -66,8 +66,8 @@ export const ProjectTimeline = ({
       <div>
         <h3 className="font-semibold text-foreground mb-2">Tools</h3>
         <div className="space-y-1">
-          {tools.map((tool) => (
-            <Badge variant="secondary" className="mr-2 mb-1">
+          {tools.map((tool, index) => (
+            <Badge key={index} variant="secondary" className="mr-2 mb-1">
               {tool}
             </Badge>
           ))}
@@ -76,8 +76,10 @@ export const ProjectTimeline = ({
       <div>
         <h3 className="font-semibold text-foreground mb-2">Role</h3>
         <div className="space-y-1">
-          {role.map((role) => (
-            <p className="mr-2 mb-1 text-muted-foreground">{role}</p>
+          {role.map((roleItem, index) => (
+            <p key={index} className="mr-2 mb-1 text-muted-foreground">
+              {roleItem}
+            </p>
           ))}
         </div>
       </div>

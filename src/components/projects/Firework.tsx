@@ -1,40 +1,30 @@
 import { motion } from "motion/react";
-import { useNavigate } from "react-router-dom";
+import { Briefcase, Code, Target, Users, Zap } from "lucide-react";
+
 import { ProjectSidebarNav } from "../ProjectSidebar";
 import { Badge } from "../ui/badge";
-
-import Firework from "../../utils/projects/Firework/fireworkCover.png";
-
-import FOMO from "../../utils/projects/Firework/fomo.png";
-import step2 from "../../utils/projects/Firework/step2.png";
-
-import { Button } from "../ui/button";
+import { useProjectNavigation } from "../../hooks/useProjectNavigation";
 import {
-  ExternalLink,
-  Briefcase,
-  Code,
-  Users,
-  Target,
-  Zap,
-} from "lucide-react";
-import { CalloutBox, ProjectTitle } from "./Components";
-import { StatsGrid } from "./Components";
-import { EnhancedListItem } from "./Components";
-import { TwoColumnLayout } from "./Components";
-import { ProjectHeader } from "./Components";
+  CalloutBox,
+  EnhancedListItem,
+  ProjectHeader,
+  ProjectTitle,
+  StatsGrid,
+  TwoColumnLayout,
+} from "./Components";
 import { projects } from "../../utils/info";
-import { useIsMobile } from "../ui/use-mobile";
+
+// Image imports
+import FOMO from "../../utils/projects/Firework/fomo.png";
+import Firework from "../../utils/projects/Firework/fireworkCover.png";
+import step2 from "../../utils/projects/Firework/step2.png";
+import { ExternalLinkButton } from "../ExternalLink";
 
 const sections = ["Overview", "About", "Product", "Engineering"];
 
 export function FireworkProjectPage() {
-  const navigate = useNavigate();
-  const isMobile = useIsMobile();
+  const { isMobile, handleNavigateBack } = useProjectNavigation();
   const firework = projects.find((project) => project.id === "firework");
-
-  const handleNavigateBack = () => {
-    navigate("/");
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
@@ -386,36 +376,10 @@ export function FireworkProjectPage() {
             </div>
           </motion.section>
 
-          {/* Project Links */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl pt-8"
-          >
-            <div className="text-center">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-2xl px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300"
-                  asChild
-                >
-                  <a
-                    href="https://firework.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink className="w-5 h-5 mr-2" />
-                    Visit Firework
-                  </a>
-                </Button>
-              </motion.div>
-            </div>
-          </motion.section>
+          <ExternalLinkButton
+            href="https://firework.com"
+            label="Visit Firework"
+          />
         </div>
       </div>
     </div>

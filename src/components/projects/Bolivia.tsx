@@ -1,9 +1,8 @@
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft, Calendar, MapPin } from "lucide-react";
+
 import { Button } from "../ui/button";
-import { ArrowLeft } from "lucide-react";
-import { Calendar } from "lucide-react";
-import { MapPin } from "lucide-react";
 import { ProjectTitle } from "./Components";
 
 // Type declaration for webpack's require.context
@@ -99,23 +98,6 @@ export const BoliviaProjectPage = () => {
           className="container mx-auto px-6 pt-12 pb-8"
         >
           <div className="max-w-4xl mx-auto">
-            {/* Back button */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-8"
-            >
-              <Button
-                onClick={handleNavigateBack}
-                variant="outline"
-                className="bg-white/60 backdrop-blur-sm border-white/20 hover:bg-white/80 transition-all duration-300 rounded-3xl"
-              >
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Portfolio
-              </Button>
-            </motion.div>
-
             {/* Title section */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -168,7 +150,7 @@ export const BoliviaProjectPage = () => {
           <div className="max-w-7xl mx-auto">
             {!isMobile ? (
               /* Desktop masonry grid */
-              <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6">
+              <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
                 {images.map((image: any, index: number) => (
                   <motion.div
                     key={index}
@@ -185,8 +167,8 @@ export const BoliviaProjectPage = () => {
                     }}
                     className="break-inside-avoid mb-6 group"
                   >
-                    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-3 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
-                      <div className="overflow-hidden rounded-xl">
+                    <div className="backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
+                      <div className="overflow-hidden">
                         <img
                           src={image}
                           alt={`Bolivia Chile Photography ${index + 1}`}

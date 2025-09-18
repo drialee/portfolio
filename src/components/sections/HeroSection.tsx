@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
 import { Github, Linkedin, Mail } from "lucide-react";
-import { Button } from "../ui/button";
+
 import FloatingBubbles from "../FloatingBubbles";
+import { Button } from "../ui/button";
 const profile = "/profile.png";
 
 const socialLinks = [
@@ -44,20 +45,6 @@ export function HeroSection() {
             className="relative"
           >
             <div className="relative w-80 h-80 mx-auto">
-              {/* Gradient background blur */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, -5, 0],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute inset-0 bg-gradient-to-br from-purple-300/40 via-pink-300/40 to-blue-300/40 rounded-full blur-2xl"
-              />
-
               {/* Character image */}
               <motion.img
                 src={profile}

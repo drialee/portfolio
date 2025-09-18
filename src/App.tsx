@@ -1,25 +1,25 @@
-import "./App.css";
-import "./styles/global.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { HeroSection } from "./components/sections/HeroSection";
+import "./styles/global.css";
+
 import { Footer } from "./components/Footer";
 import NavBar from "./components/NavBar";
-import { AboutSection } from "./components/sections/AboutSection";
 import { ProjectSection } from "./components/ProjectSection";
-import { FireworkProjectPage } from "./components/projects/Firework";
-import { TrainGoneProjectPage } from "./components/projects/TrainGone";
+import { AirframeProjectPage } from "./components/projects/Airframe";
+import { BoliviaProjectPage } from "./components/projects/Bolivia";
 import { BonoProjectPage } from "./components/projects/Bono";
 import { ChillProjectPage } from "./components/projects/Chill";
-import { BoliviaProjectPage } from "./components/projects/Bolivia";
-import { AirframeProjectPage } from "./components/projects/Airframe";
+import { FireworkProjectPage } from "./components/projects/Firework";
+import { TrainGoneProjectPage } from "./components/projects/TrainGone";
+import { AboutSection } from "./components/sections/AboutSection";
+import { HeroSection } from "./components/sections/HeroSection";
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-background text-foreground">
-        <NavBar />
-        <main>
+      <div className="min-h-screen bg-background text-foreground overflow-x-clip relative">
+        <main className="overflow-x-hidden max-w-full">
+          <NavBar />
           <Routes>
             <Route
               path="/"

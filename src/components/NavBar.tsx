@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-
 import { motion } from "motion/react";
+import { Menu, X } from "lucide-react";
+
 import { Button } from "./ui/button";
-import { X, Menu } from "lucide-react";
 
 const initials = "/initials.png";
 
@@ -49,7 +49,7 @@ const NavBar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full overflow-hidden ${
+        className={`transition-all duration-300 ${
           isScrolled
             ? "bg-background/90 backdrop-blur-lg border-b border-purple-100 shadow-lg shadow-purple-100/20"
             : "bg-transparent"
@@ -116,14 +116,13 @@ const NavBar = () => {
             >
               <Button
                 variant="ghost"
-                size="sm"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="p-1.5 sm:p-2"
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-5 h-5" />
+                  <X className="!w-8 !h-8" />
                 ) : (
-                  <Menu className="w-5 h-5" />
+                  <Menu className="!w-8 !h-8" />
                 )}
               </Button>
             </motion.div>
@@ -139,7 +138,7 @@ const NavBar = () => {
           x: isMobileMenuOpen ? "0%" : "100%",
         }}
         transition={{ duration: 0.3 }}
-        className={`fixed top-16 right-0 bottom-0 w-full max-w-64 bg-background/95 backdrop-blur-md border-l border-border/50 z-40 md:hidden ${
+        className={`fixed top-0 right-0 bottom-0 max-w-64 bg-background/95 backdrop-blur-md border-l border-border/50 z-40 md:hidden ${
           isMobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >

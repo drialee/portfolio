@@ -65,7 +65,7 @@ export const Footer = () => {
                       rel="noopener noreferrer"
                       aria-label={social.label}
                     >
-                      <social.icon className="w-4 h-4" />
+                      <social.icon className="!w-6 !h-6" />
                     </a>
                   </Button>
                 </motion.div>

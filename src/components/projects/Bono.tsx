@@ -1,45 +1,45 @@
 import { motion } from "motion/react";
-import { useNavigate } from "react-router-dom";
+import {
+  Heart,
+  MessageCircle,
+  Palette,
+  Search,
+  Smartphone,
+  TrendingUp,
+  Users,
+} from "lucide-react";
+
 import { ProjectSidebarNav } from "../ProjectSidebar";
-import BonoCover from "../../utils/projects/Bono/BonoCover.png";
+import { Badge } from "../ui/badge";
+import { useProjectNavigation } from "../../hooks/useProjectNavigation";
+import {
+  CalloutBox,
+  EnhancedListItem,
+  KeyInsights,
+  ProcessSteps,
+  ProjectHeader,
+  ProjectSection,
+  ProjectTimeline,
+  ProjectTitle,
+  StatsGrid,
+  TwoColumnLayout,
+} from "./Components";
+import { projects } from "../../utils/info";
+
+// Image imports
 import BonoBrand1 from "../../utils/projects/Bono/BonoBrand1.png";
 import BonoBrand2 from "../../utils/projects/Bono/BonoBrand2.png";
 import BonoBrand3 from "../../utils/projects/Bono/BonoBrand3.png";
 import BonoBrand4 from "../../utils/projects/Bono/BonoBrand4.png";
+import BonoCover from "../../utils/projects/Bono/BonoCover.png";
 import LofiChat from "../../utils/projects/Bono/ChatLofi.png";
 import LofiDiscover from "../../utils/projects/Bono/DiscoverLofi.png";
 import LofiHome from "../../utils/projects/Bono/HomepageLofi.png";
-import { Badge } from "../ui/badge";
-import {
-  HighlightText,
-  ProjectHeader,
-  ProjectTitle,
-  ProjectTimeline,
-} from "./Components";
-import { CalloutBox, ProjectSection } from "./Components";
-import { TwoColumnLayout } from "./Components";
-import { StatsGrid } from "./Components";
-import { KeyInsights } from "./Components";
-import { EnhancedListItem } from "./Components";
-import { Heart } from "lucide-react";
-import { Palette } from "lucide-react";
-import { Smartphone } from "lucide-react";
-import { MessageCircle } from "lucide-react";
-import { TrendingUp } from "lucide-react";
-import { Search } from "lucide-react";
-import { Users } from "lucide-react";
-import { ProcessSteps } from "./Components";
-import { projects } from "../../utils/info";
-import { useIsMobile } from "../ui/use-mobile";
 
 const sections = ["About", "Exploration", "Branding", "Prototyping", "Product"];
 
 export const BonoProjectPage = () => {
-  const navigate = useNavigate();
-  const isMobile = useIsMobile();
-  const handleNavigateBack = () => {
-    navigate("/");
-  };
+  const { isMobile, handleNavigateBack } = useProjectNavigation();
   const bono = projects.find((project) => project.id === "bono");
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">

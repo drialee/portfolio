@@ -1,23 +1,19 @@
 import { motion } from "motion/react";
-import { useNavigate } from "react-router-dom";
+import { Briefcase, Users } from "lucide-react";
+
 import { ProjectSidebarNav } from "../ProjectSidebar";
 import { Badge } from "../ui/badge";
+import { ExternalLinkButton } from "../ExternalLink";
+import { useProjectNavigation } from "../../hooks/useProjectNavigation";
+import { CalloutBox, ProjectHeader, ProjectTitle } from "./Components";
 
-import { Button } from "../ui/button";
-import { ExternalLink, Briefcase, Users } from "lucide-react";
-import { CalloutBox, ProjectTitle } from "./Components";
-import { useIsMobile } from "../ui/use-mobile";
-import { ProjectHeader } from "./Components";
+// Image imports
 import Homepage from "../../utils/projects/Airframe/homepage.png";
 
 const sections = ["Overview", "About"];
 
 export function AirframeProjectPage() {
-  const navigate = useNavigate();
-  const isMobile = useIsMobile();
-  const handleNavigateBack = () => {
-    navigate("/");
-  };
+  const { isMobile, handleNavigateBack } = useProjectNavigation();
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
       {!isMobile && (
@@ -142,36 +138,10 @@ export function AirframeProjectPage() {
             Stay tuned for more updates...
           </p>
 
-          {/* Project Links */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl pt-8"
-          >
-            <div className="text-center">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-2xl px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300"
-                  asChild
-                >
-                  <a
-                    href="https://airframe.ai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink className="w-5 h-5 mr-2" />
-                    Visit Airframe
-                  </a>
-                </Button>
-              </motion.div>
-            </div>
-          </motion.section>
+          <ExternalLinkButton
+            href="https://airframe.ai"
+            label="Visit Airframe"
+          />
         </div>
       </div>
     </div>

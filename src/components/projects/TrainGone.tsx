@@ -1,30 +1,28 @@
-import { useNavigate } from "react-router-dom";
-import { ProjectSidebarNav } from "../ProjectSidebar";
 import { motion } from "motion/react";
+import { Lightbulb, Smartphone, Target, Users, Video } from "lucide-react";
+
+import { ProjectSidebarNav } from "../ProjectSidebar";
+import { Badge } from "../ui/badge";
+import { ExternalLinkButton } from "../ExternalLink";
+import { useProjectNavigation } from "../../hooks/useProjectNavigation";
 import {
+  CalloutBox,
+  EnhancedListItem,
   KeyInsights,
+  ProcessSteps,
   ProjectHeader,
+  ProjectSection,
+  ProjectTimeline,
   ProjectTitle,
+  StatsGrid,
   TwoColumnLayout,
 } from "./Components";
-import { ProjectTimeline } from "./Components";
-import { ProjectSection } from "./Components";
 
-import TrainGoneCov from "../../utils/projects/TrainGone/TrainGonePage.png";
+// Image imports
 import Task1 from "../../utils/projects/TrainGone/Task1.png";
 import Task2 from "../../utils/projects/TrainGone/Task2.png";
 import Task3 from "../../utils/projects/TrainGone/Task3.png";
-import { Badge } from "../ui/badge";
-import { CalloutBox, HighlightText } from "./Components";
-import { Smartphone, Target } from "lucide-react";
-import { Lightbulb } from "lucide-react";
-import { Users } from "lucide-react";
-import { StatsGrid } from "./Components";
-import { EnhancedListItem } from "./Components";
-import { ProcessSteps } from "./Components";
-import { Button } from "../ui/button";
-import { Video } from "lucide-react";
-import { useIsMobile } from "../ui/use-mobile";
+import TrainGoneCov from "../../utils/projects/TrainGone/TrainGonePage.png";
 const sections = [
   "About",
   "User Research",
@@ -34,11 +32,7 @@ const sections = [
 ];
 
 export const TrainGoneProjectPage = () => {
-  const navigate = useNavigate();
-  const isMobile = useIsMobile();
-  const handleNavigateBack = () => {
-    navigate("/");
-  };
+  const { isMobile, handleNavigateBack } = useProjectNavigation();
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
       {!isMobile && (
@@ -511,36 +505,10 @@ export const TrainGoneProjectPage = () => {
             </div>
           </ProjectSection>
 
-          {/* Project Links */}
-          <motion.section
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl pt-8"
-          >
-            <div className="text-center">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-2xl px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300"
-                  asChild
-                >
-                  <a
-                    href="https://www.youtube.com/watch?v=--dKGtDRh2A"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Video className="w-5 h-5 mr-2" />
-                    Watch Demo Video
-                  </a>
-                </Button>
-              </motion.div>
-            </div>
-          </motion.section>
+          <ExternalLinkButton
+            href="https://www.youtube.com/watch?v=--dKGtDRh2A"
+            label="Watch Demo Video"
+          />
         </div>
       </div>
     </div>
