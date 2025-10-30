@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import FloatingBubbles from "./FloatingBubbles";

@@ -23,12 +23,12 @@ const experiences = [
   },
   {
     icon: Coffee,
-    label: "999+",
-    desc: "Cups of Coffee",
-    color: "from-amber-400 to-orange-500",
+    label: "$999+",
+    desc: "Money spent on Matcha",
+    color: "from-green-400 to-green-600",
   },
 ];
-const skills = ["React", "TypeScript", "Figma", "Next.js", "Tailwind"];
+const skills = ["React", "TypeScript", "Figma"];
 
 export function AboutSection() {
   return (
@@ -66,7 +66,7 @@ export function AboutSection() {
             />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -75,16 +75,23 @@ export function AboutSection() {
               className="space-y-6"
             >
               <div className="space-y-4">
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-md text-muted-foreground leading-relaxed">
                   I began my journey at Stanford as a liberal arts major, but
-                  soon rediscovered my love for puzzles and creating things.
-                  This led me to make a pivotal switch into design and
-                  technology in my junior year.
+                  soon rediscovered my love for solving puzzles and creating
+                  things. That curiosity led me to make a pivotal switch into
+                  design and technology in my junior year.
                 </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  I’ve worked across a variety of industries and teams, learning
-                  what makes a great product, how to build it, and how it shapes
-                  the world.
+                <p className="text-md text-muted-foreground leading-relaxed">
+                  I’m passionate about building products that everyone can
+                  enjoy. I draw from my background in history and psychology to
+                  design experiences that are inclusive, intuitive, and a little
+                  bit playful.
+                </p>
+
+                <p className="text-md text-muted-foreground leading-relaxed">
+                  Since then, I’ve worked across industries and teams—learning
+                  not just how to build great products, but how they shape the
+                  way we connect, communicate, and create.
                 </p>
               </div>
 
@@ -170,7 +177,7 @@ export function AboutSection() {
                   </div>
                 </motion.div>
 
-                {/* Current Status */}
+                {/* Current Status
                 <motion.div
                   whileHover={{ scale: 1.02, rotateZ: -0.5 }}
                   className="p-6 rounded-3xl bg-gradient-to-br from-green-100 to-emerald-100 shadow-lg"
@@ -179,12 +186,12 @@ export function AboutSection() {
                     Currently
                   </h3>
                   <div className="flex items-center gap-2 text-sm text-green-800">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     <span>
-                      Open to opportunities that meld product and engineering!
+                      Open to opportunities that meld design and engineering!
+                      Let's grab a coffee.
                     </span>
                   </div>
-                </motion.div>
+                </motion.div> */}
               </div>
             </motion.div>
           </div>

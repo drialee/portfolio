@@ -1,12 +1,6 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 
 export const socials = [
-  {
-    icon: Github,
-    href: "https://github.com/drialee",
-    color: "from-gray-400 to-gray-600",
-    label: "GitHub",
-  },
   {
     icon: Linkedin,
     href: "https://www.linkedin.com/in/dria-lee/",
@@ -25,8 +19,7 @@ export const projects = [
   {
     id: "airframe",
     title: "Airframe",
-    description:
-      "Built and scaled the core product as Founding Product Engineer of an expert network marketplace.",
+    description: "Designing and Developing.",
     technologies: ["TypeScript", "React", "Figma"],
     color: "bg-gradient-to-br from-blue-200 to-cyan-200",
     textColor: "text-blue-900",

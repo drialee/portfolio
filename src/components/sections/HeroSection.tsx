@@ -1,28 +1,8 @@
 import { motion } from "motion/react";
-import { Github, Linkedin, Mail } from "lucide-react";
-
+import { socials } from "../../utils/info";
 import FloatingBubbles from "../FloatingBubbles";
 import { Button } from "../ui/button";
 const profile = "/profile.png";
-
-const socialLinks = [
-  {
-    icon: Github,
-    href: "https://github.com/drialee",
-    color: "from-gray-400 to-gray-600",
-  },
-  {
-    icon: Linkedin,
-    href: "https://www.linkedin.com/in/dria-lee/",
-    color: "from-blue-400 to-blue-600",
-  },
-  {
-    icon: Mail,
-    href: "mailto:drialee@alumni.stanford.edu",
-    color: "from-purple-400 to-pink-500",
-  },
-];
-
 export function HeroSection() {
   const scrollToWork = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
@@ -35,7 +15,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8 max-w-4xl mx-auto"
+          className="space-y-8 max-w-4xl mx-auto "
         >
           {/* Character Illustration */}
           <motion.div
@@ -44,7 +24,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative w-80 h-80 mx-auto">
+            <div className="relative lg:w-80 lg:h-80 w-60 h-60 mx-auto">
               {/* Character image */}
               <motion.img
                 src={profile}
@@ -69,7 +49,7 @@ export function HeroSection() {
             className="space-y-6"
           >
             <motion.h1
-              className="text-5xl md:text-7xl font-bold text-foreground"
+              className="text-4xl md:text-5xl font-bold text-foreground"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -85,9 +65,9 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
+              className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
             >
-              I'm a product manager and front-end developer.
+              I'm an engineer and designer.
             </motion.p>
 
             <motion.div
@@ -115,9 +95,9 @@ export function HeroSection() {
             </motion.div>
 
             <div className="flex gap-3">
-              {socialLinks.map((link, index) => (
+              {socials.map((social: any, index: number) => (
                 <motion.div
-                  key={link.href}
+                  key={social.label}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 1.4 + index * 0.1 }}
@@ -127,15 +107,15 @@ export function HeroSection() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className={`p-3 rounded-2xl bg-gradient-to-r ${link.color} text-white border-0 hover:shadow-lg transition-all duration-300`}
+                    className={`p-3 rounded-2xl bg-gradient-to-r ${social.color} text-white border-0 hover:shadow-lg transition-all duration-300`}
                     asChild
                   >
                     <a
-                      href={link.href}
+                      href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <link.icon className="w-5 h-5" />
+                      <social.icon className="w-5 h-5" />
                     </a>
                   </Button>
                 </motion.div>
