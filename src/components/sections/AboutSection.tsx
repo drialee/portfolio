@@ -32,10 +32,7 @@ const skills = ["React", "TypeScript", "Figma"];
 
 export function AboutSection() {
   return (
-    <section
-      id="about"
-      className="py-20 bg-gradient-to-br from-background via-blue-50/30 to-purple-50/30 relative overflow-hidden"
-    >
+    <section id="about" className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -76,44 +73,26 @@ export function AboutSection() {
             >
               <div className="space-y-4">
                 <p className="text-md text-muted-foreground leading-relaxed">
-                  I began my journey at Stanford as a liberal arts major, but
-                  soon rediscovered my love for solving puzzles and creating
-                  things. That curiosity led me to make a pivotal switch into
-                  design and technology in my junior year.
+                  I started at Stanford thinking I would go into finance. Then I
+                  spent a summer in New York City that completely changed
+                  everything— I rediscovered my childhood obsession with puzzles
+                  and making things, and realized I wanted to design and build
+                  stuff for a living. So with two years left of school, I made
+                  the leap into design and tech. Now I'm back in NYC as a
+                  founding product engineer at a startup called Airframe.
                 </p>
                 <p className="text-md text-muted-foreground leading-relaxed">
-                  I’m passionate about building products that everyone can
-                  enjoy. I draw from my background in history and psychology to
-                  design experiences that are inclusive, intuitive, and a little
-                  bit playful.
+                  My work sits at the intersection of problem-solving,
+                  aesthetics, and actually making an impact. I draw from my
+                  classes in history and psychology to design experiences that
+                  are inclusive, intuitive, and a little bit playful.
                 </p>
 
                 <p className="text-md text-muted-foreground leading-relaxed">
-                  Since then, I’ve worked across industries and teams—learning
-                  not just how to build great products, but how they shape the
-                  way we connect, communicate, and create.
+                  When I'm not working, you'll find me engaging with my inner
+                  child: photography, sketching, and building an ever-growing
+                  list of NYC restaurants I need to try.
                 </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 pt-6">
-                {experiences.map((experience, index) => (
-                  <motion.div
-                    key={experience.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.6,
-                      delay: 0.4 + index * 0.1,
-                    }}
-                    whileHover={{ scale: 1.05, rotateZ: 2 }}
-                    className={`p-4 rounded-2xl bg-gradient-to-br ${experience.color.replace("to-", "to-").replace("from-", "from-")} text-white shadow-lg hover:shadow-xl transition-all duration-300`}
-                  >
-                    <experience.icon className="w-6 h-6 mb-2" />
-                    <h4 className="font-bold text-lg">{experience.label}</h4>
-                    <p className="text-sm opacity-90">{experience.desc}</p>
-                  </motion.div>
-                ))}
               </div>
             </motion.div>
 
@@ -125,34 +104,6 @@ export function AboutSection() {
               className="relative"
             >
               <div className="space-y-6">
-                {/* Skills Bubble */}
-                <motion.div
-                  whileHover={{ scale: 1.02, rotateZ: -1 }}
-                  className="p-6 rounded-3xl bg-gradient-to-br from-purple-100 to-pink-100 shadow-lg"
-                >
-                  <h3 className="font-bold text-lg text-purple-900 mb-4">
-                    What I Love Working With
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.map((skill, index) => (
-                      <motion.span
-                        key={skill}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.4,
-                          delay: 0.5 + index * 0.05,
-                        }}
-                        whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1 bg-white rounded-full text-sm font-medium text-purple-700 shadow-sm"
-                      >
-                        {skill}
-                      </motion.span>
-                    ))}
-                  </div>
-                </motion.div>
-
                 {/* Fun Facts */}
                 <motion.div
                   whileHover={{ scale: 1.02, rotateZ: 1 }}
@@ -176,22 +127,26 @@ export function AboutSection() {
                     </div>
                   </div>
                 </motion.div>
-
-                {/* Current Status
-                <motion.div
-                  whileHover={{ scale: 1.02, rotateZ: -0.5 }}
-                  className="p-6 rounded-3xl bg-gradient-to-br from-green-100 to-emerald-100 shadow-lg"
-                >
-                  <h3 className="font-bold text-lg text-green-900 mb-3">
-                    Currently
-                  </h3>
-                  <div className="flex items-center gap-2 text-sm text-green-800">
-                    <span>
-                      Open to opportunities that meld design and engineering!
-                      Let's grab a coffee.
-                    </span>
-                  </div>
-                </motion.div> */}
+                <div className="grid grid-cols-2 gap-4 pt-6">
+                  {experiences.map((experience, index) => (
+                    <motion.div
+                      key={experience.label}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.6,
+                        delay: 0.4 + index * 0.1,
+                      }}
+                      whileHover={{ scale: 1.05, rotateZ: 2 }}
+                      className={`p-4 rounded-2xl bg-gradient-to-br ${experience.color.replace("to-", "to-").replace("from-", "from-")} text-white shadow-lg hover:shadow-xl transition-all duration-300`}
+                    >
+                      <experience.icon className="w-6 h-6 mb-2" />
+                      <h4 className="font-bold text-lg">{experience.label}</h4>
+                      <p className="text-sm opacity-90">{experience.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>

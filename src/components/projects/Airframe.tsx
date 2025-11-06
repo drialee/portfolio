@@ -2,11 +2,15 @@ import { motion } from "motion/react";
 import { Briefcase, Users } from "lucide-react";
 
 import { ProjectSidebarNav } from "../ProjectSidebar";
-import { Badge } from "../ui/badge";
 import { ExternalLinkButton } from "../ExternalLink";
 import { useProjectNavigation } from "../../hooks/useProjectNavigation";
-import { CalloutBox, ProjectHeader, ProjectTitle } from "./Components";
-
+import {
+  CalloutBox,
+  ProjectHeader,
+  ProjectTitle,
+  ProjectTimeline,
+} from "./Components";
+import { projects } from "../../utils/info";
 // Image imports
 import Homepage from "../../utils/projects/Airframe/homepage.png";
 
@@ -14,6 +18,7 @@ const sections = ["Overview", "About"];
 
 export function AirframeProjectPage() {
   const { isMobile, handleNavigateBack } = useProjectNavigation();
+  const airframe = projects.find((project) => project.id === "airframe");
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
       {!isMobile && (
@@ -34,40 +39,11 @@ export function AirframeProjectPage() {
           <div className="max-w-4xl">
             <ProjectTitle label="Airframe" />
 
-            <div className="grid md:grid-cols-3 gap-8 text-sm">
-              <div>
-                <h3 className="font-semibold text-foreground mb-2">Timeline</h3>
-                <p className="text-muted-foreground">February 2025 - Present</p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-foreground mb-2">Tools</h3>
-                <div className="space-y-1">
-                  <Badge variant="secondary" className="mr-2 mb-1">
-                    React
-                  </Badge>
-                  <Badge variant="secondary" className="mr-2 mb-1">
-                    TypeScript
-                  </Badge>
-                  <Badge variant="secondary" className="mr-2 mb-1">
-                    Notion
-                  </Badge>
-                  <Badge variant="secondary" className="mr-2 mb-1">
-                    Linear
-                  </Badge>
-                  <Badge variant="secondary" className="mr-2 mb-1">
-                    Figma
-                  </Badge>
-                </div>
-              </div>
-              <div>
-                <h3 className="font-semibold text-foreground mb-2">Role</h3>
-                <div className="space-y-1">
-                  <p className="text-muted-foreground">
-                    Founding Product Engineer
-                  </p>
-                </div>
-              </div>
-            </div>
+            <ProjectTimeline
+              timeline="February 2025 - Present"
+              tools={airframe?.technologies || []}
+              role={airframe?.role || []}
+            />
           </div>
         </motion.div>
 

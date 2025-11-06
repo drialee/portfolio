@@ -23,7 +23,7 @@ import {
   QuoteBox,
   TwoColumnLayout,
 } from "./Components";
-
+import { projects } from "../../utils/info";
 // Image imports
 import ChillLaptop from "../../utils/projects/Chill/ChillLaptop.png";
 import CompetiveAnalysis from "../../utils/projects/Chill/Competive.png";
@@ -46,6 +46,7 @@ const sections = [
 
 export const ChillProjectPage = () => {
   const { isMobile, handleNavigateBack } = useProjectNavigation();
+  const chill = projects.find((project) => project.id === "chill");
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
       {!isMobile && (
@@ -67,8 +68,8 @@ export const ChillProjectPage = () => {
             <ProjectTitle label="&Chill" />
             <ProjectTimeline
               timeline="January - June 2023"
-              tools={["Figma", "User Research", "Prototyping"]}
-              role={["UX Designer", "User Researcher"]}
+              tools={chill?.technologies || []}
+              role={chill?.role || []}
             />
           </div>
         </motion.div>
@@ -117,7 +118,7 @@ export const ChillProjectPage = () => {
                 these solutions often
                 <strong> fall short</strong> in creating a seamless and
                 inclusive experience. Through my research, I identified
-                <strong> three key pain points</strong>
+                <strong> three key pain points </strong>
                 that make social streaming unnecessarily difficult:
               </p>
             </CalloutBox>
@@ -165,7 +166,7 @@ export const ChillProjectPage = () => {
                 User Feedback
               </h3>
 
-              <div className="grid md:grid-cols-1 gap-6 mb-8">
+              <div className="grid md:grid-cols-1 mb-8">
                 <QuoteBox quote="I love Netflix Partying with my friends but it's really difficult to set up and takes a while. Everyone has to download the extension and the link has to work properly for everyone to be on the same show. If it was easier to do we would use it more." />
 
                 <QuoteBox quote="I like Netflix Party, but my biggest frustration is the lack of a video component. You have to put Facetime on a separate device in order to watch together" />
@@ -234,7 +235,7 @@ export const ChillProjectPage = () => {
                 <div className="bg-white/50 p-4 rounded-xl">
                   <h4 className="font-bold text-green-900 mb-2">📸 Snapchat</h4>
                   <p className="text-green-800 text-sm">
-                    Snap Streaks and scores gamify social interactions
+                    Snap streaks and scores gamify social interactions
                   </p>
                 </div>
                 <div className="bg-white/50 p-4 rounded-xl">

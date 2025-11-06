@@ -1,5 +1,19 @@
 import { Linkedin, Mail } from "lucide-react";
 
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  technologies: string[];
+  color: string;
+  textColor: string;
+  hasDetailPage?: boolean;
+  comingSoon?: boolean;
+  role: string[];
+  product?: string[];
+  engineering?: string[];
+}
+
 export const socials = [
   {
     icon: Linkedin,
@@ -15,7 +29,7 @@ export const socials = [
   },
 ];
 
-export const projects = [
+export const projects: Project[] = [
   {
     id: "airframe",
     title: "Airframe",
@@ -24,6 +38,8 @@ export const projects = [
     color: "bg-gradient-to-br from-blue-200 to-cyan-200",
     textColor: "text-blue-900",
     hasDetailPage: true,
+    comingSoon: true,
+    role: ["Product Engineer"],
   },
   {
     id: "firework",
@@ -48,6 +64,7 @@ export const projects = [
       "Sales Automation",
     ],
 
+    role: ["Product Designer", "Product Manager", "Full-Stack Engineer"],
     color: "bg-gradient-to-br from-pink-200 to-orange-200",
     textColor: "text-orange-900",
     hasDetailPage: true,
@@ -61,6 +78,7 @@ export const projects = [
     color: "bg-gradient-to-br from-pink-200 to-red-200",
     textColor: "text-red-900",
     hasDetailPage: true,
+    role: ["Product Designer", "Front-End Engineer", "UX Researcher"],
   },
   {
     id: "traingone",
@@ -71,6 +89,7 @@ export const projects = [
     color: "bg-gradient-to-br from-pink-300 to-purple-300",
     textColor: "text-purple-900",
     hasDetailPage: true,
+    role: ["Product Designer", "Product Manager"],
   },
   {
     id: "chill",
@@ -81,6 +100,7 @@ export const projects = [
     color: "bg-gradient-to-br from-blue-200 to-cyan-200",
     textColor: "text-blue-900",
     hasDetailPage: true,
+    role: ["Product Designer", "Product Manager"],
   },
   {
     id: "bolivia",
@@ -91,5 +111,6 @@ export const projects = [
     color: "bg-gradient-to-br from-purple-200 to-pink-200",
     textColor: "text-purple-900",
     hasDetailPage: true,
+    role: ["Photographer"],
   },
 ];

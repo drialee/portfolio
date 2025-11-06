@@ -3,6 +3,7 @@ import "./styles/global.css";
 import { Footer } from "./components/Footer";
 import NavBar from "./components/NavBar";
 import { ProjectSection } from "./components/ProjectSection";
+import { ScrollToTop } from "./components/ScrollToTop";
 import { AirframeProjectPage } from "./components/projects/Airframe";
 import { BoliviaProjectPage } from "./components/projects/Bolivia";
 import { BonoProjectPage } from "./components/projects/Bono";
@@ -15,7 +16,8 @@ import { HeroSection } from "./components/sections/HeroSection";
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-background text-foreground overflow-x-clip relative">
+      <ScrollToTop />
+      <div className="min-h-screen bg-background text-foreground overflow-x-clip relative bg-gradient-to-br from-background via-purple-50/30 to-pink-50/30">
         <main className="overflow-x-hidden max-w-full">
           <NavBar />
           <Routes>

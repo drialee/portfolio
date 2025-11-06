@@ -23,6 +23,7 @@ import Task1 from "../../utils/projects/TrainGone/Task1.png";
 import Task2 from "../../utils/projects/TrainGone/Task2.png";
 import Task3 from "../../utils/projects/TrainGone/Task3.png";
 import TrainGoneCov from "../../utils/projects/TrainGone/TrainGonePage.png";
+import { projects } from "../../utils/info";
 const sections = [
   "About",
   "User Research",
@@ -33,6 +34,7 @@ const sections = [
 
 export const TrainGoneProjectPage = () => {
   const { isMobile, handleNavigateBack } = useProjectNavigation();
+  const trainGone = projects.find((project) => project.id === "traingone");
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
       {!isMobile && (
@@ -54,8 +56,8 @@ export const TrainGoneProjectPage = () => {
 
             <ProjectTimeline
               timeline="January - June 2024"
-              tools={["React", "Figma", "User Research"]}
-              role={["Product Manager", "UX Designer"]}
+              tools={trainGone?.technologies || []}
+              role={trainGone?.role || []}
             />
           </div>
         </motion.div>
@@ -103,7 +105,7 @@ export const TrainGoneProjectPage = () => {
               <p className="text-blue-800 leading-relaxed mb-4">
                 <strong>TrainGone</strong> functions as both a{" "}
                 <strong>"reverse ASL dictionary"</strong> and a
-                <strong>social educational platform</strong> where users can:
+                <strong> social educational platform</strong> where users can:
               </p>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="bg-white/50 p-4 rounded-xl">

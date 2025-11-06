@@ -1,22 +1,23 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 
 import { Button } from "./ui/button";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const initials = "/initials.png";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },
-  { label: "Projects", href: "/#projects" },
+  { label: "Home", id: "home" },
+  { label: "About", id: "about" },
+  { label: "Projects", id: "projects" },
 ];
-
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
   const location = useLocation();
+  const scrollTargetRef = useRef<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,20 +28,42 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    if (href.startsWith("/#")) {
-      // Handle hash navigation on home page
-      if (location.pathname === "/") {
-        const element = document.querySelector(href.substring(1));
+  // Handle scrolling after navigation completes
+  useEffect(() => {
+    if (location.pathname === "/" && scrollTargetRef.current) {
+      // Wait for DOM to be ready
+      const scrollToTarget = () => {
+        const element = document.getElementById(scrollTargetRef.current!);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
+          scrollTargetRef.current = null; // Clear the target after scrolling
+          sessionStorage.removeItem("scrollTarget"); // Clear the flag
+        } else {
+          // Retry if element not found yet
+          requestAnimationFrame(scrollToTarget);
         }
-      } else {
-        // Navigate to home page with hash
-        window.location.href = href;
-      }
+      };
+      // Small delay to ensure route has fully rendered
+      setTimeout(scrollToTarget, 50);
     }
+  }, [location.pathname]);
+
+  const handleNavClick = (id: string) => {
     setIsMobileMenuOpen(false);
+
+    // If already on home page, just scroll to the section
+    if (location.pathname === "/") {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Store target in both ref and sessionStorage, then navigate
+      // sessionStorage prevents ScrollToTop from scrolling to top
+      scrollTargetRef.current = id;
+      sessionStorage.setItem("scrollTarget", id);
+      navigate("/");
+    }
   };
 
   return (
@@ -63,13 +86,11 @@ const NavBar = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <Link to="/">
-                <img
-                  src={initials}
-                  alt="Dria Lee"
-                  className="w-12 h-12 sm:w-16 sm:h-16"
-                />
-              </Link>
+              <img
+                src={initials}
+                alt="Dria Lee"
+                className="w-12 h-12 sm:w-16 sm:h-16"
+              />
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -86,23 +107,13 @@ const NavBar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                 >
-                  {item.href.startsWith("/#") ? (
-                    <button
-                      onClick={() => handleNavClick(item.href)}
-                      className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 relative group px-3 py-2 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50"
-                    >
-                      {item.label}
-                      <span className="absolute -bottom-1 left-3 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]" />
-                    </button>
-                  ) : (
-                    <Link
-                      to={item.href}
-                      className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 relative group px-3 py-2 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50"
-                    >
-                      {item.label}
-                      <span className="absolute -bottom-1 left-3 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]" />
-                    </Link>
-                  )}
+                  <button
+                    onClick={() => handleNavClick(item.id)}
+                    className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 relative group px-3 py-2 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50"
+                  >
+                    {item.label}
+                    <span className="absolute -bottom-1 left-3 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-300 group-hover:w-[calc(100%-1.5rem)]" />
+                  </button>
                 </motion.div>
               ))}
             </motion.div>
@@ -153,22 +164,12 @@ const NavBar = () => {
               }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
-              {item.href.startsWith("/#") ? (
-                <button
-                  onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left text-foreground/80 hover:text-primary transition-colors duration-200 py-2 px-4 rounded-lg hover:bg-muted/50"
-                >
-                  {item.label}
-                </button>
-              ) : (
-                <Link
-                  to={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block w-full text-left text-foreground/80 hover:text-primary transition-colors duration-200 py-2 px-4 rounded-lg hover:bg-muted/50"
-                >
-                  {item.label}
-                </Link>
-              )}
+              <button
+                onClick={() => handleNavClick(item.id)}
+                className="block w-full text-left text-foreground/80 hover:text-primary transition-colors duration-200 py-2 px-4 rounded-lg hover:bg-muted/50"
+              >
+                {item.label}
+              </button>
             </motion.div>
           ))}
         </div>

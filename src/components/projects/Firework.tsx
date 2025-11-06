@@ -11,6 +11,7 @@ import {
   ProjectTitle,
   StatsGrid,
   TwoColumnLayout,
+  ProjectTimeline,
 } from "./Components";
 import { projects } from "../../utils/info";
 
@@ -46,32 +47,11 @@ export function FireworkProjectPage() {
           <div className="max-w-4xl">
             <ProjectTitle label="Firework" />
 
-            <div className="grid md:grid-cols-3 gap-8 text-sm">
-              <div>
-                <h3 className="font-semibold text-foreground mb-2">Timeline</h3>
-                <p className="text-muted-foreground">
-                  June 2023 - February 2025
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-foreground mb-2">Tools</h3>
-                <div className="space-y-1">
-                  {firework?.technologies.map((technology, index) => (
-                    <Badge variant="secondary" className="mr-2 mb-1">
-                      {technology}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h3 className="font-semibold text-foreground mb-2">Role</h3>
-                <div className="space-y-1">
-                  <p className="text-muted-foreground">Software Engineer</p>
-                  <p className="text-muted-foreground">UX Designer</p>
-                  <p className="text-muted-foreground">Product Manager</p>
-                </div>
-              </div>
-            </div>
+            <ProjectTimeline
+              timeline="June 2023 - February 2025"
+              tools={firework?.technologies || []}
+              role={firework?.role || []}
+            />
           </div>
         </motion.div>
 

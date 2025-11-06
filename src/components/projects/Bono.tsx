@@ -39,8 +39,8 @@ import LofiHome from "../../utils/projects/Bono/HomepageLofi.png";
 const sections = ["About", "Exploration", "Branding", "Prototyping", "Product"];
 
 export const BonoProjectPage = () => {
-  const { isMobile, handleNavigateBack } = useProjectNavigation();
   const bono = projects.find((project) => project.id === "bono");
+  const { isMobile, handleNavigateBack } = useProjectNavigation();
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
       {!isMobile && (
@@ -64,7 +64,7 @@ export const BonoProjectPage = () => {
             <ProjectTimeline
               timeline="January - June 2024"
               tools={bono?.technologies || []}
-              role={["Front-End Engineer", "UX Designer"]}
+              role={bono?.role || []}
             />
           </div>
         </motion.div>
@@ -232,7 +232,7 @@ export const BonoProjectPage = () => {
                 To bring our vision to life, we established{" "}
                 <strong>brand guidelines early on</strong>, selecting a palette
                 of
-                <strong>blues and yellows</strong> to evoke calmness and
+                <strong> blues and yellows</strong> to evoke calmness and
                 happiness. We carefully chose fonts and colors that convey{" "}
                 <strong>simplicity and fun</strong>, ensuring the platform felt
                 approachable and inviting.
@@ -409,7 +409,7 @@ export const BonoProjectPage = () => {
             >
               <p className="text-green-800 leading-relaxed">
                 As designers, we recognize the
-                <strong>transformative power of storytelling</strong>. Our
+                <strong> {" "}transformative power of storytelling</strong>. Our
                 mission is to empower users to share their unique narratives,
                 values, and passions through Bono, enabling them to contribute
                 meaningfully to causes they care about.

@@ -9,7 +9,7 @@ import { projects } from "../utils/info";
 export const ProjectSection = () => {
   const navigate = useNavigate();
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-50/30 via-background to-pink-50/30">
+    <section className="py-20">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -58,7 +58,7 @@ export const ProjectSection = () => {
                 <Card
                   className={`overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ${project.color} backdrop-blur-sm h-full ${project.hasDetailPage ? "cursor-pointer" : ""}`}
                   onClick={() => {
-                    if (project.hasDetailPage) {
+                    if (project.hasDetailPage && !project.comingSoon) {
                       navigate(`/projects/${project.id}`);
                     }
                   }}
@@ -72,7 +72,7 @@ export const ProjectSection = () => {
                           {project.title}
                         </h3>
                         <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          {project.hasDetailPage && (
+                          {project.hasDetailPage && !project.comingSoon && (
                             <motion.div
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
@@ -86,21 +86,23 @@ export const ProjectSection = () => {
                       <p
                         className={`${project.textColor} mb-4 text-sm leading-relaxed`}
                       >
-                        {project.description}
+                        {project.comingSoon
+                          ? "Coming Soon"
+                          : project.description}
                       </p>
                     </div>
 
                     <div className="flex flex-wrap gap-1.5">
                       {project.technologies.map(
-                        (tech: string, techIndex: number) => (
+                        (technology: string, technologyIndex: number) => (
                           <motion.div
-                            key={tech}
+                            key={technologyIndex}
                             initial={{ opacity: 0, scale: 0.8 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{
                               duration: 0.3,
-                              delay: index * 0.1 + techIndex * 0.05,
+                              delay: index * 0.1 + technologyIndex * 0.05,
                             }}
                             whileHover={{ scale: 1.05 }}
                           >
@@ -108,7 +110,7 @@ export const ProjectSection = () => {
                               variant="secondary"
                               className="text-xs px-2 py-1 bg-white/90 text-gray-700 border border-white/50 hover:bg-white transition-colors duration-200"
                             >
-                              {tech}
+                              {technology}
                             </Badge>
                           </motion.div>
                         )
