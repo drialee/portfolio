@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Heart, Coffee, Code, Palette } from "lucide-react";
 import FloatingBubbles from "../FloatingBubbles";
-
+import bear from "../../utils/other/bear.png";
 const experiences = [
   {
     icon: Code,
@@ -28,7 +28,6 @@ const experiences = [
     color: "from-green-400 to-green-600",
   },
 ];
-const skills = ["React", "TypeScript", "Figma"];
 
 export function AboutSection() {
   return (
@@ -63,15 +62,14 @@ export function AboutSection() {
             />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="grid sm:grid-cols-2 gap-4 md:gap-8 lg:gap-12 items-start">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-6"
             >
-              <div className="space-y-4">
+              <div className="flex flex-col gap-4">
                 <p className="text-md text-muted-foreground leading-relaxed">
                   I started at Stanford thinking I would go into finance. Then I
                   spent a summer in New York City that completely changed
@@ -81,18 +79,19 @@ export function AboutSection() {
                   the leap into design and tech. Now I'm back in NYC as a
                   founding product engineer at a startup called Airframe.
                 </p>
-                <p className="text-md text-muted-foreground leading-relaxed">
-                  My work sits at the intersection of problem-solving,
-                  aesthetics, and actually making an impact. I draw from my
-                  classes in history and psychology to design experiences that
-                  are inclusive, intuitive, and a little bit playful.
-                </p>
 
                 <p className="text-md text-muted-foreground leading-relaxed">
                   When I'm not working, you'll find me engaging with my inner
                   child: photography, sketching, and building an ever-growing
                   list of NYC restaurants I need to try.
                 </p>
+              </div>
+              <div className="flex justify-center sm:justify-start">
+                <img
+                  src={bear}
+                  alt="bear"
+                  className="w-40 h-40 lg:w-48 lg:h-48 object-contain"
+                />
               </div>
             </motion.div>
 
@@ -103,7 +102,7 @@ export function AboutSection() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative"
             >
-              <div className="space-y-6">
+              <div className="flex flex-col gap-4">
                 {/* Fun Facts */}
                 <motion.div
                   whileHover={{ scale: 1.02, rotateZ: 1 }}
@@ -112,7 +111,7 @@ export function AboutSection() {
                   <h3 className="font-bold text-lg text-blue-900 mb-4">
                     Fun Facts About Me
                   </h3>
-                  <div className="space-y-2 text-sm text-blue-800">
+                  <div className="flex flex-col text-sm text-blue-800">
                     <div className="flex items-center gap-2">
                       <span className="text-lg">🍟</span>
                       <span>My life goal is to eat the world.</span>

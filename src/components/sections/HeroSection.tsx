@@ -1,20 +1,17 @@
 import { motion } from "motion/react";
-import { socials } from "../../utils/info";
 import FloatingBubbles from "../FloatingBubbles";
-import { Button } from "../ui/button";
 const profile = "/profile.png";
 export function HeroSection() {
-  const scrollToWork = () => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pb-20">
+    <section
+      style={{ height: `calc(100vh - 100px)` }}
+      className="flex items-center justify-center relative overflow-hidden"
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-4xl mx-auto flex flex-col items-center justify-center sm:gap-8 md:gap-12 lg:gap-16 sm:flex-row"
+        className={`max-w-4xl mx-auto flex flex-col items-center justify-center sm:gap-8 md:gap-12 lg:gap-16 sm:flex-row`}
       >
         {/* Character Illustration */}
         <motion.div

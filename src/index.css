@@ -11,11 +11,30 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
 html,
 body {
   max-width: 100%;
   overflow-x: hidden;
   scrollbar-width: none; /* Firefox */
+}
+
+/* Optimize scroll performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize backdrop-blur performance for fixed/sticky elements */
+nav[class*="backdrop-blur"],
+.fixed[class*="backdrop-blur"],
+.sticky[class*="backdrop-blur"] {
+  will-change: backdrop-filter;
+  transform: translateZ(0);
 }
 h1 {
   font-size: 56px;

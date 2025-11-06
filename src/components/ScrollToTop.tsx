@@ -14,7 +14,7 @@ export function ScrollToTop() {
       const scrollTarget = sessionStorage.getItem(SCROLL_TARGET_KEY);
       if (!scrollTarget) {
         // No target, scroll to top as normal
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
       // If there's a scroll target, let NavBar handle the scrolling
       prevPathname.current = pathname;

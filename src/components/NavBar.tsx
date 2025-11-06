@@ -7,11 +7,14 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const initials = "/initials.png";
 
+const navBarHeight = 64;
+
 const navItems = [
   { label: "Home", id: "home" },
   { label: "About", id: "about" },
   { label: "Projects", id: "projects" },
 ];
+
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -79,7 +82,10 @@ const NavBar = () => {
         }`}
       >
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between h-16 pt-2">
+          <div
+            style={{ height: `${navBarHeight}px` }}
+            className="flex items-center justify-between"
+          >
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
