@@ -162,10 +162,10 @@ export const TrainGoneProjectPage = () => {
                 <strong>diverse relationships</strong> with ASL to ensure
                 comprehensive insights:
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <div className="flex flex-wrap gap-4">
                 {[
                   "Deaf native ASL signer",
-                  "ASL interpreters (2)",
+                  "2 ASL interpreters",
                   "AI motion capture developer",
                   "6-year ASL student",
                   "3-year ASL student",
@@ -224,31 +224,33 @@ export const TrainGoneProjectPage = () => {
               color="green"
               icon={<Target className="w-6 h-6 text-green-600" />}
             >
-              <p className="text-green-800 text-xl font-semibold text-center">
+              <p className="text-green-800 text-xl font-semibold">
                 "How Might We
                 <strong> empower ASL speakers </strong>
                 to communicate and connect on a global scale?"
               </p>
             </CalloutBox>
 
-            <ProcessStep
-              number="1"
-              title="Spontaneous Hang-Outs"
-              description="Invited Spanish students to practice language at Coupa Café for spontaneous conversation practice."
-              color="bg-purple-100"
-            />
-            <ProcessStep
-              number="2"
-              title="Audio-less Video Platform"
-              description="Tested TikTok viewing experience with/without audio to measure engagement impact."
-              color="bg-purple-100"
-            />
-            <ProcessStep
-              number="3"
-              title="Language Karaoke"
-              description="Spanish learners watched and sang along to karaoke songs to test enjoyment and motivation."
-              color="bg-purple-100"
-            />
+            <div className="space-y-4">
+              <ProcessStep
+                number="1"
+                title="Spontaneous Hang-Outs"
+                description="Invited Spanish students to practice language at Coupa Café for spontaneous conversation practice."
+                color="bg-purple-100"
+              />
+              <ProcessStep
+                number="2"
+                title="Audio-less Video Platform"
+                description="Tested TikTok viewing experience with/without audio to measure engagement impact."
+                color="bg-purple-100"
+              />
+              <ProcessStep
+                number="3"
+                title="Language Karaoke"
+                description="Spanish learners watched and sang along to karaoke songs to test enjoyment and motivation."
+                color="bg-purple-100"
+              />
+            </div>
             <CalloutBox
               title="Key Insight"
               color="blue"
@@ -470,33 +472,6 @@ export const TrainGoneProjectPage = () => {
                 </p>
               </div>
             </CalloutBox>
-
-            <div className="flex flex-wrap gap-3 pt-6 justify-center">
-              {[
-                "React Native",
-                "Cross-Platform",
-                "Video Recording",
-                "Community Features",
-                "ASL Dictionary",
-                "Storytelling Platform",
-              ].map((skill, index) => (
-                <motion.div
-                  key={skill}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.4 + index * 0.05 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <Badge
-                    variant="secondary"
-                    className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 border border-purple-200 hover:from-purple-200 hover:to-pink-200 transition-all duration-200"
-                  >
-                    {skill}
-                  </Badge>
-                </motion.div>
-              ))}
-            </div>
           </ProjectSection>
 
           <ExternalLinkButton

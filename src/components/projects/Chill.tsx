@@ -162,11 +162,9 @@ export const ChillProjectPage = () => {
             </CalloutBox>
 
             <div className="my-12">
-              <h3 className="text-2xl font-bold text-center mb-8">
-                User Feedback
-              </h3>
+              <h3 className="text-2xl font-bold mb-8">User Feedback</h3>
 
-              <div className="grid md:grid-cols-1 mb-8">
+              <div className="flex flex-col gap-4">
                 <QuoteBox quote="I love Netflix Partying with my friends but it's really difficult to set up and takes a while. Everyone has to download the extension and the link has to work properly for everyone to be on the same show. If it was easier to do we would use it more." />
 
                 <QuoteBox quote="I like Netflix Party, but my biggest frustration is the lack of a video component. You have to put Facetime on a separate device in order to watch together" />
@@ -265,7 +263,7 @@ export const ChillProjectPage = () => {
               color="purple"
               icon={<Target className="w-6 h-6 text-purple-600" />}
             >
-              <p className="text-purple-800 leading-relaxed text-center text-xl font-semibold">
+              <p className="text-purple-800 leading-relaxed text-xl font-semibold">
                 "There is a<strong> strong desire</strong> for a communal
                 digital viewing experience, yet its widespread adoption is
                 hindered by substantial
@@ -275,9 +273,7 @@ export const ChillProjectPage = () => {
             </CalloutBox>
 
             <div className="my-12">
-              <h3 className="text-2xl font-bold text-center mb-8">
-                Design Questions
-              </h3>
+              <h3 className="text-2xl font-bold mb-8">Design Questions</h3>
 
               <div className="space-y-8">
                 <motion.div
@@ -292,7 +288,7 @@ export const ChillProjectPage = () => {
                   </h4>
                   <p className="text-blue-800 leading-relaxed">
                     How can we
-                    <strong> simplify the process</strong>
+                    <strong> simplify the process </strong>
                     of inviting friends and synchronizing playback across
                     devices for a seamless social streaming experience?
                   </p>
@@ -312,6 +308,7 @@ export const ChillProjectPage = () => {
                     How might we enable users to transition from individual to
                     group streaming experience,
                     <strong>
+                      {" "}
                       preserving personalization while enhancing social
                       interaction
                     </strong>
@@ -331,7 +328,7 @@ export const ChillProjectPage = () => {
                   </h4>
                   <p className="text-green-800 leading-relaxed">
                     How can we replicate the
-                    <strong> shared excitement and interactions</strong>
+                    <strong> shared excitement and interactions </strong>
                     of an in-person movie night through an online platform?
                   </p>
                 </motion.div>
@@ -359,9 +356,7 @@ export const ChillProjectPage = () => {
             </CalloutBox>
 
             <div className="my-12">
-              <h3 className="text-2xl font-bold text-center mb-8">
-                Initial Prototypes
-              </h3>
+              <h3 className="text-2xl font-bold mb-8">Initial Prototypes</h3>
 
               <TwoColumnLayout
                 left={
@@ -409,15 +404,12 @@ export const ChillProjectPage = () => {
                 a<strong> right-hand activity panel </strong>
                 where users can see their friends' streaming activity.
                 Additionally, users can request to join active, public watch
-                parties, encouraging a seamless and engaging social streaming
-                experience.
+                parties, encouraging social engagement.
               </p>
             </CalloutBox>
 
             <div className="my-12">
-              <h3 className="text-2xl font-bold text-center mb-8">
-                User Testing Results
-              </h3>
+              <h3 className="text-2xl font-bold mb-8">User Testing Results</h3>
 
               <div className="space-y-6">
                 <EnhancedListItem
@@ -533,7 +525,7 @@ export const ChillProjectPage = () => {
               />
 
               {/* Watch Party */}
-              <div className="text-center">
+              <div>
                 <h3 className="text-2xl font-bold mb-8">
                   The Watch Party Experience
                 </h3>

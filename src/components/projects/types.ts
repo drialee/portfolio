@@ -7,7 +7,7 @@ export interface CaseStudyPersona {
 }
 
 export interface CaseStudyProcessStep {
-  step: string;
+  step?: string;
   description: string;
 }
 
@@ -16,12 +16,12 @@ export interface CaseStudyProject {
   icon: LucideIcon;
   iconClassName?: string;
   problem: string;
-  research: string[];
-  personas: CaseStudyPersona[];
+  research?: string[];
+  personas?: CaseStudyPersona[];
   solution: string;
   before?: string;
   after?: string;
-  process: CaseStudyProcessStep[];
-  images: string[];
-  colorClass: string;
+  process?: CaseStudyProcessStep[];
+  images?: string[];
+  colorClass?: string;
 }

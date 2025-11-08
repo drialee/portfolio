@@ -38,7 +38,6 @@ export const projects: Project[] = [
     color: "bg-gradient-to-br from-blue-200 to-cyan-200",
     textColor: "text-blue-900",
     hasDetailPage: true,
-    comingSoon: true,
     role: ["Product Engineer"],
   },
   {

@@ -4,6 +4,10 @@ import {
   Sparkles,
   Zap,
   ShoppingCart,
+  Calendar,
+  Brain,
+  PhoneCall,
+  User,
 } from "lucide-react";
 
 import widget2 from "../../utils/projects/Firework/widget 2.png";
@@ -25,7 +29,6 @@ import w2v3 from "../../utils/projects/Firework/w2v 3.png";
 import fomo1 from "../../utils/projects/Firework/fomo 1.png";
 import fomo2 from "../../utils/projects/Firework/fomo 2.png";
 import fomo3 from "../../utils/projects/Firework/fomo 3.png";
-import FOMO_competitors from "../../utils/projects/Firework/FOMO_competitor.png";
 import type { CaseStudyProject } from "./types";
 
 export const fireworkSections = [
@@ -47,7 +50,6 @@ const igImporterProject = [
 const posterProject = [poster1, poster2, poster3, poster4];
 const w2vProject = [w2v, w2v1, w2v2, w2v3];
 const fomoProject = [fomo1, fomo2, fomo3];
-const FOMO_competitorsProject = [FOMO_competitors];
 
 export const caseStudyProjects: CaseStudyProject[] = [
   {
@@ -55,7 +57,7 @@ export const caseStudyProjects: CaseStudyProject[] = [
     icon: MessageSquare,
     iconClassName: "w-5 h-5",
     problem:
-      "The 1:1 video chat player lacked personalization, making users feel disconnected. There was no visual indicator of who they were chatting with or their online status, leading to a cold, impersonal experience.",
+      "The 1:1 video chat player lacked personalization, leading users to feel disconnected to the store associate. There was no visual indicator of who they were chatting with or their online status.",
     research: [
       "Conducted competitive analysis of 8+ e-commerce chat platforms (Nordstrom, Tory Burch, Revolve)",
       "Analyzed user feedback indicating 65% wanted more personalized chat experiences",
@@ -123,11 +125,9 @@ export const caseStudyProjects: CaseStudyProject[] = [
     problem:
       "Content creators had to manually re-upload their Instagram content to Firework, creating friction in onboarding and preventing them from quickly populating their Firework storefronts with existing content.",
     research: [
-      "Interviewed 15 content creators about their workflow and pain points",
-      "Found that 80% of users already had established Instagram presence",
+      "Found that 80% of Firework users already had established Instagram presence",
       "Discovered manual upload process took average 45 minutes per creator",
-      "Researched Instagram API capabilities and OAuth implementation",
-      "Analyzed competing platforms (Later, Hootsuite) for import patterns",
+      "Analyzed competing platforms for import patterns",
     ],
     personas: [
       {
@@ -145,11 +145,6 @@ export const caseStudyProjects: CaseStudyProject[] = [
       "Designed a seamless Instagram import feature for both mobile and desktop, allowing creators to authenticate via OAuth and selectively import posts with a preview interface.",
 
     process: [
-      {
-        step: "User Research",
-        description:
-          "Conducted interviews and surveys with 15 creators to understand content workflow and platform migration challenges",
-      },
       {
         step: "Information Architecture",
         description:
@@ -188,8 +183,7 @@ export const caseStudyProjects: CaseStudyProject[] = [
     research: [
       "Analyzed engagement metrics showing animated thumbnails had 3x higher click-through rates",
       "Studied TikTok, YouTube Shorts, and Instagram Reels poster strategies",
-      "Surveyed 20 creators about their current poster creation workflow",
-      "Found 90% used external tools (Canva, After Effects) for poster creation",
+      "Found 90% of Firework users used external tools (Canva, After Effects) for poster creation",
       "Identified technical constraints around file size and browser animation support",
     ],
     personas: [
@@ -211,11 +205,6 @@ export const caseStudyProjects: CaseStudyProject[] = [
         step: "Competitive Analysis",
         description:
           "Evaluated 6 existing poster/thumbnail tools to identify gaps and best practices",
-      },
-      {
-        step: "Feature Prioritization",
-        description:
-          "Used MoSCoW method to define MVP features based on user needs vs. technical complexity",
       },
       {
         step: "User Flow Mapping",
@@ -242,17 +231,15 @@ export const caseStudyProjects: CaseStudyProject[] = [
     colorClass: "border-l-blue-500",
   },
   {
-    title: "Web-to-Video (W2V) AI Generator",
+    title: "Webpage-to-Video Generator",
     icon: Zap,
     iconClassName: "w-5 h-5",
     problem:
       "Creating video marketing campaigns from product pages was time-intensive, requiring creative expertise and expensive production. Brands needed a scalable way to transform web content into engaging video ads.",
     research: [
       "Analyzed 50+ brand websites to understand common content structures",
-      "Researched AI video generation capabilities and limitations",
-      "Interviewed 10 marketing teams about video campaign workflows",
-      "Benchmarked against emerging AI tools (Runway, Synthesia)",
-      "Studied meta-data extraction techniques and web scraping best practices",
+      "Researched current AI video generation capabilities and limitations",
+      "Conducted competitive analysis of 10+ AI video generation tools (Synthesia, Runway, etc.)",
     ],
     personas: [
       {
@@ -267,37 +254,32 @@ export const caseStudyProjects: CaseStudyProject[] = [
       },
     ],
     solution:
-      "Developed W2V feature that analyzes webpage content using AI to automatically generate branded video marketing campaigns with customizable templates and voiceover options.",
+      "Developed the complete flow for the Webpage to Video feature, analyzing webpage content using AI to automatically generate branded video marketing campaigns with customizable templates and voiceover options.",
     process: [
-      {
-        step: "Technical Research",
-        description:
-          "Investigated AI models for content extraction, image-to-video, and text-to-speech capabilities",
-      },
       {
         step: "User Journey Mapping",
         description:
           "Mapped end-to-end flow from URL input through AI generation to final video export",
       },
       {
-        step: "Progressive Disclosure Design",
+        step: "Information Architecture",
         description:
-          "Created multi-step interface revealing complexity gradually: URL → Extract → Customize → Generate",
+          "Mapped out user flow from URL input through AI generation to final video export.",
       },
       {
-        step: "Loading State Design",
+        step: "Wireframing & Prototyping",
         description:
-          "Designed engaging loading experience with progress indicators and AI process explanations",
+          "Created low-fidelity wireframes for the 4-step process (URL → Extract → Customize → Generate), focusing on progressive disclosure to reduce cognitive load. Iterated through 3 rounds of wireframes based on team feedback.",
       },
       {
-        step: "Error Handling",
+        step: "High-Fidelity Design & UI Polish",
         description:
-          "Defined failure states for invalid URLs, extraction errors, and generation failures",
+          "Designed high-fidelity mockups with loading animations, progress indicators, and microinteractions that explain the AI process. Created a component library for consistent implementation across the product.",
       },
       {
-        step: "Beta Testing",
+        step: "Usability Testing & Iteration",
         description:
-          "Ran closed beta with 25 brands, iterated on AI output quality and customization options",
+          "Ran moderated usability tests with 8 participants, then launched closed beta with 150 internal users. Identified and resolved 3 major usability issues, including confusing avatar selection and unclear generation progress.",
       },
     ],
 
@@ -312,10 +294,7 @@ export const caseStudyProjects: CaseStudyProject[] = [
       "Livestream purchasing rates were declining. Viewers weren't compelled to act quickly, missing the urgency and social proof that drives conversions in physical shopping experiences.",
     research: [
       "Analyzed livestream analytics showing 12% conversion rate (industry avg: 18%)",
-      "Conducted A/B tests on existing social proof elements",
       "Studied psychological principles of FOMO and social proof in e-commerce",
-      "Benchmarked Chinese livestream platforms (Taobao Live, Douyin) known for high conversion",
-      "Surveyed 50 livestream viewers about purchase decision factors",
       "Reviewed available data points from analytics system for real-time display",
     ],
     personas: [
@@ -346,7 +325,7 @@ export const caseStudyProjects: CaseStudyProject[] = [
       {
         step: "Concept Ideation",
         description:
-          "Brainstormed 8+ FOMO approaches: countdowns, emoji reactions, purchase notifications, viewer counts",
+          "Brainstormed 8+ FOMO approaches: countdowns, emoji reactions, share buttons, viewer counts",
       },
       {
         step: "Design Iteration",
@@ -358,14 +337,130 @@ export const caseStudyProjects: CaseStudyProject[] = [
         description:
           "Collaborated with engineering to identify real-time data available and performance constraints",
       },
+    ],
+
+    images: [...fomoProject],
+    colorClass: "border-l-orange-500",
+  },
+];
+
+export const engineeringProjects: CaseStudyProject[] = [
+  {
+    title: "Fusion Project - Digital Showroom x Livestreams",
+    icon: Calendar,
+    iconClassName: "w-5 h-5",
+    colorClass: "border-l-purple-500",
+    problem:
+      "Firework had two separate products—Livestreams and Digital Showroom—that served complementary use cases but created significant user friction. Livestream adoption was low because users had to manually configure restreaming settings and re-input event details for each session, taking 15+ minutes per setup. Meanwhile, Digital Showroom offered superior scheduling and restreaming capabilities but existed as a completely siloed product, forcing users to manage two separate systems.",
+    process: [
       {
-        step: "A/B Testing",
+        step: "Component Integration",
         description:
-          "Launched controlled test with 1,000 viewers comparing designs vs. control group",
+          "Built responsive React components that integrated calendar scheduling and livestream management into a single cohesive experience, implementing state management for real-time event synchronization",
+      },
+      {
+        step: "Schedule for later feature",
+        description:
+          "Developed ability to schedule livestreams for later directly from the Digital Showroom calendar, eliminating need to recreate events and preserving all original settings and configurations",
+      },
+      {
+        step: "Batch Upload System",
+        description:
+          "Implemented batch uploader feature enabling users to upload multiple videos simultaneously, reducing upload time from 5+ minutes per video to bulk processing of entire campaigns",
+      },
+      {
+        step: "Unified Architecture",
+        description:
+          "Designed reusable component architecture that merged both product experiences while maintaining flexibility for future feature expansion",
       },
     ],
 
-    images: [...fomoProject, ...FOMO_competitorsProject],
-    colorClass: "border-l-orange-500",
+    solution:
+      "Created a unified interface that enables users to schedule events via calendar, automatically configure restreaming, and manage all live events from a centralized view—eliminating the need to switch between products or manually re-enter information.",
+  },
+
+  {
+    title: "Onboarding Experience for PLG Customers",
+    icon: User,
+    iconClassName: "w-5 h-5",
+    colorClass: "border-l-pink-500",
+    problem:
+      "Firework's Product-Led Growth (PLG) customers were signing up but struggling to navigate the business portal without guidance. Support data revealed that over 60% of self-serve users abandoned setup within their first session due to confusion about next steps, resulting in low activation rates and increased support tickets.",
+
+    research: [
+      "Analyzed user behavior data and support tickets to identify specific drop-off points in onboarding flow",
+      "Discovered users weren't sure which features to configure first or how different portal sections connected",
+      "Found that users needed progressive guidance rather than overwhelming all-at-once information",
+    ],
+
+    process: [
+      {
+        step: "User Flow Mapping",
+        description:
+          "Mapped the ideal onboarding sequence based on feature dependencies and user behavior patterns, prioritizing essential configurations that unblocked downstream features",
+      },
+      {
+        step: "Context-Aware Modal System",
+        description:
+          "Created dynamic React modal with context-aware step progression that adapts based on which portal sections users have already completed versus which remain outstanding",
+      },
+      {
+        step: "Real-Time Progress Tracking",
+        description:
+          "Implemented progress tracking system that monitors user actions across entire portal, automatically advancing tutorial steps and celebrating milestones to maintain momentum",
+      },
+      {
+        step: "Dynamic Highlighting & Navigation",
+        description:
+          "Built modal to dynamically highlight relevant UI sections and provide contextual tooltips based on user's current setup stage, reducing cognitive load by focusing attention on one task at a time",
+      },
+    ],
+
+    solution:
+      "An interactive tutorial that progressively reveals complexity while maintaining user confidence through step-by-step guidance that responds in real-time to user actions throughout the portal.",
+  },
+
+  {
+    title: "SLG 100x - Automated Lead Qualification System",
+    icon: PhoneCall,
+    iconClassName: "w-5 h-5",
+    colorClass: "border-l-green-500",
+    problem:
+      "Firework's sales team was manually researching and qualifying hundreds of potential customers weekly, spending 60% of their time on research rather than selling. This manual process was time-intensive, limited their ability to focus on high-value prospects, and led to inconsistent qualification criteria that resulted in misaligned lead routing and wasted outreach efforts.",
+
+    research: [
+      "Mapped entire data flow and decision logic in Miro to visualize the qualification process",
+      "Prototyped individual APIs (Apollo, BuiltWith, OpenAI, Gemini, Claude) to understand rate limits, response structures, and capabilities",
+      "Researched batch processing strategies to optimize for both cost and performance",
+      "Investigated embedding models and vectorization techniques for similarity scoring",
+      "Tested different prompt engineering approaches for LLM qualification accuracy",
+      "Iteratively refined approach based on testing results and performance benchmarks",
+    ],
+
+    process: [
+      {
+        step: "Data Retrieval & Enrichment",
+        description:
+          "Built multi-source data aggregation pipeline pulling from Apollo API (organization data, keywords, industries, descriptions), Snowflake (historical traffic data and percentile rankings), and BuiltWith API (tech stack identification)",
+      },
+      {
+        step: "ML-Based Scoring System",
+        description:
+          "Implemented three-dimensional similarity analysis: (1) Business similarity using OpenAI's text-embedding-3-large to embed and compare keywords, industries, and descriptions; (2) Tech stack similarity through vectorized comparison against existing customers; (3) Traffic analysis with percentile-based scoring relative to customer base. Built intelligent caching system for embeddings and implemented vectorization techniques improving processing speed by 10x",
+      },
+      {
+        step: "Multi-Model Qualification Engine",
+        description:
+          "Designed and built parallel qualification system using three AI models (GPT-4o, Google Gemini 1.5 Flash, Claude 3.5 Sonnet). Each model independently evaluates similarity scores and company data to determine qualification status, recommended sales rep type, and confidence score. Implemented concurrent API requests with batch processing reducing qualification time from 5 minutes to 30 seconds per batch",
+      },
+      {
+        step: "Aggregation & Routing",
+        description:
+          "Created consensus-based decision logic aggregating results using majority-vote across all three models. Built automated routing system based on company profile and model recommendations. Implemented Pandas DataFrame output syncing with Snowflake for CRM integration",
+      },
+    ],
+
+    solution:
+      "An automated AI-powered system that qualifies over 1,000 leads per week using multi-model consensus to ensure consistent, data-driven qualification criteria. The system aggregates data from multiple sources, calculates similarity scores across three dimensions, runs parallel qualification through three AI models, and automatically routes qualified leads to appropriate sales representatives.",
   },
 ];

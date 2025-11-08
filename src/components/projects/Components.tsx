@@ -292,9 +292,9 @@ export function QuoteBox({ quote, author, role }: QuoteBoxProps) {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="bg-gradient-to-br from-purple-50/80 to-pink-50/80 rounded-2xl p-8 my-8 border-l-4 border-purple-400 backdrop-blur-sm"
+      className="bg-gradient-to-br from-purple-50/80 to-pink-50/80 rounded-2xl p-4 border-l-4 border-purple-400 backdrop-blur-sm"
     >
-      <blockquote className="text-lg italic text-foreground leading-relaxed mb-4">
+      <blockquote className="text-foreground leading-relaxed">
         "{quote}"
       </blockquote>
       {author && (
@@ -411,21 +411,28 @@ export function HighlightText({
   );
 }
 
-interface SectionLabelProps {
+interface SectionProps {
   icon: ReactNode;
   label: string;
   color?: string;
+  content?: ReactNode;
 }
 
-export function SectionLabel({
+export function Section({
   icon,
   label,
   color = "text-gray-700",
-}: SectionLabelProps) {
+  content,
+}: SectionProps) {
   return (
-    <div className={`flex items-center gap-2 mb-4 ${color}`}>
-      {icon}
-      <h4>{label}</h4>
+    <div className={`flex items-start gap-2 ${color}`}>
+      <div className="flex-shrink-0 myt-1">{icon}</div>
+      <div className="flex flex-col gap-4">
+        <h4 className="text-lg font-bold">{label}</h4>
+        {content && (
+          <p className="text-muted-foreground text-sm font-normal">{content}</p>
+        )}
+      </div>
     </div>
   );
 }
@@ -448,11 +455,13 @@ export function ProcessStep({
       <div
         className={`w-10 h-10 rounded-full ${color} flex items-center justify-center flex-shrink-0`}
       >
-        <span>{number}</span>
+        <span className="text-sm font-bold">{number}</span>
       </div>
       <div>
         <h5 className="mb-2">{title}</h5>
-        <p className="text-sm text-muted-foreground">{description}</p>
+        <p className="text-sm text-muted-foreground font-normal">
+          {description}
+        </p>
       </div>
     </div>
   );

@@ -322,25 +322,26 @@ export const BonoProjectPage = () => {
           {/* Prototyping Section */}
           <ProjectSection id="prototyping">
             <ProjectHeader label="Design Process" />
-
-            <ProcessStep
-              number="1"
-              title="Ideation & Brainstorming"
-              description="Used whiteboard exercises and sticky notes to explore concepts like gamification, bite-sized lessons, AI storytelling, and news website plugins."
-              color="bg-purple-100"
-            />
-            <ProcessStep
-              number="2"
-              title="Low-Fidelity Prototyping"
-              description="Moved into Figma to create initial wireframes outlining the main application components and user flows."
-              color="bg-purple-100"
-            />
-            <ProcessStep
-              number="3"
-              title="Component Development"
-              description="Designed and refined individual features while maintaining consistency across the platform experience."
-              color="bg-purple-100"
-            />
+            <div className="space-y-4">
+              <ProcessStep
+                number="1"
+                title="Ideation & Brainstorming"
+                description="Used whiteboard exercises and sticky notes to explore concepts like gamification, bite-sized lessons, AI storytelling, and news website plugins."
+                color="bg-purple-100"
+              />
+              <ProcessStep
+                number="2"
+                title="Low-Fidelity Prototyping"
+                description="Moved into Figma to create initial wireframes outlining the main application components and user flows."
+                color="bg-purple-100"
+              />
+              <ProcessStep
+                number="3"
+                title="Component Development"
+                description="Designed and refined individual features while maintaining consistency across the platform experience."
+                color="bg-purple-100"
+              />
+            </div>
           </ProjectSection>
 
           <div className="my-12">
@@ -378,7 +379,7 @@ export const BonoProjectPage = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full rounded-xl shadow-lg mb-4 max-h-[350px]"
+                    className="w-full rounded-xl shadow-lg mb-4 max-h-[350px] object-contain"
                   />
                   <h4 className="font-bold text-purple-900 mb-2">
                     {item.title}
@@ -388,140 +389,112 @@ export const BonoProjectPage = () => {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Final Product Section */}
-        <ProjectSection id="product">
-          <ProjectHeader label="Final Product" />
+          {/* Final Product Section */}
+          <ProjectSection id="product">
+            <ProjectHeader label="Final Product" />
 
-          <CalloutBox
-            title="Design Philosophy"
-            color="green"
-            icon={<Heart className="w-6 h-6 text-green-600" />}
-          >
-            <p className="text-green-800 leading-relaxed">
-              As designers, we recognize the
-              <strong> transformative power of storytelling</strong>. Our
-              mission is to empower users to share their unique narratives,
-              values, and passions through Bono, enabling them to contribute
-              meaningfully to causes they care about.
-            </p>
-          </CalloutBox>
+            <CalloutBox
+              title="Design Philosophy"
+              color="green"
+              icon={<Heart className="w-6 h-6 text-green-600" />}
+            >
+              <p className="text-green-800 leading-relaxed">
+                As designers, we recognize the
+                <strong> transformative power of storytelling</strong>. Our
+                mission is to empower users to share their unique narratives,
+                values, and passions through Bono, enabling them to contribute
+                meaningfully to causes they care about.
+              </p>
+            </CalloutBox>
 
-          <div className="my-12">
-            <h3 className="text-2xl font-bold text-center mb-8">
-              Key Features
-            </h3>
+            <div className="my-12">
+              <h3 className="text-2xl font-bold text-center mb-8">
+                Key Features
+              </h3>
 
-            <div className="space-y-8">
-              <EnhancedListItem
-                index={0}
-                title="AI-Powered Chatbox"
-                description="Bono offers an AI-powered chatbox to help users discover organizations that align with their passions and values. Share a bit about yourself to save time and simplify your search."
-              />
+              <div className="space-y-8">
+                <EnhancedListItem
+                  index={0}
+                  title="AI-Powered Chatbox"
+                  description="Bono offers an AI-powered chatbox to help users discover organizations that align with their passions and values. Share a bit about yourself to save time and simplify your search."
+                />
 
-              <EnhancedListItem
-                index={1}
-                title="Comprehensive Organization Profiles"
-                description="Bono provides detailed profiles of organizations, fostering trust and transparency for users with complete charity information and impact metrics."
-              />
+                <EnhancedListItem
+                  index={1}
+                  title="Comprehensive Organization Profiles"
+                  description="Bono provides detailed profiles of organizations, fostering trust and transparency for users with complete charity information and impact metrics."
+                />
 
-              <EnhancedListItem
-                index={2}
-                title="Impact Tracking Dashboard"
-                description="Bono keeps users informed by tracking the impact of their donations, showing exactly where their contributions go and what change they're creating."
-              />
+                <EnhancedListItem
+                  index={2}
+                  title="Impact Tracking Dashboard"
+                  description="Bono keeps users informed by tracking the impact of their donations, showing exactly where their contributions go and what change they're creating."
+                />
+              </div>
             </div>
-          </div>
 
-          <TwoColumnLayout
-            left={
-              <div>
-                <h3 className="text-xl font-bold text-blue-900 mb-4">
-                  <Smartphone className="inline w-6 h-6 mr-2" />
-                  Technical Implementation
-                </h3>
-                <p className="text-blue-800 leading-relaxed mb-4">
-                  Built with <strong>React framework</strong> for responsive,
-                  modern web experience with seamless user interactions.
-                </p>
-                <div className="space-y-2">
-                  <Badge variant="secondary" className="mr-2 mb-2">
-                    React
-                  </Badge>
-                  <Badge variant="secondary" className="mr-2 mb-2">
-                    Responsive Design
-                  </Badge>
-                  <Badge variant="secondary" className="mr-2 mb-2">
-                    AI Integration
-                  </Badge>
-                </div>
-              </div>
-            }
-            right={
-              <div>
-                <h3 className="text-xl font-bold text-purple-900 mb-4">
-                  <MessageCircle className="inline w-6 h-6 mr-2" />
-                  User Experience Focus
-                </h3>
-                <div className="space-y-3">
-                  <div className="bg-white/50 p-3 rounded-xl">
-                    <h4 className="font-bold text-purple-900 text-sm">
-                      🎯 Personalization
-                    </h4>
-                    <p className="text-xs text-purple-800">
-                      AI-curated charity recommendations
-                    </p>
-                  </div>
-                  <div className="bg-white/50 p-3 rounded-xl">
-                    <h4 className="font-bold text-purple-900 text-sm">
-                      🔒 Trust & Transparency
-                    </h4>
-                    <p className="text-xs text-purple-800">
-                      Verified charity information
-                    </p>
-                  </div>
-                  <div className="bg-white/50 p-3 rounded-xl">
-                    <h4 className="font-bold text-purple-900 text-sm">
-                      📊 Impact Visibility
-                    </h4>
-                    <p className="text-xs text-purple-800">
-                      Real-time donation tracking
-                    </p>
+            <TwoColumnLayout
+              left={
+                <div>
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">
+                    <Smartphone className="inline w-6 h-6 mr-2" />
+                    Technical Implementation
+                  </h3>
+                  <p className="text-blue-800 leading-relaxed mb-4">
+                    Built with <strong>React framework</strong> for responsive,
+                    modern web experience with seamless user interactions.
+                  </p>
+                  <div className="space-y-2">
+                    <Badge variant="secondary" className="mr-2 mb-2">
+                      React
+                    </Badge>
+                    <Badge variant="secondary" className="mr-2 mb-2">
+                      Responsive Design
+                    </Badge>
+                    <Badge variant="secondary" className="mr-2 mb-2">
+                      AI Integration
+                    </Badge>
                   </div>
                 </div>
-              </div>
-            }
-          />
-
-          <div className="flex flex-wrap gap-3 pt-6 justify-center">
-            {[
-              "React",
-              "AI Integration",
-              "User Research",
-              "Charity Discovery",
-              "Impact Tracking",
-              "Personalization",
-              "Trust Building",
-            ].map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: 0.4 + index * 0.05 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <Badge
-                  variant="secondary"
-                  className={`px-4 py-2  border border-blue-200  transition-all duration-200 ${bono?.color}`}
-                >
-                  {skill}
-                </Badge>
-              </motion.div>
-            ))}
-          </div>
-        </ProjectSection>
+              }
+              right={
+                <div>
+                  <h3 className="text-xl font-bold text-purple-900 mb-4">
+                    <MessageCircle className="inline w-6 h-6 mr-2" />
+                    User Experience Focus
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="bg-white/50 p-3 rounded-xl">
+                      <h4 className="font-bold text-purple-900 text-sm">
+                        🎯 Personalization
+                      </h4>
+                      <p className="text-xs text-purple-800">
+                        AI-curated charity recommendations
+                      </p>
+                    </div>
+                    <div className="bg-white/50 p-3 rounded-xl">
+                      <h4 className="font-bold text-purple-900 text-sm">
+                        🔒 Trust & Transparency
+                      </h4>
+                      <p className="text-xs text-purple-800">
+                        Verified charity information
+                      </p>
+                    </div>
+                    <div className="bg-white/50 p-3 rounded-xl">
+                      <h4 className="font-bold text-purple-900 text-sm">
+                        📊 Impact Visibility
+                      </h4>
+                      <p className="text-xs text-purple-800">
+                        Real-time donation tracking
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              }
+            />
+          </ProjectSection>
+        </div>
       </div>
     </div>
   );
