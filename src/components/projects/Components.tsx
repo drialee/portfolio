@@ -384,65 +384,6 @@ export function KeyInsights({
   );
 }
 
-// Process steps component
-interface ProcessStep {
-  title: string;
-  description: string;
-  details?: string;
-}
-
-interface ProcessStepsProps {
-  steps: ProcessStep[];
-}
-
-export function ProcessSteps({ steps }: ProcessStepsProps) {
-  return (
-    <div className="space-y-6 my-8">
-      {steps.map((step, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: index * 0.2 }}
-          className="relative"
-        >
-          <div className="flex gap-6">
-            {/* Step number */}
-            <div className="flex-shrink-0">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white flex items-center justify-center font-bold text-lg shadow-lg">
-                {index + 1}
-              </div>
-              {index < steps.length - 1 && (
-                <div className="w-0.5 h-12 bg-gradient-to-b from-purple-300 to-transparent mx-auto mt-4"></div>
-              )}
-            </div>
-
-            {/* Content */}
-            <div className="flex-1 pb-8">
-              <Card className="border-0 shadow-lg bg-gradient-to-br from-white/80 to-purple-50/30 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <h4 className="font-bold text-xl text-purple-900 mb-3">
-                    {step.title}
-                  </h4>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    {step.description}
-                  </p>
-                  {step.details && (
-                    <p className="text-sm text-purple-700 font-medium bg-purple-100/50 p-3 rounded-xl">
-                      {step.details}
-                    </p>
-                  )}
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
-
 // Highlight text component
 interface HighlightTextProps {
   children: ReactNode;
@@ -467,5 +408,52 @@ export function HighlightText({
     >
       {children}
     </span>
+  );
+}
+
+interface SectionLabelProps {
+  icon: ReactNode;
+  label: string;
+  color?: string;
+}
+
+export function SectionLabel({
+  icon,
+  label,
+  color = "text-gray-700",
+}: SectionLabelProps) {
+  return (
+    <div className={`flex items-center gap-2 mb-4 ${color}`}>
+      {icon}
+      <h4>{label}</h4>
+    </div>
+  );
+}
+
+interface ProcessStepProps {
+  number: string;
+  title: string;
+  description: string;
+  color?: string;
+}
+
+export function ProcessStep({
+  number,
+  title,
+  description,
+  color = "bg-purple-100",
+}: ProcessStepProps) {
+  return (
+    <div className="flex gap-4">
+      <div
+        className={`w-10 h-10 rounded-full ${color} flex items-center justify-center flex-shrink-0`}
+      >
+        <span>{number}</span>
+      </div>
+      <div>
+        <h5 className="mb-2">{title}</h5>
+        <p className="text-sm text-muted-foreground">{description}</p>
+      </div>
+    </div>
   );
 }

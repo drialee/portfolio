@@ -1,37 +1,231 @@
 import { motion } from "motion/react";
-import { Briefcase, Code, Target, Users, Zap } from "lucide-react";
+import {
+  Briefcase,
+  Code,
+  Target,
+  Users,
+  Zap,
+  Lightbulb,
+  Search,
+  Pencil,
+  CheckCircle2,
+  User,
+  Sparkles,
+} from "lucide-react";
 
 import { ProjectSidebarNav } from "../ProjectSidebar";
 import { Badge } from "../ui/badge";
 import { useProjectNavigation } from "../../hooks/useProjectNavigation";
 import {
   CalloutBox,
-  EnhancedListItem,
   ProjectHeader,
   ProjectTitle,
   StatsGrid,
   TwoColumnLayout,
   ProjectTimeline,
+  SectionLabel,
+  ProcessStep,
 } from "./Components";
 import { projects } from "../../utils/info";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
+import { Separator } from "../ui/separator";
 
-// Image imports
-import FOMO from "../../utils/projects/Firework/fomo.png";
 import Firework from "../../utils/projects/Firework/fireworkCover.png";
-import step2 from "../../utils/projects/Firework/step2.png";
-import { ExternalLinkButton } from "../ExternalLink";
 
-const sections = ["Overview", "About", "Product", "Engineering"];
+import { ExternalLinkButton } from "../ExternalLink";
+import { caseStudyProjects, fireworkSections } from "./fireworkData";
+import { CaseStudyProject } from "./types";
 
 export function FireworkProjectPage() {
   const { isMobile, handleNavigateBack } = useProjectNavigation();
   const firework = projects.find((project) => project.id === "firework");
 
+  const ProjectAccordionItem = ({
+    project,
+    index,
+  }: {
+    project: CaseStudyProject;
+    index: number;
+  }) => {
+    return (
+      <AccordionItem
+        key={index}
+        value={`project-${index}`}
+        className={`bg-white/60 backdrop-blur-sm rounded-2xl border-l-4 ${project.colorClass} overflow-hidden`}
+      >
+        <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-white/40 transition-colors">
+          <div className="flex items-center gap-3">
+            <project.icon className={project.iconClassName || ""} />
+            <span>{project.title}</span>
+          </div>
+        </AccordionTrigger>
+        <AccordionContent className="px-6 pb-6">
+          <Tabs defaultValue="overview" className="w-full">
+            <TabsList className="grid w-full grid-cols-5 mb-6">
+              <TabsTrigger value="overview">Overview</TabsTrigger>
+              <TabsTrigger value="research">Research</TabsTrigger>
+              <TabsTrigger value="process">Process</TabsTrigger>
+              <TabsTrigger value="solution">Solution</TabsTrigger>
+            </TabsList>
+
+            {/* Overview Tab */}
+            <TabsContent value="overview" className="space-y-6">
+              <div>
+                <SectionLabel
+                  icon={<Lightbulb className="w-5 h-5" />}
+                  label="The Problem"
+                  color="text-red-600"
+                />
+                <p className="text-muted-foreground leading-relaxed">
+                  {project.problem}
+                </p>
+              </div>
+
+              <Separator />
+
+              <div>
+                <SectionLabel
+                  icon={<CheckCircle2 className="w-5 h-5" />}
+                  label="The Solution"
+                  color="text-green-600"
+                />
+                <p className="text-muted-foreground leading-relaxed">
+                  {project.solution}
+                </p>
+              </div>
+            </TabsContent>
+
+            {/* Research Tab */}
+            <TabsContent value="research" className="space-y-6">
+              <div>
+                <SectionLabel
+                  icon={<Search className="w-5 h-5" />}
+                  label="Research & Discovery"
+                  color="text-blue-600"
+                />
+                <ul className="space-y-3 mt-4">
+                  {project.research.map((item, i) => (
+                    <li key={i} className="flex gap-3">
+                      <span className="text-blue-500 mt-1">•</span>
+                      <span className="text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <Separator />
+
+              <div>
+                <SectionLabel
+                  icon={<User className="w-5 h-5" />}
+                  label="User Personas"
+                  color="text-purple-600"
+                />
+                <div className="grid md:grid-cols-2 gap-4 mt-4">
+                  {project.personas.map((persona, i) => (
+                    <Card key={i} className="border-2">
+                      <CardHeader>
+                        <CardTitle className="text-base">
+                          {persona.name}
+                        </CardTitle>
+                        <CardDescription>{persona.goal}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-red-600">
+                          <strong>Pain Point:</strong> {persona.pain}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </TabsContent>
+
+            {/* Process Tab */}
+            <TabsContent value="process" className="space-y-6">
+              <SectionLabel
+                icon={<Pencil className="w-5 h-5" />}
+                label="Design Process"
+                color="text-indigo-600"
+              />
+              <div className="space-y-4">
+                {project.process.map((step, i) => (
+                  <ProcessStep
+                    key={i}
+                    number={`${i + 1}`}
+                    title={step.step}
+                    description={step.description}
+                    color={`bg-gradient-to-br from-purple-100 to-pink-100`}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Solution Tab */}
+            <TabsContent value="solution" className="space-y-6">
+              <SectionLabel
+                icon={<Sparkles className="w-5 h-5" />}
+                label="Final Designs"
+                color="text-yellow-600"
+              />
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {project.images.map((image, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{
+                      opacity: 0,
+                      scale: 0.9,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      scale: 1,
+                    }}
+                    whileHover={{
+                      scale: 1.35,
+                      zIndex: 20,
+                      boxShadow: "0 25px 60px rgba(147, 51, 234, 0.35)",
+                      backgroundColor: "#ffffff",
+                    }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.3,
+                      delay: i * 0.1,
+                    }}
+                    className="relative max-h-[250px] max-w-[400px] rounded-lg overflow-hidden border-2 border-gray-200 hover:border-purple-400 transition-colors cursor-pointer group will-change-transform"
+                  >
+                    <img
+                      src={image}
+                      alt={`${project.title} design ${i + 1}`}
+                      className="w-full h-full object-contain transition-transform duration-300"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
+        </AccordionContent>
+      </AccordionItem>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-purple-50/20 to-pink-50/20">
       {!isMobile && (
         <ProjectSidebarNav
-          sections={sections}
+          sections={fireworkSections}
           onNavigateBack={handleNavigateBack}
         />
       )}
@@ -42,9 +236,9 @@ export function FireworkProjectPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="pt-20 pb-12 px-12"
+          className="pt-20 pb-12 px-6 sm:px-12"
         >
-          <div className="max-w-4xl">
+          <div className="max-w-5xl">
             <ProjectTitle label="Firework" />
 
             <ProjectTimeline
@@ -56,7 +250,7 @@ export function FireworkProjectPage() {
         </motion.div>
 
         {/* Content Sections */}
-        <div className="px-12 pb-20 space-y-16">
+        <div className="px-6 sm:px-12 pb-20 space-y-16">
           {/* Overview Section */}
           <motion.section
             id="overview"
@@ -64,7 +258,7 @@ export function FireworkProjectPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            className="max-w-5xl"
           >
             <div
               className={`bg-gradient-to-br rounded-3xl p-8 backdrop-blur-sm ${firework?.color}`}
@@ -88,7 +282,7 @@ export function FireworkProjectPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            className="max-w-5xl"
           >
             <ProjectHeader label="About Firework" />
 
@@ -127,101 +321,59 @@ export function FireworkProjectPage() {
             />
           </motion.section>
 
-          {/* Product Section */}
+          {/* Product Design Section - NOW WITH FULL CASE STUDIES */}
           <motion.section
-            id="product"
+            id="product-design"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            className="max-w-5xl"
           >
-            <ProjectHeader label="Product Experience" />
+            <ProjectHeader label="Designing at Firework" />
 
             <CalloutBox
-              title="Product Design and Product Management"
+              title="Product Design & Product Management"
               color="purple"
               icon={<Users className="w-6 h-6 text-purple-600" />}
             >
               <p className="text-purple-800 leading-relaxed mb-4">
-                I began my journey at Firework as a{" "}
-                <strong>product intern</strong>, working within both{" "}
-                <strong>product design and product management</strong>. Over the
-                course of the internship, I managed <strong>5 projects</strong>{" "}
-                across the company.
+                As a <strong>Product Intern</strong>, I led the end-to-end
+                design process for
+                <strong> 11 product initiatives</strong> across 5 teams. Each
+                project followed a rigorous UX process: research, persona
+                development, wireframing, prototyping, and leading meetings with
+                engineers to ensure the implementation was successful.
               </p>
             </CalloutBox>
 
-            <div className="space-y-6 my-8">
-              <h3 className="text-2xl font-bold text-center mb-6">
-                Key Product Areas
-              </h3>
+            {/* Case Study Accordion */}
+            <Accordion type="single" collapsible className="space-y-4 mt-8">
+              {caseStudyProjects.map((project, index) => (
+                <ProjectAccordionItem
+                  key={index}
+                  project={project}
+                  index={index}
+                />
+              ))}
+            </Accordion>
 
-              <EnhancedListItem
-                index={0}
-                title="1:1 Video Chat"
-                description="Figured out how to best personalize their 1:1 chatbox experience to improve user engagement and connection quality."
-              />
-
-              <EnhancedListItem
-                index={1}
-                title="AIGC Studio Design"
-                description="Designed their AI-Generated Content studio interface, enabling creators to produce enhanced AI generated content."
-              />
-
-              <EnhancedListItem
-                index={2}
-                title="FOMO for Livestreams"
-                description="Introduced Fear of Missing Out elements to their livestream platform to increase viewer engagement and purchasing rates."
-              />
-            </div>
-
-            <TwoColumnLayout
-              left={
-                <div>
-                  <h3 className={`text-xl font-bold mb-4`}>
-                    FOMO for Livestreams
-                  </h3>
-                  <motion.img
-                    src={FOMO}
-                    alt="FOMO for Livestreams"
-                    className="w-full rounded-2xl shadow-xl max-h-[400px] object-cover"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                  />
-                </div>
-              }
-              right={
-                <div>
-                  <h3 className={`text-xl font-bold mb-4`}>AIGC Studio</h3>
-                  <motion.img
-                    src={step2}
-                    alt="AIGC Studio Interface"
-                    className="w-full rounded-2xl shadow-xl max-h-[400px]"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                  />
-                </div>
-              }
-            />
-
-            <div className="flex flex-wrap gap-3 pt-6 justify-center">
+            <div className="flex flex-wrap gap-3 pt-8 justify-center">
               {firework?.product?.map((skill, index) => (
                 <motion.div
                   key={skill}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.4 + index * 0.05 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: 0.4 + index * 0.05,
+                  }}
                   whileHover={{ scale: 1.05 }}
                 >
                   <Badge
                     variant="secondary"
-                    className={`px-4 py-2  border border-purple-200  transition-all duration-200 ${firework?.color}`}
+                    className={`px-4 py-2 border border-purple-200 transition-all duration-200 ${firework?.color}`}
                   >
                     {skill}
                   </Badge>
@@ -237,7 +389,7 @@ export function FireworkProjectPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            className="max-w-5xl"
           >
             <ProjectHeader label="Engineering Experience" />
 
@@ -257,7 +409,7 @@ export function FireworkProjectPage() {
             <TwoColumnLayout
               left={
                 <div>
-                  <h3 className={`text-xl font-bold mb-4 text-blue-900`}>
+                  <h3 className="text-blue-900 mb-4">
                     <Target className="inline w-6 h-6 mr-2" />
                     Sales-Led Growth Pipeline
                   </h3>
@@ -269,7 +421,7 @@ export function FireworkProjectPage() {
                   </p>
                   <div className="space-y-2">
                     <div className="bg-white/50 p-3 rounded-xl">
-                      <h4 className="font-bold text-blue-900 text-sm">
+                      <h4 className="text-blue-900 text-sm">
                         🔍 Data Enrichment
                       </h4>
                       <p className="text-xs text-blue-800">
@@ -277,15 +429,13 @@ export function FireworkProjectPage() {
                       </p>
                     </div>
                     <div className="bg-white/50 p-3 rounded-xl">
-                      <h4 className="font-bold text-blue-900 text-sm">
-                        📊 Lead Scoring
-                      </h4>
+                      <h4 className="text-blue-900 text-sm">📊 Lead Scoring</h4>
                       <p className="text-xs text-blue-800">
                         AI-powered qualification system
                       </p>
                     </div>
                     <div className="bg-white/50 p-3 rounded-xl">
-                      <h4 className="font-bold text-blue-900 text-sm">
+                      <h4 className="text-blue-900 text-sm">
                         📧 Email Automation
                       </h4>
                       <p className="text-xs text-blue-800">
@@ -297,7 +447,7 @@ export function FireworkProjectPage() {
               }
               right={
                 <div>
-                  <h3 className={`text-xl font-bold mb-4 text-purple-900`}>
+                  <h3 className="text-purple-900 mb-4">
                     <Zap className="inline w-6 h-6 mr-2" />
                     Product-Led Growth Features
                   </h3>
@@ -307,7 +457,7 @@ export function FireworkProjectPage() {
                   </p>
                   <div className="space-y-2">
                     <div className="bg-white/50 p-3 rounded-xl">
-                      <h4 className="font-bold text-purple-900 text-sm">
+                      <h4 className="text-purple-900 text-sm">
                         🚀 Onboarding Process
                       </h4>
                       <p className="text-xs text-purple-800">
@@ -315,7 +465,7 @@ export function FireworkProjectPage() {
                       </p>
                     </div>
                     <div className="bg-white/50 p-3 rounded-xl">
-                      <h4 className="font-bold text-purple-900 text-sm">
+                      <h4 className="text-purple-900 text-sm">
                         🛒 Shopify Integration
                       </h4>
                       <p className="text-xs text-purple-800">
@@ -323,7 +473,7 @@ export function FireworkProjectPage() {
                       </p>
                     </div>
                     <div className="bg-white/50 p-3 rounded-xl">
-                      <h4 className="font-bold text-purple-900 text-sm">
+                      <h4 className="text-purple-900 text-sm">
                         ♿ Accessibility Focus
                       </h4>
                       <p className="text-xs text-purple-800">
@@ -342,17 +492,47 @@ export function FireworkProjectPage() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.4 + index * 0.05 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: 0.4 + index * 0.05,
+                  }}
                   whileHover={{ scale: 1.05 }}
                 >
                   <Badge
                     variant="secondary"
-                    className={`px-4 py-2  border border-blue-200  transition-all duration-200 ${firework?.color}`}
+                    className={`px-4 py-2 border border-blue-200 transition-all duration-200 ${firework?.color}`}
                   >
                     {skill}
                   </Badge>
                 </motion.div>
               ))}
+            </div>
+          </motion.section>
+
+          {/* Impact Summary Section */}
+          <motion.section
+            id="impact"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-5xl"
+          >
+            <ProjectHeader label="Overall Impact" />
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="text-center border-2 border-purple-200 p-6">
+                <CardTitle className="text-4xl text-purple-600">11</CardTitle>
+                <CardDescription>Projects Shipped</CardDescription>
+              </Card>
+              <Card className="text-center border-2 border-pink-200 p-6">
+                <CardTitle className="text-4xl text-pink-600">5</CardTitle>
+                <CardDescription>Cross-Functional Teams</CardDescription>
+              </Card>
+              <Card className="text-center border-2 border-blue-200 p-6">
+                <CardTitle className="text-4xl text-blue-600">1500+</CardTitle>
+                <CardDescription>Brands Impacted</CardDescription>
+              </Card>
             </div>
           </motion.section>
 

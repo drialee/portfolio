@@ -9,7 +9,7 @@ import {
   CalloutBox,
   EnhancedListItem,
   KeyInsights,
-  ProcessSteps,
+  ProcessStep,
   ProjectHeader,
   ProjectSection,
   ProjectTimeline,
@@ -231,32 +231,24 @@ export const TrainGoneProjectPage = () => {
               </p>
             </CalloutBox>
 
-            <ProcessSteps
-              steps={[
-                {
-                  title: "Spontaneous Hang-Outs",
-                  description:
-                    "Invited Spanish students to practice language at Coupa Café for spontaneous conversation practice.",
-                  details:
-                    "Finding: Low attendance revealed same-day events are hard to prioritize. Language practice needs lower barriers or advance planning.",
-                },
-                {
-                  title: "Audio-less Video Platform",
-                  description:
-                    "Tested TikTok viewing experience with/without audio to measure engagement impact.",
-                  details:
-                    "Finding: Audio significantly enhances social media by engaging two senses simultaneously and supporting multiple learning styles.",
-                },
-                {
-                  title: "Language Karaoke",
-                  description:
-                    "Spanish learners watched and sang along to karaoke songs to test enjoyment and motivation.",
-                  details:
-                    "Finding: Many beginners felt uncomfortable performing publicly. Appeals more to advanced learners already confident performing.",
-                },
-              ]}
+            <ProcessStep
+              number="1"
+              title="Spontaneous Hang-Outs"
+              description="Invited Spanish students to practice language at Coupa Café for spontaneous conversation practice."
+              color="bg-purple-100"
             />
-
+            <ProcessStep
+              number="2"
+              title="Audio-less Video Platform"
+              description="Tested TikTok viewing experience with/without audio to measure engagement impact."
+              color="bg-purple-100"
+            />
+            <ProcessStep
+              number="3"
+              title="Language Karaoke"
+              description="Spanish learners watched and sang along to karaoke songs to test enjoyment and motivation."
+              color="bg-purple-100"
+            />
             <CalloutBox
               title="Key Insight"
               color="blue"
