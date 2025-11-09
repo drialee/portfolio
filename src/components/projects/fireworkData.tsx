@@ -101,14 +101,12 @@ export const caseStudyProjects: CaseStudyProject[] = [
         description: (
           <>
             Mapped complete user journey from authentication through final
-            import: (1) Discover feature → (2){" "}
-            <strong>Connect Instagram via OAuth</strong> → (3) Preview content
-            in grid → (4) Select specific posts → (5) Confirm import → (6) Track
-            progress → (7) Review imported content. Designed for both mobile and
-            desktop, accounting for different use cases—mobile for quick setup,
-            desktop for bulk management. Key decision: make selection step
-            optional with <strong>'import all' shortcut</strong> for creators
-            who trust their entire library.
+            import: (1) Discover feature → (2) Connect Instagram via OAuth → (3)
+            Preview content in grid → (4) Select specific posts → (5) Confirm
+            import → (6) Track progress → (7) Review imported content. Designed
+            for both mobile and desktop, accounting for different use cases—
+            <strong>mobile for quick setup, desktop for bulk management</strong>
+            .
           </>
         ),
       },
@@ -119,11 +117,10 @@ export const caseStudyProjects: CaseStudyProject[] = [
             Created lo-fi wireframes for OAuth authentication flow (minimizing
             steps), grid selection interface (checkbox vs. tap-to-select), and
             import progress states (real-time vs. background processing).
-            Explored different grid layouts—landed on{" "}
-            <strong>3-column mobile, 5-column desktop</strong> to balance
-            preview size with scanning efficiency. Designed clear visual
-            distinction between selected and unselected posts using border
-            highlight and checkmark badge.
+            Explored different grid layouts—landed on 3-column mobile, 5-column
+            desktop to balance preview size with scanning efficiency. Designed
+            clear visual distinction between selected and unselected posts using
+            <strong> border highlight and checkmark badge</strong>.
           </>
         ),
         images: [
@@ -137,11 +134,12 @@ export const caseStudyProjects: CaseStudyProject[] = [
           <>
             Designed high-fidelity interfaces matching Firework's design system
             while respecting Instagram's brand guidelines (proper logo usage,
-            color requirements for OAuth screens). Created responsive
-            breakpoints ensuring the grid remained scannable across devices.
-            Designed loading states showing{" "}
-            <strong>individual post import progress</strong>—important because
-            imports could take 2-3 minutes for large selections. Added success
+            color requirements for OAuth screens). Created{" "}
+            <strong>responsive breakpoints</strong>
+            ensuring the grid remained scannable across devices. Designed
+            loading states showing individual{" "}
+            <strong>post import progress</strong>—important because imports
+            could take 2-3 minutes for large selections. Added success
             confirmation screen with 'View Imported Content' CTA to immediate
             gratification.
           </>
@@ -159,10 +157,10 @@ export const caseStudyProjects: CaseStudyProject[] = [
             Defined comprehensive error handling: (1) Failed
             authentication—clear re-connect CTA, (2) API rate limits—explain
             limits and suggest importing in batches, (3) Permission
-            issues—explain required Instagram permissions upfront, (4){" "}
-            <strong>Individual post import failures</strong>—show which posts
-            failed with option to retry. Created empty state for creators with
-            no Instagram content, encouraging manual upload instead.
+            issues—explain required Instagram permissions upfront, (4)
+            Individual post import failures—show which posts failed with option
+            to retry. Created empty state for creators with no Instagram
+            content, encouraging manual upload instead.
           </>
         ),
       },
@@ -171,14 +169,12 @@ export const caseStudyProjects: CaseStudyProject[] = [
     solution: (
       <>
         A seamless Instagram import experience available on both mobile and
-        desktop. Creators <strong>authenticate via secure OAuth</strong>,
-        preview their Instagram content in a scrollable grid, select specific
-        posts (or import all), and{" "}
-        <strong>track import progress in real-time</strong>. The feature
-        intelligently handles errors, respects rate limits, and provides clear
-        feedback throughout. Imported videos automatically populate the
-        creator's Firework profile, ready for use in storefronts and live
-        streams.
+        desktop. Creators authenticate via secure OAuth, preview their Instagram
+        content in a scrollable grid, select specific posts, and track import
+        progress in real-time. The feature intelligently handles errors,
+        respects rate limits, and provides clear feedback throughout. Imported
+        videos automatically populate the creator's Firework profile, ready for
+        use in storefronts and live streams.
       </>
     ),
 
