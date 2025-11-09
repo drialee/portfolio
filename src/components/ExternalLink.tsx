@@ -20,7 +20,7 @@ export const ExternalLinkButton = ({
       <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
         <Button
           size="lg"
-          className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-2xl px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300"
+          className="bg-gradient-to-r from-pink-500/80 to-purple-500/80 hover:from-pink-600/80 hover:to-purple-600/80 text-white rounded-2xl px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300"
           asChild
         >
           <a href={href} target="_blank" rel="noopener noreferrer">

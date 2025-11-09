@@ -188,10 +188,10 @@ export function EnhancedListItem({
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: (index || 0) * 0.1 }}
-      className="flex gap-4 p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-purple-100 hover:shadow-md transition-all duration-300"
+      className="flex gap-4 p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-pink-100 hover:shadow-md transition-all duration-300"
     >
       {index !== undefined && (
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white flex items-center justify-center font-bold text-sm">
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-pink-500/80 to-purple-500/80 text-white flex items-center justify-center font-bold text-sm">
           {index + 1}
         </div>
       )}
@@ -270,16 +270,9 @@ export function QuoteBox({ quote, author, role }: QuoteBoxProps) {
 interface TwoColumnLayoutProps {
   left: ReactNode;
   right: ReactNode;
-  leftColor?: string;
-  rightColor?: string;
 }
 
-export function TwoColumnLayout({
-  left,
-  right,
-  leftColor = "from-blue-50/80 to-cyan-50/80",
-  rightColor = "from-purple-50/80 to-pink-50/80",
-}: TwoColumnLayoutProps) {
+export function TwoColumnLayout({ left, right }: TwoColumnLayoutProps) {
   return (
     <div className="grid md:grid-cols-2 gap-6 my-8">
       <motion.div
@@ -287,7 +280,7 @@ export function TwoColumnLayout({
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className={`bg-gradient-to-br ${leftColor} rounded-2xl p-6 backdrop-blur-sm`}
+        className={`bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl p-6 backdrop-blur-sm`}
       >
         {left}
       </motion.div>
@@ -296,7 +289,7 @@ export function TwoColumnLayout({
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className={`bg-gradient-to-br ${rightColor} rounded-2xl p-6 backdrop-blur-sm`}
+        className={`bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl p-6 backdrop-blur-sm`}
       >
         {right}
       </motion.div>

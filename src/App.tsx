@@ -4,6 +4,7 @@ import { Footer } from "./components/Footer";
 import NavBar from "./components/NavBar";
 import { ProjectSection } from "./components/ProjectSection";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { ProjectPasswordGate } from "./components/ProjectPasswordGate";
 import { AirframeProjectPage } from "./components/projects/Airframe";
 import { BoliviaProjectPage } from "./components/projects/Bolivia";
 import { BonoProjectPage } from "./components/projects/Bono";
@@ -37,21 +38,61 @@ function App() {
                 </>
               }
             />
-            <Route path="/photography" element={<BoliviaProjectPage />} />
+            <Route
+              path="/photography"
+              element={
+                <ProjectPasswordGate title="Photography">
+                  <BoliviaProjectPage />
+                </ProjectPasswordGate>
+              }
+            />
             <Route
               path="/projects/firework"
-              element={<FireworkProjectPage />}
+              element={
+                <ProjectPasswordGate title="Firework">
+                  <FireworkProjectPage />
+                </ProjectPasswordGate>
+              }
             />
             <Route
               path="/projects/traingone"
-              element={<TrainGoneProjectPage />}
+              element={
+                <ProjectPasswordGate title="Train Gone">
+                  <TrainGoneProjectPage />
+                </ProjectPasswordGate>
+              }
             />
-            <Route path="/projects/bono" element={<BonoProjectPage />} />
-            <Route path="/projects/chill" element={<ChillProjectPage />} />
-            <Route path="/projects/bolivia" element={<BoliviaProjectPage />} />
+            <Route
+              path="/projects/bono"
+              element={
+                <ProjectPasswordGate title="Bono">
+                  <BonoProjectPage />
+                </ProjectPasswordGate>
+              }
+            />
+            <Route
+              path="/projects/chill"
+              element={
+                <ProjectPasswordGate title="Chill">
+                  <ChillProjectPage />
+                </ProjectPasswordGate>
+              }
+            />
+            <Route
+              path="/projects/bolivia"
+              element={
+                <ProjectPasswordGate title="Bolivia">
+                  <BoliviaProjectPage />
+                </ProjectPasswordGate>
+              }
+            />
             <Route
               path="/projects/airframe"
-              element={<AirframeProjectPage />}
+              element={
+                <ProjectPasswordGate title="Airframe">
+                  <AirframeProjectPage />
+                </ProjectPasswordGate>
+              }
             />
           </Routes>
         </main>
