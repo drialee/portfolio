@@ -2,11 +2,12 @@ import { motion } from "motion/react";
 import React, { ReactNode } from "react";
 import { Badge } from "../ui/badge";
 import { Card, CardContent } from "../ui/card";
+import { cn } from "../ui/utils";
 
 export const ProjectTitle = ({ label }: { label: string }) => {
   return (
     <motion.h1
-      className="text-6xl font-bold mb-6"
+      className="text-6xl font-bold mb-3 sm:mb-6"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
@@ -58,13 +59,13 @@ export const ProjectTimeline = ({
   role: string[];
 }) => {
   return (
-    <div className="grid md:grid-cols-3 gap-8 text-sm">
+    <div className="grid md:grid-cols-3 gap-2 text-sm">
       <div>
         <h3 className="font-semibold text-foreground mb-2">Timeline</h3>
         <p className="text-muted-foreground">{timeline}</p>
       </div>
       <div>
-        <h3 className="font-semibold text-foreground mb-2">Tools</h3>
+        <h3 className="font-semibold text-foreground sm:mb-2">Tools</h3>
         <div className="space-y-1">
           {tools.map((tool, index) => (
             <Badge key={index} variant="secondary" className="mr-2 mb-1">
@@ -75,9 +76,9 @@ export const ProjectTimeline = ({
       </div>
       <div>
         <h3 className="font-semibold text-foreground mb-2">Role</h3>
-        <div className="space-y-1">
+        <div className="flex flex-col gap-1">
           {role.map((roleItem, index) => (
-            <p key={index} className="mr-2 mb-1 text-muted-foreground">
+            <p key={index} className="text-muted-foreground">
               {roleItem}
             </p>
           ))}
@@ -87,53 +88,32 @@ export const ProjectTimeline = ({
   );
 };
 
+interface ProjectSectionProps {
+  id?: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
 export const ProjectSection = ({
-  children,
   id,
-}: {
-  children: React.ReactNode;
-  id: string;
-}) => {
-  return (
-    <motion.section
-      id={id}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="max-w-4xl"
-    >
-      {children}
-    </motion.section>
-  );
-};
-
-export const ImageWrapper = ({
   children,
-  color,
-}: {
-  children: React.ReactNode;
-  color?: string;
-}) => {
-  const colorClasses = {
-    purple: "bg-gradient-to-br from-purple-100/80 to-purple-100/80",
-    pink: "bg-gradient-to-br from-pink-100/80 to-pink-100/80",
-    blue: "bg-gradient-to-br from-blue-100/80 to-blue-100/80",
-    cyan: "bg-gradient-to-br from-cyan-100/80 to-cyan-100/80",
-    red: "bg-gradient-to-br from-red-100/80 to-red-100/80",
-    orange: "bg-gradient-to-br from-orange-100/80 to-orange-100/80",
-    yellow: "bg-gradient-to-br from-yellow-100/80 to-yellow-100/80",
-  };
+  className,
+}: ProjectSectionProps) => (
+  <motion.section
+    id={id}
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    className={cn("max-w-4xl", className)}
+  >
+    {children}
+  </motion.section>
+);
 
-  if (!color) {
-    const colors = Object.keys(colorClasses);
-    color = colors[Math.floor(Math.random() * colors.length)];
-  }
-
+export const ImageWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div
-      className={`${colorClasses[color as keyof typeof colorClasses]} rounded-3xl p-8 backdrop-blur-sm`}
-    >
+    <div className={`bg-background rounded-3xl p-8 backdrop-blur-sm`}>
       {children}
     </div>
   );
@@ -169,36 +149,19 @@ export const ProjectSkill = ({
 interface CalloutBoxProps {
   title: string;
   children: ReactNode;
-  color?: "blue" | "purple" | "green" | "orange" | "pink";
   icon?: ReactNode;
 }
 
-export function CalloutBox({
-  title,
-  children,
-  color = "blue",
-  icon,
-}: CalloutBoxProps) {
-  const colorClasses = {
-    blue: "from-blue-100/80 to-cyan-100/80 border-blue-200 text-blue-900",
-    purple:
-      "from-purple-100/80 to-pink-100/80 border-purple-200 text-purple-900",
-    green:
-      "from-green-100/80 to-emerald-100/80 border-green-200 text-green-900",
-    orange:
-      "from-orange-100/80 to-amber-100/80 border-orange-200 text-orange-900",
-    pink: "from-pink-100/80 to-rose-100/80 border-pink-200 text-pink-900",
-  };
-
+export function CalloutBox({ title, children, icon }: CalloutBoxProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className={`bg-gradient-to-br ${colorClasses[color]} rounded-2xl p-6 border backdrop-blur-sm my-6`}
+      className={`bg-gradient-to-br from-pink-100/80 to-purple-100/80 rounded-2xl p-6 border backdrop-blur-sm my-6`}
     >
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-3 sm:mb-4">
         {icon}
         <h4 className="font-bold text-lg">{title}</h4>
       </div>
@@ -262,11 +225,7 @@ export function StatsGrid({ items }: StatsGridProps) {
         >
           <Card className="text-center border-0 shadow-lg bg-gradient-to-br from-white/80 to-purple-50/80 backdrop-blur-sm">
             <CardContent className="p-6">
-              <div
-                className={`text-2xl font-bold ${item.color || "text-purple-600"} mb-2`}
-              >
-                {item.value}
-              </div>
+              <div className={`text-2xl font-bold mb-2`}>{item.value}</div>
               <div className="text-sm font-medium text-muted-foreground">
                 {item.label}
               </div>
@@ -356,30 +315,14 @@ export function KeyInsights({
   title = "Key Insights",
 }: KeyInsightProps) {
   return (
-    <CalloutBox
-      title={title}
-      color="green"
-      icon={
-        <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white text-sm font-bold">
-          💡
-        </div>
-      }
-    >
-      <div className="space-y-3">
+    <CalloutBox title={title}>
+      <ul className="space-y-3">
         {insights.map((insight, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="flex items-start gap-3"
-          >
-            <div className="flex-shrink-0 w-2 h-2 rounded-full bg-green-500 mt-2"></div>
-            <p className="text-green-800 leading-relaxed">{insight}</p>
-          </motion.div>
+          <li className="list-disc list-inside" key={index}>
+            {insight}
+          </li>
         ))}
-      </div>
+      </ul>
     </CalloutBox>
   );
 }
@@ -412,25 +355,19 @@ export function HighlightText({
 }
 
 interface SectionProps {
-  icon: ReactNode;
   label: string;
-  color?: string;
   content?: ReactNode;
 }
 
-export function Section({
-  icon,
-  label,
-  color = "text-gray-700",
-  content,
-}: SectionProps) {
+export function Section({ label, content }: SectionProps) {
   return (
-    <div className={`flex items-start gap-2 ${color}`}>
-      <div className="flex-shrink-0 myt-1">{icon}</div>
+    <div className="flex items-start gap-2">
       <div className="flex flex-col gap-4">
         <h4 className="text-lg font-bold">{label}</h4>
         {content && (
-          <p className="text-muted-foreground text-sm font-normal">{content}</p>
+          <div className="text-muted-foreground font-normal space-y-3">
+            {typeof content === "string" ? <p>{content}</p> : content}
+          </div>
         )}
       </div>
     </div>
@@ -440,29 +377,92 @@ export function Section({
 interface ProcessStepProps {
   number: string;
   title: string;
-  description: string;
+  description: ReactNode;
   color?: string;
+  images?: { image: string; description?: string }[];
 }
 
 export function ProcessStep({
   number,
   title,
   description,
+  images,
   color = "bg-purple-100",
 }: ProcessStepProps) {
-  return (
-    <div className="flex gap-4">
-      <div
-        className={`w-10 h-10 rounded-full ${color} flex items-center justify-center flex-shrink-0`}
+  const renderMedia = (
+    media: { image: string; description?: string },
+    index: number
+  ) => {
+    const isVideo = media?.image?.toLowerCase().endsWith(".mov");
+
+    const mediaNode = isVideo ? (
+      <video
+        src={media.image}
+        className="w-full h-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+    ) : (
+      <img
+        src={media.image}
+        alt={media.description || title}
+        className="max-h-[400px] w-full h-auto object-contain object-center"
+      />
+    );
+
+    return (
+      <motion.figure
+        key={`${media.image}-${index}`}
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.3 }}
+        className="flex flex-col gap-3 flex-1"
       >
-        <span className="text-sm font-bold">{number}</span>
+        <motion.div
+          whileHover={{ scale: 1.03, y: -4 }}
+          transition={{ type: "spring", stiffness: 240, damping: 22 }}
+          className="relative flex items-center justify-center overflow-hidden rounded-2xl border border-white/40 shadow-sm bg-white/40"
+        >
+          {mediaNode}
+        </motion.div>
+        {media.description && (
+          <figcaption className="text-xs text-muted-foreground font-semibold">
+            {media.description}
+          </figcaption>
+        )}
+      </motion.figure>
+    );
+  };
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex gap-4">
+        <div
+          className={`w-10 h-10 rounded-full ${color} flex items-center justify-center flex-shrink-0`}
+        >
+          <span className="text-sm font-bold">{number}</span>
+        </div>
+        <div className="flex-1">
+          <h5 className="mb-2 font-semibold text-foreground">{title}</h5>
+          <div className="text-sm text-muted-foreground font-normal">
+            {typeof description === "string" ? (
+              <p>{description}</p>
+            ) : (
+              description
+            )}
+          </div>
+        </div>
       </div>
-      <div>
-        <h5 className="mb-2">{title}</h5>
-        <p className="text-sm text-muted-foreground font-normal">
-          {description}
-        </p>
-      </div>
+      {images && images.length > 0 && (
+        <ImageWrapper>
+          <div className="flex flex-col sm:flex-row items-end justify-between gap-4">
+            {images.map((media, index) => renderMedia(media, index))}
+          </div>
+        </ImageWrapper>
+      )}
     </div>
   );
 }

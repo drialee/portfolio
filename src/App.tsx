@@ -17,7 +17,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-background text-foreground overflow-x-clip relative bg-gradient-to-br from-background via-purple-50/30 to-pink-50/30">
+      <div className="min-h-screen bg-background text-foreground overflow-x-clip relative bg-gradient-to-br from-background via-purple-50/30 to-pink-80/30">
         <main className="overflow-x-hidden max-w-full">
           <NavBar />
           <Routes>
@@ -37,6 +37,7 @@ function App() {
                 </>
               }
             />
+            <Route path="/photography" element={<BoliviaProjectPage />} />
             <Route
               path="/projects/firework"
               element={<FireworkProjectPage />}

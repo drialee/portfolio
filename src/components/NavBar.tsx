@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 
 import { Button } from "./ui/button";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 const initials = "/initials.png";
 
@@ -13,6 +13,7 @@ const navItems = [
   { label: "Home", id: "home" },
   { label: "About", id: "about" },
   { label: "Projects", id: "projects" },
+  { label: "Photography", id: "photography" },
 ];
 
 const NavBar = () => {
@@ -53,7 +54,10 @@ const NavBar = () => {
 
   const handleNavClick = (id: string) => {
     setIsMobileMenuOpen(false);
-
+    if (id === "photography") {
+      navigate("/photography");
+      return;
+    }
     // If already on home page, just scroll to the section
     if (location.pathname === "/") {
       const element = document.getElementById(id);
@@ -75,11 +79,7 @@ const NavBar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`transition-all duration-300 ${
-          isScrolled
-            ? "bg-background/90 backdrop-blur-lg border-b border-purple-100 shadow-lg shadow-purple-100/20"
-            : "bg-transparent"
-        }`}
+        className="transition-all duration-300 bg-background/90 backdrop-blur-lg border-b border-purple-100 shadow-lg shadow-purple-100/20 py-2"
       >
         <div className="container mx-auto px-6">
           <div
@@ -92,11 +92,13 @@ const NavBar = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <img
-                src={initials}
-                alt="Dria Lee"
-                className="w-12 h-12 sm:w-16 sm:h-16"
-              />
+              <Link to="/">
+                <img
+                  src={initials}
+                  alt="Dria Lee"
+                  className="w-12 h-12 sm:w-16 sm:h-16"
+                />
+              </Link>
             </motion.div>
 
             {/* Desktop Navigation */}

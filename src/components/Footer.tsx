@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
-import { socials } from "../utils/info";
-import FloatingBubbles from "./FloatingBubbles";
+import { socials, type SocialLink } from "../utils/info";
 
 const initials = "/initials.png";
 
@@ -43,7 +42,7 @@ export const Footer = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex gap-3"
             >
-              {socials.map((social: any, index: number) => (
+              {socials.map((social: SocialLink, index: number) => (
                 <motion.div
                   key={social.href}
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -61,8 +60,12 @@ export const Footer = () => {
                   >
                     <a
                       href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={social.target ?? "_self"}
+                      rel={
+                        social.target === "_blank"
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
                       aria-label={social.label}
                     >
                       <social.icon className="!w-6 !h-6" />
@@ -96,8 +99,6 @@ export const Footer = () => {
           </motion.div>
         </motion.div>
       </div>
-
-      <FloatingBubbles />
     </footer>
   );
 };

@@ -1,4 +1,4 @@
-import { Lightbulb, Search, User } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Section } from "./projects/Components";
 import { CaseStudyProject } from "./projects/types";
 import {
@@ -6,7 +6,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
-import { Pencil, Sparkles } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -16,8 +15,9 @@ import {
 } from "./ui/card";
 import { ProcessStep } from "./projects/Components";
 import { motion } from "motion/react";
+import { Badge } from "./ui/badge";
 
-export const DesignProjectAccordionItem = ({
+export const ProjectAccordionItem = ({
   project,
   index,
 }: {
@@ -25,201 +25,176 @@ export const DesignProjectAccordionItem = ({
   index: number;
 }) => {
   return (
-    <AccordionItem
-      key={index}
-      value={`project-${index}`}
-      className={`bg-white/60 backdrop-blur-sm rounded-2xl border-l-4 ${project.colorClass} overflow-hidden`}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="bg-white/70 backdrop-blur-sm rounded-3xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
     >
-      <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-white/40 transition-colors">
-        <div className="flex flex-col gap-2">
-          <h4 className="text-lg font-bold">{project.title}</h4>
-          <p className="text-muted-foreground text-sm">{project.solution}</p>
+      {/* Always Visible Header Section */}
+      <div className="p-6 border-b border-gray-100">
+        <div className="flex flex-col gap-4">
+          <div className="flex-1 flex items-center justify-between gap-4 mb-2">
+            <h3 className="text-2xl font-semibold">{project.title}</h3>
+            {project.timeline && (
+              <Badge
+                variant="secondary"
+                className="bg-pink-100 text-pink-700 shrink-0"
+              >
+                {project.timeline}
+              </Badge>
+            )}
+          </div>
+          <p className="text-muted-foreground text-sm font-normal">
+            {project.tldr}
+          </p>
         </div>
-      </AccordionTrigger>
-      <AccordionContent className="p-6">
-        <div className="flex flex-col gap-12">
-          {/* Overview */}
-          <div className="flex flex-col gap-4">
-            <div>
-              <Section
-                icon={<Lightbulb className="w-5 h-5" />}
-                label="The Problem"
-                color="text-red-600"
-                content={project.problem}
-              />
-            </div>
-          </div>
 
-          {/* Research */}
-          <div className="flex flex-col gap-4">
-            <div>
-              <Section
-                icon={<Search className="w-5 h-5" />}
-                label="Research & Discovery"
-                color="text-blue-600"
-                content={project.research?.map((item, i) => (
-                  <li key={i} className="flex gap-3">
-                    <span className="text-blue-500 mt-1">•</span>
-                    <span className="text-muted-foreground text-sm">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              />
+        {/* Expandable Detailed Content */}
+        <AccordionItem
+          value={`project-${index}`}
+          className="border-0 shadow-none"
+        >
+          <AccordionTrigger className="hover:no-underline hover:bg-pink-50/30 transition-colors group border-0 [&>svg]:hidden p-3 sm:p-6">
+            <div className="flex items-center gap-2 text-pink-600">
+              <span>View Full Case Study</span>
+              <ChevronDown className="w-5 h-5 transition-transform group-data-[state=open]:rotate-180" />
             </div>
-          </div>
+          </AccordionTrigger>
 
-          {/* User Personas */}
-          <div>
-            <Section
-              icon={<User className="w-5 h-5" />}
-              label="User Personas"
-              color="text-purple-600"
-              content={
-                <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
-                  {project.personas?.map((persona, i) => (
-                    <Card key={i} className="border-2">
-                      <CardHeader>
-                        <CardTitle className="text-base">
-                          {persona.name}
-                        </CardTitle>
-                        <CardDescription>{persona.goal}</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm">
-                          <strong>Pain Point:</strong> {persona.pain}
+          <AccordionContent className="p-6">
+            <div className="flex flex-col gap-4 sm:gap-12">
+              {/* Problem */}
+              <div className="flex flex-col gap-4">
+                <div>
+                  <Section label="The Problem" content={project.problem} />
+                </div>
+              </div>
+
+              {/* Vision Tab */}
+              {project.vision && (
+                <div>
+                  <Section label="Vision" content={project.vision} />
+                </div>
+              )}
+
+              {/* User Personas */}
+              {project.personas && (
+                <div>
+                  <Section
+                    label="User Personas"
+                    content={
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {project.personas?.map((persona, i) => (
+                          <Card key={i} className="border-2">
+                            <CardHeader>
+                              <CardTitle className="text-base">
+                                {persona.name}
+                              </CardTitle>
+                              <CardDescription>{persona.goal}</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                              <p className="text-sm font-normal">
+                                <strong>Pain Point:</strong> {persona.pain}
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    }
+                  />
+                </div>
+              )}
+
+              {/* Unique Value Props */}
+              {project.uniqueValueProps && (
+                <div className="flex flex-col gap-4">
+                  <Section
+                    label="Unique Value Props"
+                    content={
+                      <ul className="list-disc list-inside space-y-2">
+                        {project.uniqueValueProps.map((value, i) => (
+                          <li key={i}>{value}</li>
+                        ))}
+                      </ul>
+                    }
+                  />
+                </div>
+              )}
+
+              {/* Process Tab */}
+              <div className="flex flex-col gap-4">
+                <Section
+                  label="Design Process"
+                  content={
+                    <div className="flex flex-col gap-12">
+                      {project.process?.map((step, i) => (
+                        <ProcessStep
+                          key={i}
+                          number={`${i + 1}`}
+                          title={step.step || ""}
+                          description={step.description}
+                          images={step.images}
+                          color={`bg-gradient-to-br from-purple-100 to-pink-100`}
+                        />
+                      ))}
+                    </div>
+                  }
+                />
+              </div>
+              {/* Design Decisions */}
+              {project.designDecisions && (
+                <div className="flex flex-col gap-4">
+                  <Section
+                    label="Design Decisions"
+                    content={
+                      <ul className="space-y-3 list-disc">
+                        {project.designDecisions?.map((decision, i) => (
+                          <li key={i}>
+                            <div className="flex flex-col gap-2">
+                              <p className="font-semibold text-foreground text-sm">
+                                {decision.decision}
+                              </p>
+                              {decision.rationale && (
+                                <p className="text-sm text-muted-foreground font-normal">
+                                  {decision.rationale}
+                                </p>
+                              )}
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    }
+                  />
+                </div>
+              )}
+              {/* Reflections */}
+              {project.reflections && (
+                <div className="flex flex-col gap-4">
+                  <Section label="Reflections" content={project.reflections} />
+                </div>
+              )}
+
+              {/* Solution */}
+              {project.solution && (
+                <div className="flex flex-col gap-4">
+                  <Section
+                    label="Solution"
+                    content={
+                      <div className="flex flex-col gap-4">
+                        <p className="text-muted-foreground">
+                          {project.solution}
                         </p>
-                      </CardContent>
-                    </Card>
-                  ))}
+                      </div>
+                    }
+                  />
                 </div>
-              }
-            />
-          </div>
-
-          {/* Process Tab */}
-          <div className="flex flex-col gap-4">
-            <Section
-              icon={<Pencil className="w-5 h-5" />}
-              label="Design Process"
-              color="text-indigo-600"
-              content={
-                <div className="space-y-4">
-                  {project.process?.map((step, i) => (
-                    <ProcessStep
-                      key={i}
-                      number={`${i + 1}`}
-                      title={step.step || ""}
-                      description={step.description}
-                      color={`bg-gradient-to-br from-purple-100 to-pink-100`}
-                    />
-                  ))}
-                </div>
-              }
-            />
-          </div>
-
-          {/* Solution Tab */}
-          <div className="flex flex-col gap-4">
-            <Section
-              icon={<Sparkles className="w-5 h-5" />}
-              label="Solution"
-              color="text-yellow-600"
-              content={
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {project.images?.map((image, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      className="relative max-h-[250px] max-w-[400px] rounded-lg overflow-hidden border-2 border-gray-200"
-                    >
-                      <img
-                        src={image}
-                        alt={`${project.title} design ${i + 1}`}
-                        className="w-full h-full object-contain transition-transform duration-300"
-                      />
-                    </motion.div>
-                  ))}
-                </div>
-              }
-            />
-          </div>
-        </div>
-      </AccordionContent>
-    </AccordionItem>
-  );
-};
-
-export const EngineeringProjectAccordionItem = ({
-  project,
-  index,
-}: {
-  project: CaseStudyProject;
-  index: number;
-}) => {
-  return (
-    <AccordionItem
-      key={index}
-      value={`project-${index}`}
-      className={`bg-white/60 backdrop-blur-sm rounded-2xl border-l-4 ${project.colorClass} overflow-hidden`}
-    >
-      <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-white/40 transition-colors">
-        <div className="flex flex-col gap-2">
-          <h4 className="text-lg font-bold">{project.title}</h4>
-          <p className="text-muted-foreground">{project.solution}</p>
-        </div>
-      </AccordionTrigger>
-      <AccordionContent className="p-6">
-        <div className="flex flex-col gap-12">
-          {/* Problem */}
-          <div className="flex flex-col gap-4">
-            <div>
-              <Section
-                icon={<Lightbulb className="w-5 h-5" />}
-                label="The Problem"
-                color="text-red-600"
-                content={project.problem}
-              />
+              )}
             </div>
-          </div>
-
-          {/* Process */}
-          {project.process && (
-            <div className="flex flex-col gap-4">
-              <div>
-                <Section
-                  icon={<Pencil className="w-5 h-5" />}
-                  label="Implementation Process"
-                  color="text-indigo-600"
-                  content={project.process?.map((step, i) => (
-                    <li key={i} className="flex gap-3">
-                      <span className="text-blue-500 mt-1">•</span>
-                      <span className="text-muted-foreground">
-                        {step.description}
-                      </span>
-                    </li>
-                  ))}
-                />
-              </div>
-            </div>
-          )}
-          {/* Solution */}
-          {project.solution && (
-            <div className="flex flex-col gap-4">
-              <div>
-                <Section
-                  icon={<Sparkles className="w-5 h-5" />}
-                  label="Solution"
-                  color="text-green-600"
-                  content={project.solution}
-                />
-              </div>
-            </div>
-          )}
-        </div>
-      </AccordionContent>
-    </AccordionItem>
+          </AccordionContent>
+        </AccordionItem>
+      </div>
+    </motion.div>
   );
 };
